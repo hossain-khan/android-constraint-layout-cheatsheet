@@ -1,0 +1,41 @@
+version: 2
+jobs:
+  build:
+    # In each job, we have the option of specifying a working_directory.
+    # This is the directory into which our code will be checked out,
+    # and this path will be used as the default working directory for
+    # the rest of the job unless otherwise specified.
+    working_directory: ~/code
+    docker:
+      # We use the CircleCI-provided Android image with the api-25-alpha tag.
+      # Our Android Docker images are currently tagged with the suffix -alpha.
+      # This is to indicate the images are currently under development and
+      # might change in backwards incompatible ways from week to week.
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+#      - run:
+#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this. 
+#         command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - run:
+          name: Run Build
+          command: ./gradlew assembleDebug
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
