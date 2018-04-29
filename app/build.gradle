@@ -37,10 +37,15 @@ dependencies {
     // Kotlin support
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
 
-    // Android Support Lib
+    // Android Support libs and Google Android libs
     implementation "com.android.support:support-v13:$rootProject.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+
+    // ViewModel and LiveData
+    // https://developer.android.com/topic/libraries/architecture/adding-components
+    implementation "android.arch.lifecycle:extensions:$rootProject.archComponentVersion"
 
     // 3rd party libraries
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryLibraryVersion"
