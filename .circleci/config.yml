@@ -37,5 +37,9 @@ jobs:
       - store_artifacts:
           path: app/build/reports
           destination: reports
+      - store_artifacts:
+          # Stores mobile apk for local testing
+          path: app/build/outputs/apk
+          destination: mobile-apk
       - store_test_results:
           path: app/build/test-results
