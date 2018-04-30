@@ -1,7 +1,6 @@
 [![CircleCI](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet.svg?style=svg)](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet)
 
 # ConstraintLayout Demo
-# ConstraintLayout Demo
 > NOTE: This is in planning phase now.
 
 A demo application for Android `ConstraintLayout` with various usage with sample code.
