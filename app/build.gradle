@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+// https://kotlinlang.org/docs/reference/kapt.html
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion rootProject.ext.targetSdkVersion
     defaultConfig {
@@ -30,6 +33,10 @@ android {
         sourceCompatibility rootProject.ext.javaSourceCompatibilityVersion
         targetCompatibility rootProject.ext.javaTargetCompatibilityVersion
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -47,11 +54,23 @@ dependencies {
     // https://developer.android.com/topic/libraries/architecture/adding-components
     implementation "android.arch.lifecycle:extensions:$rootProject.archComponentVersion"
 
+    // ========================================================
     // 3rd party libraries
+    // ========================================================
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryLibraryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryLibraryVersion"
 
     implementation "com.jakewharton.timber:timber:$rootProject.timberLibraryVersion"
+
+    // Dagger
+    // https://google.github.io/dagger/
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    // Include if you use the support libraries (eg. Support Activity, Fragment)
+    //implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+
 
     // ----------------------------------------------------------------
     // Android Unit and Instrumentation test
