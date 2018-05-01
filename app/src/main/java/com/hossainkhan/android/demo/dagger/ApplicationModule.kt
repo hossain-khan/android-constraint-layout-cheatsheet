@@ -16,21 +16,24 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import android.app.Activity
-import com.hossainkhan.android.demo.MainActivity
+import android.app.Application
+import android.content.Context
 import dagger.Binds
 import dagger.Module
-import dagger.android.ActivityKey
-import dagger.android.AndroidInjector
-import dagger.multibindings.IntoMap
 
-@Module(subcomponents = arrayOf(MainActivitySubcomponent::class))
-abstract class MainActivityModule {
-
+/**
+ * This is a Dagger module. We use this to bind our Application class as a Context in
+ * the [DemoApplicationComponent] By using Dagger Android we do not need to pass
+ * our Application instance to any module, we simply need to expose our Application as Context.
+ * One of the advantages of Dagger.Android is that your
+ * Application & Activities are provided into your graph for you.
+ *
+ * @see DemoApplicationComponent
+ */
+@Module
+abstract class ApplicationModule {
+    //expose Application as an injectable context
     @Binds
-    @IntoMap
-    @ActivityKey(MainActivity::class)
-    abstract fun bindMainActivityInjectorFactory(
-            builder: MainActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
+    internal abstract fun bindContext(application: Application): Context
 
 }

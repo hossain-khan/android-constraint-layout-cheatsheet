@@ -29,7 +29,8 @@ import javax.inject.Inject
 
 
 class DemoApplication : Application(), HasActivityInjector {
-    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
@@ -41,7 +42,10 @@ class DemoApplication : Application(), HasActivityInjector {
         LeakCanary.install(this)
 
         // Prepares dagger
-        DaggerDemoApplicationComponent.create().inject(this)
+        DaggerDemoApplicationComponent.builder()
+                .application(this)
+                .build()
+                .inject(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())

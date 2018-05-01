@@ -16,12 +16,15 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import com.hossainkhan.android.demo.MainActivity
-import dagger.Subcomponent
-import dagger.android.AndroidInjector
+import android.content.Context
+import android.content.SharedPreferences
+import dagger.Module
+import dagger.Provides
 
-@Subcomponent
-interface ActivitySubcomponent : AndroidInjector<MainActivity> {
-    @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<MainActivity>()
+@Module
+class DataStoreModule {
+    @Provides
+    internal fun provideSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    }
 }

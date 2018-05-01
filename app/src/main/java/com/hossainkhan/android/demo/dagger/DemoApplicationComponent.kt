@@ -16,10 +16,26 @@
 
 package com.hossainkhan.android.demo.dagger
 
+import android.app.Application
 import com.hossainkhan.android.demo.base.DemoApplication
+import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = arrayOf(MainActivityModule::class))
+@Component(modules = arrayOf(
+        ApplicationModule::class,
+        DataStoreModule::class,
+        MainActivityModule::class))
 interface DemoApplicationComponent {
     fun inject(app: DemoApplication)
+
+    // Gives us syntactic sugar. we can then do DaggerAppComponent.builder().application(this).build().inject(this);
+    // never having to instantiate any modules or say which module we are passing the application to.
+    // Application will just be provided into our app graph now.
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): DemoApplicationComponent.Builder
+
+        fun build(): DemoApplicationComponent
+    }
 }

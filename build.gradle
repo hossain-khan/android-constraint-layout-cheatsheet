@@ -45,9 +45,9 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     // --------------------------------------------------
-    minSdkVersion = 21 // Lollipop 5.0
-    targetSdkVersion = 27 // Oreo MR1
-    compileSdkVersion = 27
+    androidMinSdkVersion = 21 // Lollipop 5.0
+    androidTargetSdkVersion = 27 // Oreo MR1
+    androidCompileSdkVersion = 27
     // Android SDK Build Tools - Versions: https://developer.android.com/studio/releases/build-tools.html
     buildToolsVersion = '27.0.3'
 
