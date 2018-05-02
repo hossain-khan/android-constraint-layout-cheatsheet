@@ -57,6 +57,7 @@ dependencies {
     // ========================================================
     // 3rd party libraries
     // ========================================================
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryLibraryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryLibraryVersion"
 
@@ -70,7 +71,6 @@ dependencies {
     // Include if you use the support libraries (eg. Support Activity, Fragment)
     //implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
-
 
     // ----------------------------------------------------------------
     // Android Unit and Instrumentation test

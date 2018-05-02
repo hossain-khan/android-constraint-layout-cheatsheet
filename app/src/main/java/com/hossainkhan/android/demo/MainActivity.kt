@@ -2,7 +2,9 @@ package com.hossainkhan.android.demo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.hossainkhan.android.demo.data.AppDataStore
+import com.hossainkhan.android.demo.layoutpositioning.PositioningHorizontalActivity
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -18,5 +20,12 @@ class MainActivity : AppCompatActivity() {
 
         Timber.d("Got data: ${appDataStore.isFirstTime()}")
         appDataStore.updateFirstTimeUser(false)
+    }
+
+    // FIXME - Test code
+    fun goSomewhere(view: View?) {
+        startActivity(PositioningHorizontalActivity
+                .createStartIntent(this, R.layout.activity_positioning_top_left))
+
     }
 }
