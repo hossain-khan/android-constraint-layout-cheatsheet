@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.hossainkhan.android.demo.data.AppDataStore
-import com.hossainkhan.android.demo.layoutpositioning.PositioningHorizontalActivity
+import com.hossainkhan.android.demo.layoutpositioning.LayoutPositioningDemoActivity
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     // FIXME - Test code
     fun goSomewhere(view: View?) {
-        startActivity(PositioningHorizontalActivity
+        startActivity(LayoutPositioningDemoActivity
                 .createStartIntent(this, R.layout.activity_positioning_top_left))
 
     }

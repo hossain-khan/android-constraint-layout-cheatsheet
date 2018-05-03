@@ -21,7 +21,7 @@
     android:layout_height="match_parent"
     android:foreground="@drawable/grid_overlay"
     android:foregroundTint="@color/grid_tint"
-    tools:context=".layoutpositioning.PositioningHorizontalActivity">
+    tools:context=".layoutpositioning.LayoutPositioningDemoActivity">
 
 
     <!--

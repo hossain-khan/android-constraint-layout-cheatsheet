@@ -23,7 +23,8 @@ import javax.inject.Inject
  * Application wide data storage and preferences backed by [SharedPreferences].
  */
 class AppDataStore @Inject constructor(
-        private val preferences: SharedPreferences) {
+        private val preferences: SharedPreferences,
+        val layoutStore: LayoutDataStore) {
 
     private companion object {
         private const val PREF_KEY_IS_FIRST_TIME_USER = "KEY_IS_FIRST_TIME_USER"

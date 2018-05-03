@@ -16,9 +16,15 @@
 
 package com.hossainkhan.android.demo.data
 
+import android.content.res.Resources
+import android.support.annotation.LayoutRes
 import com.hossainkhan.android.demo.R
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LayoutDataStore() {
+@Singleton
+class LayoutDataStore @Inject constructor(
+        private val resources: Resources) {
     private val supportedLayoutInfos = listOf(
             LayoutInformation(
                     layoutResourceId = R.layout.activity_positioning_top_left,
@@ -33,6 +39,14 @@ class LayoutDataStore() {
     /**
      * A map of layout information by layout resource ID.
      */
-    val layoutsInfos: Map<Int, LayoutInformation> =
-            supportedLayoutInfos.associateBy { it.layoutResourceId }
+    val layoutsInfos: Map<Int, LayoutInformation> by lazy {
+        supportedLayoutInfos.associateBy { it.layoutResourceId }
+    }
+
+    /**
+     * Returns Github URL for layout resource file for this project.
+     */
+    fun getLayoutUrl(@LayoutRes layoutResourceId: Int): String {
+        return resources.getResourceName(layoutResourceId)
+    }
 }

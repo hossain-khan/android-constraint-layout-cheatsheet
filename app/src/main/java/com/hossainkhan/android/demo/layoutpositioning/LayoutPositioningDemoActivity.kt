@@ -21,33 +21,45 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
-import com.hossainkhan.android.demo.data.LayoutDataStore
+import com.hossainkhan.android.demo.data.AppDataStore
+import dagger.android.AndroidInjection
 import timber.log.Timber
+import javax.inject.Inject
 
 /**
  * Relative positioning is one of the basic building block of creating layouts in ConstraintLayout.
  * Those constraints allow you to position a given widget relative to another one.
  * You can constrain a widget on the horizontal and vertical axis.
  */
-class PositioningHorizontalActivity : AppCompatActivity() {
+class LayoutPositioningDemoActivity : AppCompatActivity() {
 
     companion object {
         private const val BUNDLE_KEY_LAYOUT_RESID = "KEY_LAYOUT_RESOURCE_ID"
 
+        /**
+         * Creates an intent with required information to start this activity.
+         *
+         * @param context Activity context.
+         * @param layoutResourceId The layout resource ID to load into the view.
+         */
         fun createStartIntent(context: Context, @LayoutRes layoutResourceId: Int): Intent {
-            val intent = Intent(context, PositioningHorizontalActivity::class.java)
+            val intent = Intent(context, LayoutPositioningDemoActivity::class.java)
             intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, layoutResourceId)
             return intent
         }
     }
 
+    @Inject
+    lateinit var appDataStore: AppDataStore
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         val layoutResourceId = intent.getIntExtra(BUNDLE_KEY_LAYOUT_RESID, -1)
-        val resourceName = resources.getResourceName(layoutResourceId)
+        val resourceName = appDataStore.layoutStore.getLayoutUrl(layoutResourceId)
         Timber.d("Loading layout: %s, info: %s",
-                resourceName, LayoutDataStore().layoutsInfos[layoutResourceId])
+                resourceName, appDataStore.layoutStore.layoutsInfos[layoutResourceId])
 
         setContentView(layoutResourceId)
     }
