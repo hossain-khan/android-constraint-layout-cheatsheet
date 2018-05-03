@@ -16,21 +16,9 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.content.res.Resources
-import dagger.Module
-import dagger.Provides
+import javax.inject.Scope
 
-@Module
-class DataStoreModule {
-    @Provides
-    internal fun provideSharedPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
-    }
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ActivityScope
 
-    @Provides
-    internal fun provideAndroidResoures(context: Context): Resources {
-        return context.resources
-    }
-}

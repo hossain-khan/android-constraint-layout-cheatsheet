@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.data
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.content.res.Resources
-import dagger.Module
-import dagger.Provides
+import android.support.annotation.LayoutRes
 
-@Module
-class DataStoreModule {
-    @Provides
-    internal fun provideSharedPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
-    }
-
-    @Provides
-    internal fun provideAndroidResoures(context: Context): Resources {
-        return context.resources
-    }
-}
+/**
+ * A simple data class containing layout resource ID and it's respective description.
+ */
+data class LayoutInformation(
+        @LayoutRes
+        val layoutResourceId: Int,
+        val title: CharSequence,
+        val description: CharSequence
+)

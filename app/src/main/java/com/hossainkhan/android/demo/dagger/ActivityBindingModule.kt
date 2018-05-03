@@ -16,7 +16,9 @@
 
 package com.hossainkhan.android.demo.dagger
 
+import com.hossainkhan.android.demo.layoutpositioning.LayoutPositioningDemoActivity
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 
 /**
  * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever 
@@ -31,7 +33,7 @@ import dagger.Module
  * When Dagger.Android annotation processor runs it will create subcomponents for us.
  */
 @Module
-public abstract class ActivityBindingModule {
+abstract class ActivityBindingModule {
     /*
      * https://google.github.io/dagger/android.html
      * Pro-tip: If your subcomponent and its builder have no other methods or supertypes than
@@ -42,8 +44,7 @@ public abstract class ActivityBindingModule {
      * into the subcomponent. If the subcomponent needs scopes, apply the scope annotations to
      * the method as well.
      */
-    // Example
-    //@ActivityScoped
-    //@ContributesAndroidInjector(modules = arrayOf(ModuleNameWhichHasActivityInjection::class))
-    //abstract fun someActivity(): SomeActivity
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutPositioningActivity(): LayoutPositioningDemoActivity
 }
