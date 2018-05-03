@@ -21,7 +21,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
+import com.andrognito.flashbar.Flashbar
 import com.hossainkhan.android.demo.data.AppDataStore
+import com.hossainkhan.android.demo.data.LayoutInformation
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -58,9 +60,28 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
 
         val layoutResourceId = intent.getIntExtra(BUNDLE_KEY_LAYOUT_RESID, -1)
         val resourceName = appDataStore.layoutStore.getLayoutUrl(layoutResourceId)
-        Timber.d("Loading layout: %s, info: %s",
-                resourceName, appDataStore.layoutStore.layoutsInfos[layoutResourceId])
+        val layoutInformation = appDataStore.layoutStore.layoutsInfos[layoutResourceId]!!
+        Timber.d("Loading layout: %s, info: %s", resourceName, layoutInformation)
 
         setContentView(layoutResourceId)
+
+        supportActionBar?.title = layoutInformation.title
+
+        showLayoutInfo(layoutInformation)
+    }
+
+    private fun showLayoutInfo(layoutInformation: LayoutInformation) {
+        Flashbar.Builder(this)
+                .gravity(Flashbar.Gravity.BOTTOM)
+                .title(layoutInformation.title.toString())
+                .message(layoutInformation.description.toString())
+                .primaryActionText("OK")
+                .primaryActionTapListener(object : Flashbar.OnActionTapListener {
+                    override fun onActionTapped(bar: Flashbar) {
+                        bar.dismiss()
+                    }
+                })
+                .build()
+                .show()
     }
 }

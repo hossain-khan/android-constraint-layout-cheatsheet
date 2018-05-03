@@ -72,6 +72,10 @@ dependencies {
     //implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
 
+    // A highly customizable, powerful and easy-to-use alerting library for Android.
+    // https://github.com/aritraroy/Flashbar
+    implementation "com.andrognito.flashbar:flashbar:$rootProject.flashBarVersion"
+
     // ----------------------------------------------------------------
     // Android Unit and Instrumentation test
     // ----------------------------------------------------------------
