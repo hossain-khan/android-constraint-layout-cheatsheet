@@ -79,7 +79,10 @@ dependencies {
     // ----------------------------------------------------------------
     // Android Unit and Instrumentation test
     // ----------------------------------------------------------------
+    // Required -- JUnit 4 framework
     testImplementation "junit:junit:$rootProject.junitVersion"
+    // Mocking framework for unit tests written in Java
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
 
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'

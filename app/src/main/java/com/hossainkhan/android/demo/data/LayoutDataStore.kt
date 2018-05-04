@@ -19,6 +19,7 @@ package com.hossainkhan.android.demo.data
 import android.content.res.Resources
 import android.support.annotation.LayoutRes
 import com.hossainkhan.android.demo.R
+import com.hossainkhan.android.demo.base.AppConfig
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -45,8 +46,21 @@ class LayoutDataStore @Inject constructor(
 
     /**
      * Returns Github URL for layout resource file for this project.
+     *
+     * @param
+     * @return The URL to load the layout blob file.
      */
     fun getLayoutUrl(@LayoutRes layoutResourceId: Int): String {
-        return resources.getResourceName(layoutResourceId)
+        // Containes package name and layout name
+        // com.hossainkhan.android.demo:layout/activity_positioning_top_left
+        val resourceName = resources.getResourceName(layoutResourceId)
+
+        if(!resourceName.contains("layout")) {
+            throw IllegalStateException("Only layout resource is allowed.")
+        }
+
+        return AppConfig.GITHUB_BASE_URL.plus("/blob/master/app/src/main/res/") +
+                resourceName.split(':')
+                .last().plus(".xml")
     }
 }
