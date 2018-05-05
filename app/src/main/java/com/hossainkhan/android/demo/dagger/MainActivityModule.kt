@@ -17,7 +17,7 @@
 package com.hossainkhan.android.demo.dagger
 
 import android.app.Activity
-import com.hossainkhan.android.demo.MainActivity
+import com.hossainkhan.android.demo.browse.MainActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ActivityKey

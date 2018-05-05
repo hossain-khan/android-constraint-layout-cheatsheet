@@ -47,6 +47,7 @@ dependencies {
     // Android Support libs and Google Android libs
     implementation "com.android.support:support-v13:$rootProject.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
 
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
@@ -55,7 +56,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.archComponentVersion"
 
     // https://developer.chrome.com/multidevice/android/customtabs
-    compile "com.android.support:customtabs:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:customtabs:$rootProject.supportLibraryVersion"
 
     // ========================================================
     // 3rd party libraries
