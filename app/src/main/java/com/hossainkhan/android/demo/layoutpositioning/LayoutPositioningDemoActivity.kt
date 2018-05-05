@@ -18,8 +18,10 @@ package com.hossainkhan.android.demo.layoutpositioning
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.annotation.LayoutRes
+import android.support.customtabs.CustomTabsIntent
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -94,6 +96,7 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
                         override fun onActionTapped(bar: Flashbar) {
                             Timber.d("Loading the XML for ")
                             bar.dismiss()
+                            loadLayoutUrl()
                         }
                     })
                     .negativeActionTapListener(object : Flashbar.OnActionTapListener {
@@ -108,6 +111,18 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
         if (flashbar?.isShowing() == false) {
             flashbar?.show()
         }
+    }
+
+    /**
+     * Loads currently running layout from Github into chrome web view.
+     */
+    fun loadLayoutUrl() {
+        val layoutUrl = appDataStore.layoutStore.getLayoutUrl(layoutInformation.layoutResourceId)
+        val builder = CustomTabsIntent.Builder()
+        builder.setShowTitle(false)
+                .addDefaultShareMenuItem()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(this, Uri.parse(layoutUrl))
     }
 
 
