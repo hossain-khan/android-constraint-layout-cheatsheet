@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity() {
         appDataStore.updateFirstTimeUser(false)
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = LayoutBrowseAdapter(this, appDataStore.layoutStore.supportedLayoutInfos, { _ -> Unit })
+        viewAdapter = LayoutBrowseAdapter(
+                data = appDataStore.layoutStore.supportedLayoutInfos,
+                itemSelectedListener = this::onLayoutItemSelected)
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             // use this setting to improve performance if you know that changes
@@ -58,5 +60,12 @@ class MainActivity : AppCompatActivity() {
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
         }
+    }
+
+    fun onLayoutItemSelected(layoutResId: Int) {
+        Timber.i("Selected layout id: %s", layoutResId)
+
+        startActivity(LayoutPositioningDemoActivity
+                .createStartIntent(this, layoutResId))
     }
 }

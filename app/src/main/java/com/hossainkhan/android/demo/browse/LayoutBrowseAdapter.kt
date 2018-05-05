@@ -26,16 +26,22 @@ import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.LayoutInformation
 
 class LayoutBrowseAdapter(
-        private val context: Context,
         private val data: List<LayoutInformation>,
-        itemSelectedListener: (Int) -> Unit) : RecyclerView.Adapter<LayoutBrowseAdapter.ViewHolder>() {
+        private val itemSelectedListener: (Int) -> Unit) : RecyclerView.Adapter<LayoutBrowseAdapter.ViewHolder>() {
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    class ViewHolder(val itemViewRoot: View) : RecyclerView.ViewHolder(itemViewRoot) {
+    class ViewHolder(itemViewRoot: View,
+                     private val onClickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemViewRoot) {
         val itemName = itemViewRoot.findViewById<TextView>(R.id.layout_preview_name)!!
+
+        init {
+            itemViewRoot.setOnClickListener {
+                onClickListener(adapterPosition)
+            }
+        }
     }
 
 
@@ -46,8 +52,7 @@ class LayoutBrowseAdapter(
                 .inflate(R.layout.list_item_layout_preview, parent, false)
         // set the view's size, margins, paddings and layout parameters
 
-
-        return ViewHolder(itemView)
+        return ViewHolder(itemView, this::itemClickHandler)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -59,5 +64,9 @@ class LayoutBrowseAdapter(
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = data.size
+
+    private fun itemClickHandler(position: Int) {
+        itemSelectedListener(data[position].layoutResourceId)
+    }
 
 }
