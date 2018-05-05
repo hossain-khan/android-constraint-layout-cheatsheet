@@ -16,7 +16,7 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import com.hossainkhan.android.demo.MainActivity
+import com.hossainkhan.android.demo.browse.MainActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

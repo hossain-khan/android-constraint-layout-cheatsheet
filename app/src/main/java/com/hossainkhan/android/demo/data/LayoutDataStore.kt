@@ -26,7 +26,7 @@ import javax.inject.Singleton
 @Singleton
 class LayoutDataStore @Inject constructor(
         private val resources: Resources) {
-    private val supportedLayoutInfos = listOf(
+    val supportedLayoutInfos = listOf(
             LayoutInformation(
                     layoutResourceId = R.layout.activity_positioning_top_left,
                     title = "Positioning: Top Left",
