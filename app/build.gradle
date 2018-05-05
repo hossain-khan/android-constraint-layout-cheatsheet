@@ -54,6 +54,9 @@ dependencies {
     // https://developer.android.com/topic/libraries/architecture/adding-components
     implementation "android.arch.lifecycle:extensions:$rootProject.archComponentVersion"
 
+    // https://developer.chrome.com/multidevice/android/customtabs
+    compile "com.android.support:customtabs:$rootProject.supportLibraryVersion"
+
     // ========================================================
     // 3rd party libraries
     // ========================================================
