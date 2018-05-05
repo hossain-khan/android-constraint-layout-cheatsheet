@@ -21,7 +21,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.andrognito.flashbar.Flashbar
+import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
 import dagger.android.AndroidInjection
@@ -54,13 +57,16 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
     @Inject
     lateinit var appDataStore: AppDataStore
 
+    lateinit var layoutInformation: LayoutInformation
+    var flashbar: Flashbar? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         val layoutResourceId = intent.getIntExtra(BUNDLE_KEY_LAYOUT_RESID, -1)
         val resourceName = appDataStore.layoutStore.getLayoutUrl(layoutResourceId)
-        val layoutInformation = appDataStore.layoutStore.layoutsInfos[layoutResourceId]!!
+        layoutInformation = appDataStore.layoutStore.layoutsInfos[layoutResourceId]!!
         Timber.d("Loading layout: %s, info: %s", resourceName, layoutInformation)
 
         setContentView(layoutResourceId)
@@ -70,18 +76,58 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
         showLayoutInfo(layoutInformation)
     }
 
+    /**
+     * Loads layout information and previews in a snackbar.
+     */
     private fun showLayoutInfo(layoutInformation: LayoutInformation) {
-        Flashbar.Builder(this)
-                .gravity(Flashbar.Gravity.BOTTOM)
-                .title(layoutInformation.title.toString())
-                .message(layoutInformation.description.toString())
-                .primaryActionText("OK")
-                .primaryActionTapListener(object : Flashbar.OnActionTapListener {
-                    override fun onActionTapped(bar: Flashbar) {
-                        bar.dismiss()
-                    }
-                })
-                .build()
-                .show()
+        if (flashbar == null) {
+            flashbar = Flashbar.Builder(this)
+                    .gravity(Flashbar.Gravity.BOTTOM)
+                    .title(layoutInformation.title.toString())
+                    .message(layoutInformation.description.toString())
+                    .backgroundColorRes(R.color.colorPrimaryDark)
+                    .positiveActionText(R.string.btn_cta_preview_layout_xml)
+                    .negativeActionText(R.string.btn_cta_okay)
+                    .positiveActionTextColorRes(R.color.colorAccent)
+                    .negativeActionTextColorRes(R.color.colorAccent)
+                    .positiveActionTapListener(object : Flashbar.OnActionTapListener {
+                        override fun onActionTapped(bar: Flashbar) {
+                            Timber.d("Loading the XML for ")
+                            bar.dismiss()
+                        }
+                    })
+                    .negativeActionTapListener(object : Flashbar.OnActionTapListener {
+                        override fun onActionTapped(bar: Flashbar) {
+                            Timber.d("Closing dialog.")
+                            bar.dismiss()
+                        }
+                    })
+                    .build()
+        }
+
+        if (flashbar?.isShowing() == false) {
+            flashbar?.show()
+        }
     }
+
+
+    //
+    // Setup menu item on the action bar.
+    //
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_layout_positioning, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.show_layout_info_menu_item -> {
+                showLayoutInfo(layoutInformation)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }
