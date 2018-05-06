@@ -19,7 +19,7 @@ A demo application for Android `ConstraintLayout` with various usage with sample
   * [ ] Vertical Axis: top, bottom sides and text baseline
 - [ ] Margins
 - [x] Centering positioning and bias
-- [ ] Circular positioning _(Added in 1.1)_
+- [x] Circular positioning _(Added in 1.1)_
 - [ ] Visibility behavior
 - [ ] Dimension constraints
   * [ ] Ratio
@@ -49,4 +49,4 @@ These are the **my** objectives for this demo application.
 ## Preview
 Here is a snapshot of current progress _(This will be updated from time to time)_.  
 
-![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39676220-f20ef5c6-5134-11e8-9430-08f90b5fe5fb.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39676265-a0bb1f28-5135-11e8-8c34-014cef844e97.png)
+![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677044-d235942c-5142-11e8-972d-bb0885f87384.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39676265-a0bb1f28-5135-11e8-8c34-014cef844e97.png)

@@ -25,7 +25,7 @@
 
 
     <!--
-        First setup a centered view.
+        First setup a centered view which will be used to place other textviews using circular angle.
     -->
     <View
         android:id="@+id/view_centered"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--
-         Text at 45 degree with radius 100dp
+         Text at 45 degree with distance 100dp from centered box.
     -->
     <TextView
         style="@style/SimpleInfoTextView"
@@ -47,7 +47,7 @@
         tools:ignore="HardcodedText" />
 
     <!--
-         Text at 220 degree with radius 150dp
+         Text at 220 degree with distance 150dp from centered box.
     -->
     <TextView
         style="@style/SimpleInfoTextView"
