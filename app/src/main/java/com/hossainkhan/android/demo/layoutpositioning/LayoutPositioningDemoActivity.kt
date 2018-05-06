@@ -38,7 +38,7 @@ import javax.inject.Inject
  * Those constraints allow you to position a given widget relative to another one.
  * You can constrain a widget on the horizontal and vertical axis.
  */
-class LayoutPositioningDemoActivity : AppCompatActivity() {
+open class LayoutPositioningDemoActivity : AppCompatActivity() {
 
     companion object {
         private const val BUNDLE_KEY_LAYOUT_RESID = "KEY_LAYOUT_RESOURCE_ID"
@@ -57,10 +57,10 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var appDataStore: AppDataStore
+    internal lateinit var appDataStore: AppDataStore
 
-    lateinit var layoutInformation: LayoutInformation
-    var flashbar: Flashbar? = null
+    internal lateinit var layoutInformation: LayoutInformation
+    internal var flashbar: Flashbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)

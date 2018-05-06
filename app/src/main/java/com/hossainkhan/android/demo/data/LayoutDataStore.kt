@@ -26,6 +26,13 @@ import javax.inject.Singleton
 @Singleton
 class LayoutDataStore @Inject constructor(
         private val resources: Resources) {
+    /**
+     * Various layouts features and it's information mostly taken from official documentation.
+     *
+     * See:
+     * - https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/.README.md
+     * - https://developer.android.com/reference/android/support/constraint/ConstraintLayout#VisibilityBehavior
+     */
     val supportedLayoutInfos = listOf(
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_top_left,
@@ -45,7 +52,16 @@ class LayoutDataStore @Inject constructor(
                             "\n\n" +
                             "layout_constraintCircle : references another widget id\n" +
                             "layout_constraintCircleRadius : the distance to the other widget center\n" +
-                            "layout_constraintCircleAngle : which angle the widget should be at (in degrees, from 0 to 360)\n")
+                            "layout_constraintCircleAngle : which angle the widget should be at (in degrees, from 0 to 360)\n"),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_visibility_gone,
+                    thumbnailResourceId = R.drawable.thumb_visibility_behaviour,
+                    title = "Visibility: GONE behaviour",
+                    description = "A view marked as GONE are not going to be displayed and are not part of the layout itself.\n" +
+                            "But in terms of the layout computations, GONE widgets are still part of it, with an important distinction:" +
+                            "\n\n" +
+                            " * For the layout pass, their dimension will be considered as zero (basically, they will be resolved to a point)\n" +
+                            " * If they have constraints to other widgets they will still be respected, but any margins will be as if equals to zero")
     )
 
     /**
@@ -66,12 +82,12 @@ class LayoutDataStore @Inject constructor(
         // com.hossainkhan.android.demo:layout/preview_positioning_top_left
         val resourceName = resources.getResourceName(layoutResourceId)
 
-        if(!resourceName.contains("layout")) {
+        if (!resourceName.contains("layout")) {
             throw IllegalStateException("Only layout resource is allowed.")
         }
 
         return AppConfig.GITHUB_BASE_URL.plus("/blob/master/app/src/main/res/") +
                 resourceName.split(':')
-                .last().plus(".xml")
+                        .last().plus(".xml")
     }
 }

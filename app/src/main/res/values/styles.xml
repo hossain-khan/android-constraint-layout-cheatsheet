@@ -14,6 +14,12 @@
         <item name="android:background">@color/md_red_700</item>
     </style>
 
+    <style name="MediumBox.Purple">
+        <item name="android:layout_width">@dimen/box_size_medium</item>
+        <item name="android:layout_height">@dimen/box_size_medium</item>
+        <item name="android:background">@color/md_deep_purple_700</item>
+    </style>
+
     <style name="SimpleInfoTextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

@@ -25,6 +25,7 @@ import android.view.View
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.layoutpositioning.LayoutPositioningDemoActivity
+import com.hossainkhan.android.demo.layoutpositioning.LayoutVisibilityGoneActivity
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -66,7 +67,16 @@ class MainActivity : AppCompatActivity() {
     fun onLayoutItemSelected(layoutResId: Int) {
         Timber.i("Selected layout id: %s", layoutResId)
 
-        startActivity(LayoutPositioningDemoActivity
-                .createStartIntent(this, layoutResId))
+        when (layoutResId) {
+            R.layout.preview_visibility_gone -> {
+                startActivity(LayoutVisibilityGoneActivity
+                        .createStartIntent(this))
+            }
+            else -> {
+                startActivity(LayoutPositioningDemoActivity
+                        .createStartIntent(this, layoutResId))
+            }
+        }
+
     }
 }
