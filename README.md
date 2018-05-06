@@ -50,4 +50,5 @@ These are the **my** objectives for this demo application.
 ## Preview
 Here is a snapshot of current progress _(This will be updated from time to time)_.  
 
-![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677194-c57a1ef4-5144-11e8-86ad-ab16850b5e95.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png)
+![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677194-c57a1ef4-5144-11e8-86ad-ab16850b5e95.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png)  
+![Browse Layout Variances - Landscape Mode](https://user-images.githubusercontent.com/99822/39678468-6de62ce8-515b-11e8-9516-5203bef17d8a.png)
