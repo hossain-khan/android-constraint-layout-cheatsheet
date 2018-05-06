@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet.svg?style=svg)](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet)
+[![CircleCI](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet.svg?style=svg)](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet) [![codebeat badge](https://codebeat.co/badges/bf0c09f2-f87c-49cc-b437-ee1a975ed830)](https://codebeat.co/projects/github-com-amardeshbd-android-constraint-layout-cheatsheet-master)
+
 
 # ConstraintLayout Demo
 > NOTE: This is in planning phase now.
