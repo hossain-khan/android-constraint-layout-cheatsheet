@@ -49,4 +49,4 @@ These are the **my** objectives for this demo application.
 ## Preview
 Here is a snapshot of current progress _(This will be updated from time to time)_.  
 
-![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677044-d235942c-5142-11e8-972d-bb0885f87384.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39676265-a0bb1f28-5135-11e8-8c34-014cef844e97.png)
+![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677194-c57a1ef4-5144-11e8-86ad-ab16850b5e95.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png)
