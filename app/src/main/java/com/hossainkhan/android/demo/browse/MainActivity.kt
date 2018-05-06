@@ -18,6 +18,7 @@ package com.hossainkhan.android.demo.browse
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         Timber.d("Got data: ${appDataStore.isFirstTime()}")
         appDataStore.updateFirstTimeUser(false)
 
-        viewManager = LinearLayoutManager(this)
+        viewManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_column_count))
         viewAdapter = LayoutBrowseAdapter(
                 data = appDataStore.layoutStore.supportedLayoutInfos,
                 itemSelectedListener = this::onLayoutItemSelected)
