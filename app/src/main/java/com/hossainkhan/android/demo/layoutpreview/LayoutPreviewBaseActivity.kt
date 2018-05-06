@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpositioning
+package com.hossainkhan.android.demo.layoutpreview
 
 import android.content.Context
 import android.content.Intent
@@ -34,14 +34,18 @@ import timber.log.Timber
 import javax.inject.Inject
 
 /**
- * Relative positioning is one of the basic building block of creating layouts in ConstraintLayout.
- * Those constraints allow you to position a given widget relative to another one.
- * You can constrain a widget on the horizontal and vertical axis.
+ * This the the **base** activity for previewing different constraint layout features.
+ *
+ * Currently, the activity does following basic actions:
+ * 1. Inject necessary dependencies required for all activities.
+ * 1. Load and populate [LayoutInformation] for currently viewing layout.
+ * 1. Shows tooltip with layout details for the first time only.
+ * 1. Loads layout XML source code from Github.
  */
-open class LayoutPositioningDemoActivity : AppCompatActivity() {
+open class LayoutPreviewBaseActivity : AppCompatActivity() {
 
     companion object {
-        private const val BUNDLE_KEY_LAYOUT_RESID = "KEY_LAYOUT_RESOURCE_ID"
+        internal const val BUNDLE_KEY_LAYOUT_RESID = "KEY_LAYOUT_RESOURCE_ID"
 
         /**
          * Creates an intent with required information to start this activity.
@@ -50,7 +54,7 @@ open class LayoutPositioningDemoActivity : AppCompatActivity() {
          * @param layoutResourceId The layout resource ID to load into the view.
          */
         fun createStartIntent(context: Context, @LayoutRes layoutResourceId: Int): Intent {
-            val intent = Intent(context, LayoutPositioningDemoActivity::class.java)
+            val intent = Intent(context, LayoutPreviewBaseActivity::class.java)
             intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, layoutResourceId)
             return intent
         }
@@ -67,9 +71,8 @@ open class LayoutPositioningDemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val layoutResourceId = intent.getIntExtra(BUNDLE_KEY_LAYOUT_RESID, -1)
-        val resourceName = appDataStore.layoutStore.getLayoutUrl(layoutResourceId)
         layoutInformation = appDataStore.layoutStore.layoutsInfos[layoutResourceId]!!
-        Timber.d("Loading layout: %s, info: %s", resourceName, layoutInformation)
+        Timber.d("Loading layout: %s", layoutInformation)
 
         setContentView(layoutResourceId)
 

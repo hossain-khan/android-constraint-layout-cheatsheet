@@ -16,8 +16,8 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import com.hossainkhan.android.demo.layoutpositioning.LayoutPositioningDemoActivity
-import com.hossainkhan.android.demo.layoutpositioning.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -47,7 +47,7 @@ abstract class ActivityBindingModule {
      */
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun layoutPositioningActivity(): LayoutPositioningDemoActivity
+    abstract fun layoutPositioningActivity(): LayoutPreviewBaseActivity
 
     @ActivityScope
     @ContributesAndroidInjector

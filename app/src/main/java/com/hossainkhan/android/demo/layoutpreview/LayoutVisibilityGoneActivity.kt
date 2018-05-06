@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpositioning
+package com.hossainkhan.android.demo.layoutpreview
 
 import android.content.Context
 import android.content.Intent
@@ -23,16 +23,13 @@ import android.view.View
 import android.widget.Button
 import com.hossainkhan.android.demo.R
 
-class LayoutVisibilityGoneActivity : LayoutPositioningDemoActivity() {
+class LayoutVisibilityGoneActivity : LayoutPreviewBaseActivity() {
 
     companion object {
-        private const val BUNDLE_KEY_LAYOUT_RESID = "KEY_LAYOUT_RESOURCE_ID"
-
         /**
          * Creates an intent with required information to start this activity.
          *
          * @param context Activity context.
-         * @param layoutResourceId The layout resource ID to load into the view.
          */
         fun createStartIntent(context: Context): Intent {
             val intent = Intent(context, LayoutVisibilityGoneActivity::class.java)
@@ -44,6 +41,7 @@ class LayoutVisibilityGoneActivity : LayoutPositioningDemoActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Setup additional view that is only available in this screen.
         val toggleButton = findViewById<Button>(R.id.toggle_view_visibility_button)
         val firstView = findViewById<View>(R.id.visibility_behaviour_box_start)
 
