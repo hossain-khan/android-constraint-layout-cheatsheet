@@ -29,14 +29,23 @@ class LayoutDataStore @Inject constructor(
     val supportedLayoutInfos = listOf(
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_top_left,
-                    thumbnailResourceId = R.drawable.ic_positioning_top_left,
+                    thumbnailResourceId = R.drawable.thumb_positioning_top_left,
                     title = "Positioning: Top Left",
                     description = "Top left using constraints."),
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_centered,
-                    thumbnailResourceId = R.drawable.ic_positioning_center,
+                    thumbnailResourceId = R.drawable.thumb_positioning_center,
                     title = "Positioning: Centered",
-                    description = "Centered view using constraints on top-bottom and left-right.")
+                    description = "Centered view using constraints on top-bottom and left-right."),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_positioning_circular,
+                    thumbnailResourceId = R.drawable.thumb_positioning_circular,
+                    title = "Positioning: Circular",
+                    description = "You can constrain a widget center relative to another widget center, at an angle and a distance. This allows you to position a widget on a circle." +
+                            "\n\n" +
+                            "layout_constraintCircle : references another widget id\n" +
+                            "layout_constraintCircleRadius : the distance to the other widget center\n" +
+                            "layout_constraintCircleAngle : which angle the widget should be at (in degrees, from 0 to 360)\n")
     )
 
     /**
@@ -49,7 +58,7 @@ class LayoutDataStore @Inject constructor(
     /**
      * Returns Github URL for layout resource file for this project.
      *
-     * @param
+     * @param layoutResourceId The layout resource ID to generate the URL for.
      * @return The URL to load the layout blob file.
      */
     fun getLayoutUrl(@LayoutRes layoutResourceId: Int): String {
