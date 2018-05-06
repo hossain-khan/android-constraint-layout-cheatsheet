@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@color/md_amber_300"
             tools:ignore="ContentDescription"
-            tools:srcCompat="@mipmap/ic_launcher" />
+            tools:srcCompat="@drawable/ic_position_center_preview" />
 
         <TextView
             android:id="@+id/layout_preview_name"
@@ -49,6 +49,7 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:ellipsize="end"
+            android:gravity="center_vertical"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -29,10 +29,12 @@ class LayoutDataStore @Inject constructor(
     val supportedLayoutInfos = listOf(
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_top_left,
+                    thumbnailResourceId = R.drawable.ic_positioning_top_left,
                     title = "Positioning: Top Left",
                     description = "Top left using constraints."),
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_centered,
+                    thumbnailResourceId = R.drawable.ic_positioning_center,
                     title = "Positioning: Centered",
                     description = "Centered view using constraints on top-bottom and left-right.")
     )
