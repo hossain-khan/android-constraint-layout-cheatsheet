@@ -22,7 +22,7 @@
     android:layout_height="match_parent"
     android:foreground="@drawable/ic_grid_overlay"
     android:foregroundTint="@color/grid_tint"
-    tools:context=".layoutpositioning.LayoutPositioningDemoActivity">
+    tools:context=".layoutpreview.LayoutPreviewBaseActivity">
 
 
     <!--

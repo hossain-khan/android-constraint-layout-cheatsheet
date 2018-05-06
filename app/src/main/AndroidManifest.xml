@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".layoutpositioning.LayoutPositioningDemoActivity"></activity>
+        <activity android:name=".layoutpreview.LayoutPreviewBaseActivity" />
+        <activity android:name=".layoutpreview.LayoutVisibilityGoneActivity"></activity>
     </application>
 
 </manifest>

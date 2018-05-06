@@ -19,12 +19,11 @@ package com.hossainkhan.android.demo.browse
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
-import com.hossainkhan.android.demo.layoutpositioning.LayoutPositioningDemoActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -66,7 +65,16 @@ class MainActivity : AppCompatActivity() {
     fun onLayoutItemSelected(layoutResId: Int) {
         Timber.i("Selected layout id: %s", layoutResId)
 
-        startActivity(LayoutPositioningDemoActivity
-                .createStartIntent(this, layoutResId))
+        when (layoutResId) {
+            R.layout.preview_visibility_gone -> {
+                startActivity(LayoutVisibilityGoneActivity
+                        .createStartIntent(this))
+            }
+            else -> {
+                startActivity(LayoutPreviewBaseActivity
+                        .createStartIntent(this, layoutResId))
+            }
+        }
+
     }
 }
