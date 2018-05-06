@@ -19,7 +19,6 @@ package com.hossainkhan.android.demo.data
 import android.content.res.Resources
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
-import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
@@ -46,18 +45,18 @@ class LayoutDataStoreTest {
      * Tests conversion from layout file to URL to preview on the web.
      *
      * Input:
-     * com.hossainkhan.android.demo:layout/activity_positioning_top_left
+     * com.hossainkhan.android.demo:layout/preview_positioning_top_left
      *
      * Output:
-     * https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/activity_positioning_top_left.xml
+     * https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/preview_positioning_top_leftxml
      */
     @Test
     fun getLayoutUrl_givenValidLayout_providesUrlToLayoutResource() {
         `when`(resources.getResourceName(anyInt()))
-                .thenReturn("com.hossainkhan.android.demo:layout/activity_positioning_top_left")
+                .thenReturn("com.hossainkhan.android.demo:layout/preview_positioning_top_left")
 
 
-        assertEquals("https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/activity_positioning_top_left.xml",
+        assertEquals("https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/preview_positioning_top_left.xml",
                 sut.getLayoutUrl(1))
     }
 

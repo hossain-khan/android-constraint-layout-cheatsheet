@@ -16,11 +16,11 @@
 
 package com.hossainkhan.android.demo.browse
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.LayoutInformation
@@ -36,6 +36,7 @@ class LayoutBrowseAdapter(
     class ViewHolder(itemViewRoot: View,
                      private val onClickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemViewRoot) {
         val itemName = itemViewRoot.findViewById<TextView>(R.id.layout_preview_name)!!
+        val itemThumb = itemViewRoot.findViewById<ImageView>(R.id.imageView)
 
         init {
             itemViewRoot.setOnClickListener {
@@ -60,6 +61,7 @@ class LayoutBrowseAdapter(
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.itemName.text = data[position].title
+        holder.itemThumb.setImageResource(data[position].thumbnailResourceId)
     }
 
     // Return the size of your dataset (invoked by the layout manager)

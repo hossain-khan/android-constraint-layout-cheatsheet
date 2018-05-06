@@ -19,7 +19,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foreground="@drawable/grid_overlay"
+    android:foreground="@drawable/ic_grid_overlay"
     android:foregroundTint="@color/grid_tint"
     tools:context=".layoutpositioning.LayoutPositioningDemoActivity">
 

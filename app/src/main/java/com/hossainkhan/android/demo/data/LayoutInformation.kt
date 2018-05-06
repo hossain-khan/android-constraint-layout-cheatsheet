@@ -16,6 +16,7 @@
 
 package com.hossainkhan.android.demo.data
 
+import android.support.annotation.DrawableRes
 import android.support.annotation.LayoutRes
 
 /**
@@ -24,6 +25,8 @@ import android.support.annotation.LayoutRes
 data class LayoutInformation(
         @LayoutRes
         val layoutResourceId: Int,
+        @DrawableRes
+        val thumbnailResourceId: Int,
         val title: CharSequence,
         val description: CharSequence
 )

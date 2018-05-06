@@ -81,7 +81,7 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
     /**
      * Loads layout information and previews in a snackbar.
      */
-    private fun showLayoutInfo(layoutInformation: LayoutInformation) {
+    private fun showLayoutInfo(layoutInformation: LayoutInformation, fromUser: Boolean = false) {
         if (flashbar == null) {
             flashbar = Flashbar.Builder(this)
                     .gravity(Flashbar.Gravity.BOTTOM)
@@ -108,8 +108,13 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
                     .build()
         }
 
-        if (flashbar?.isShowing() == false) {
-            flashbar?.show()
+        Timber.d("Flash bar showing: %s", flashbar?.isShown())
+        if (flashbar?.isShown() == false) {
+            if (fromUser || appDataStore.shouldshowLayoutInformation(layoutInformation.layoutResourceId)) {
+                flashbar?.show()
+            }
+        } else {
+            flashbar?.dismiss()
         }
     }
 
@@ -138,7 +143,7 @@ class LayoutPositioningDemoActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.show_layout_info_menu_item -> {
-                showLayoutInfo(layoutInformation)
+                showLayoutInfo(layoutInformation, true)
                 true
             }
             else -> super.onOptionsItemSelected(item)

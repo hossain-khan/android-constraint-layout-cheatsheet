@@ -38,4 +38,18 @@ class AppDataStore @Inject constructor(
         preferences.edit().putBoolean(PREF_KEY_IS_FIRST_TIME_USER, isFirstTime).apply()
     }
 
+    /**
+     * Checks if layout information should be shown to user, and updates the flag if it should be shown.
+     *
+     * @return `true`, if it's first time being checked, else `false`
+     */
+    fun shouldshowLayoutInformation(layoutId: Int): Boolean {
+        val layoutPreferenceKey = layoutStore.getLayoutUrl(layoutId)
+        val shouldShow = preferences.getBoolean(layoutPreferenceKey, true)
+        if (shouldShow) {
+            preferences.edit().putBoolean(layoutPreferenceKey, false).apply()
+        }
+        return shouldShow
+    }
+
 }
