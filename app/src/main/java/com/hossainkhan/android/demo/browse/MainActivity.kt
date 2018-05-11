@@ -62,17 +62,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun onLayoutItemSelected(layoutResId: Int) {
+    private fun onLayoutItemSelected(layoutResId: Int) {
         Timber.i("Selected layout id: %s", layoutResId)
 
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
-                startActivity(LayoutVisibilityGoneActivity
-                        .createStartIntent(this))
+                startActivity(LayoutVisibilityGoneActivity.createStartIntent(this))
             }
             else -> {
-                startActivity(LayoutPreviewBaseActivity
-                        .createStartIntent(this, layoutResId))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))
             }
         }
 
