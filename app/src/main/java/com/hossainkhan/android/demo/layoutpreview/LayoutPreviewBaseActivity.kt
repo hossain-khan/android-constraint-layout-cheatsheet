@@ -16,6 +16,8 @@
 
 package com.hossainkhan.android.demo.layoutpreview
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -28,8 +30,8 @@ import android.view.Menu
 import android.view.MenuItem
 import com.andrognito.flashbar.Flashbar
 import com.hossainkhan.android.demo.R
-import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -62,9 +64,10 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
     }
 
     @Inject
-    internal lateinit var appDataStore: AppDataStore
+    internal lateinit var viewModelFactory: LayoutPreviewViewModelFactory
 
-    internal lateinit var layoutInformation: LayoutInformation
+    private lateinit var viewModel: LayoutInfoViewModel
+
     internal var flashbar: Flashbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,15 +75,25 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val layoutResourceId = intent.getIntExtra(BUNDLE_KEY_LAYOUT_RESID, -1)
-        layoutInformation = appDataStore.layoutStore.layoutsInfos[layoutResourceId]!!
-        Timber.d("Loading layout: %s", layoutInformation)
 
         setContentView(layoutResourceId)
 
-        supportActionBar?.title = layoutInformation.title
+        viewModel = ViewModelProvider(this, viewModelFactory)
+                .get(LayoutInfoViewModel::class.java)
+        viewModel.init(layoutResourceId)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        showLayoutInfo(layoutInformation)
+        viewModel.layoutInformation.observe(this,
+                Observer { layoutInfo ->
+                    Timber.d("Received layout info from LiveData: %s", layoutInfo)
+                    updateActionBar(layoutInfo!!)
+                    showLayoutInfo(layoutInfo)
+                })
+    }
+
+    private fun updateActionBar(layoutInformation: LayoutInformation) {
+        supportActionBar?.title = layoutInformation.title
     }
 
     /**
@@ -115,7 +128,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
 
         Timber.d("Flash bar showing: %s", flashbar?.isShown())
         if (flashbar?.isShown() == false) {
-            if (fromUser || appDataStore.shouldshowLayoutInformation(layoutInformation.layoutResourceId)) {
+            if (fromUser || viewModel.isFirstTime) {
                 flashbar?.show()
             }
         } else {
@@ -127,12 +140,11 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
      * Loads currently running layout from Github into chrome web view.
      */
     fun loadLayoutUrl() {
-        val layoutUrl = appDataStore.layoutStore.getLayoutUrl(layoutInformation.layoutResourceId)
         val builder = CustomTabsIntent.Builder()
         builder.setShowTitle(false)
                 .addDefaultShareMenuItem()
         val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(this, Uri.parse(layoutUrl))
+        customTabsIntent.launchUrl(this, Uri.parse(viewModel.layoutUrl))
     }
 
 
@@ -148,7 +160,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.show_layout_info_menu_item -> {
-                showLayoutInfo(layoutInformation, true)
+                showLayoutInfo(viewModel.layoutInformation.value!!, true)
                 true
             }
             android.R.id.home -> {
