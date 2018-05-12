@@ -21,7 +21,7 @@ A demo application for Android `ConstraintLayout` with various usage with sample
 - [ ] Margins
 - [x] Centering positioning and bias
 - [x] Circular positioning _(Added in 1.1)_
-- [ ] Visibility behavior
+- [x] Visibility behavior
 - [ ] Dimension constraints
   * [ ] Ratio
   * [ ] Percent dimension

@@ -23,6 +23,11 @@ import com.hossainkhan.android.demo.base.AppConfig
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Provides layout data, which is currently static based on what is available.
+ *
+ * In future, we may store the title and description based on layout ID.
+ */
 @Singleton
 class LayoutDataStore @Inject constructor(
         private val resources: Resources) {
@@ -44,6 +49,14 @@ class LayoutDataStore @Inject constructor(
                     thumbnailResourceId = R.drawable.thumb_positioning_center,
                     title = "Positioning: Centered",
                     description = "Centered view using constraints on top-bottom and left-right."),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_positioning_bias,
+                    thumbnailResourceId = R.drawable.thumb_positioning_bias,
+                    title = "Positioning: Horizontal and Vertical Bias",
+                    description = "The default when encountering such opposite constraints is to center the widget; but you can tweak the positioning to favor one side over another using the bias attributes:" +
+                            "\n\n" +
+                            " * layout_constraintHorizontal_bias\n" +
+                            " * layout_constraintVertical_bias"),
             LayoutInformation(
                     layoutResourceId = R.layout.preview_positioning_circular,
                     thumbnailResourceId = R.drawable.thumb_positioning_circular,
@@ -78,8 +91,8 @@ class LayoutDataStore @Inject constructor(
      * @return The URL to load the layout blob file.
      */
     fun getLayoutUrl(@LayoutRes layoutResourceId: Int): String {
-        // Containes package name and layout name
-        // com.hossainkhan.android.demo:layout/preview_positioning_top_left
+        // Contains package name and layout name
+        // For example: com.hossainkhan.android.demo:layout/preview_positioning_top_left
         val resourceName = resources.getResourceName(layoutResourceId)
 
         if (!resourceName.contains("layout")) {
