@@ -17,13 +17,30 @@ buildscript {
      */
     ext.androidGradleToolsVersion = '3.1.2'
 
+    /*
+     * Fabric/Firebase gradle tools version.
+     * https://firebase.google.com/docs/crashlytics/
+     */
+    ext.fabricGradleToolsVersion = '1.25.1'
+
+    /*
+     * Google play services plugin
+     * https://firebase.google.com/docs/android/setup
+     */
+    ext.googlePlayServicesToolsVersion = '3.3.1'
+
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$androidGradleToolsVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "io.fabric.tools:gradle:$fabricGradleToolsVersion"
+        classpath "com.google.gms:google-services:$googlePlayServicesToolsVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -63,6 +80,10 @@ ext {
     constraintLayoutVersion = '1.1.0'
     // https://developer.android.com/topic/libraries/architecture/adding-components
     archComponentVersion = '1.1.1'
+    // https://firebase.google.com/docs/android/setup
+    firebaseVersion = '15.0.2'
+    // https://firebase.google.com/docs/crashlytics/get-started
+    crashlyticsVersion = '2.9.2'
 
     // Unit test dependencies
     // --------------------------------------------------
@@ -78,7 +99,6 @@ ext {
     leakcanaryLibraryVersion = '1.5.4' // https://github.com/square/leakcanary/releases
     flashBarVersion = '1.0.1' // https://github.com/aritraroy/Flashbar/releases
 }
-
 
 //
 // Utility methods used in the build
