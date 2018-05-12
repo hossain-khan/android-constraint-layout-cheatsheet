@@ -17,8 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".layoutpreview.LayoutPreviewBaseActivity" />
-        <activity android:name=".layoutpreview.LayoutVisibilityGoneActivity"></activity>
+        <activity
+            android:name=".layoutpreview.LayoutPreviewBaseActivity"
+            android:parentActivityName=".browse.MainActivity" />
+        <activity
+            android:name=".layoutpreview.LayoutVisibilityGoneActivity"
+            android:parentActivityName=".browse.MainActivity" />
     </application>
 
 </manifest>

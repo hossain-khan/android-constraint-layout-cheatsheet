@@ -22,6 +22,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.customtabs.CustomTabsIntent
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -77,6 +78,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         setContentView(layoutResourceId)
 
         supportActionBar?.title = layoutInformation.title
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         showLayoutInfo(layoutInformation)
     }
@@ -148,6 +150,12 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
             R.id.show_layout_info_menu_item -> {
                 showLayoutInfo(layoutInformation, true)
                 true
+            }
+            android.R.id.home -> {
+                // Respond to the action bar's Up/Home button
+                // https://developer.android.com/training/implementing-navigation/ancestral
+                NavUtils.navigateUpFromSameTask(this)
+                return true
             }
             else -> super.onOptionsItemSelected(item)
         }
