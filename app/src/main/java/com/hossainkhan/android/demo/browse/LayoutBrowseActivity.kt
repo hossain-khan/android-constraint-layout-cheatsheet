@@ -28,7 +28,7 @@ import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class LayoutBrowseActivity : AppCompatActivity() {
     @Inject
     lateinit var appDataStore: AppDataStore
 

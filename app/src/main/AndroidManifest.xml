@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".browse.MainActivity">
+        <activity android:name=".browse.LayoutBrowseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,10 +19,10 @@
         </activity>
         <activity
             android:name=".layoutpreview.LayoutPreviewBaseActivity"
-            android:parentActivityName=".browse.MainActivity" />
+            android:parentActivityName=".browse.LayoutBrowseActivity" />
         <activity
             android:name=".layoutpreview.LayoutVisibilityGoneActivity"
-            android:parentActivityName=".browse.MainActivity" />
+            android:parentActivityName=".browse.LayoutBrowseActivity" />
     </application>
 
 </manifest>

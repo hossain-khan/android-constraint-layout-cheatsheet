@@ -55,7 +55,7 @@ class LayoutInfoViewModelTest {
     }
 
     @Test
-    fun getLayoutInformation_givenLayoutId_providesLayoutInformationViaLiveData() {
+    fun init_givenLayoutId_providesLayoutInformationViaLiveData() {
         sut.init(mockLayoutId)
 
         assertEquals(layoutStore.layoutsInfos[mockLayoutId], sut.layoutInformation.value)
