@@ -1,3 +1,12 @@
+import java.text.SimpleDateFormat
+
+//
+// ConstraintLayout Demo App
+// =========================
+// A demo application for Android ConstraintLayout with various usage with sample code.
+// https://github.com/amardeshbd/android-constraint-layout-cheatsheet
+//
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -97,7 +106,7 @@ ext {
     daggerVersion = '2.15' // https://github.com/google/dagger
     timberLibraryVersion = '4.7.0' // https://github.com/JakeWharton/timber
     leakcanaryLibraryVersion = '1.5.4' // https://github.com/square/leakcanary/releases
-    flashBarVersion = '1.0.1' // https://github.com/aritraroy/Flashbar/releases
+    flashBarVersion = '1.0.2' // https://github.com/aritraroy/Flashbar/releases
 }
 
 //
@@ -109,7 +118,7 @@ static def gitSha() {
 }
 
 static def buildTime() {
-    def df = new java.text.SimpleDateFormat("EEE, d MMM, yyyy hh:mm aaa z")
+    def df = new SimpleDateFormat("EEE, d MMM, yyyy hh:mm aaa z")
     df.setTimeZone(TimeZone.getTimeZone("UTC"))
     return df.format(new Date())
 }
