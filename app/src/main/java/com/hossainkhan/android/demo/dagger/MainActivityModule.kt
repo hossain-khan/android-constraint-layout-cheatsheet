@@ -17,7 +17,7 @@
 package com.hossainkhan.android.demo.dagger
 
 import android.app.Activity
-import com.hossainkhan.android.demo.browse.MainActivity
+import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ActivityKey
@@ -29,7 +29,7 @@ abstract class MainActivityModule {
 
     @Binds
     @IntoMap
-    @ActivityKey(MainActivity::class)
+    @ActivityKey(LayoutBrowseActivity::class)
     abstract fun bindMainActivityInjectorFactory(
             builder: MainActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
 

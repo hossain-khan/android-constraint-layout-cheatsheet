@@ -102,6 +102,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    testImplementation "android.arch.core:core-testing:$rootProject.archComponentVersion"
 }
 
 // ADD THIS AT THE BOTTOM
