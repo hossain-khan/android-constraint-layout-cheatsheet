@@ -16,6 +16,14 @@
   ~ limitations under the License.
   -->
 
+<!--
+    Support different screen sizes.
+
+    For reference see:
+      - https://material.io/tools/devices/
+      - https://developer.android.com/guide/topics/resources/providing-resources
+      - https://developer.android.com/training/multiscreen/screensizes
+-->
 <resources>
     <dimen name="box_size_small">40dp</dimen>
     <dimen name="box_size_medium">80dp</dimen>

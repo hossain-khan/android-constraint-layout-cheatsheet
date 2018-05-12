@@ -14,6 +14,14 @@
   ~ limitations under the License.
   -->
 
+<!--
+    Support different screen sizes.
+
+    For reference see:
+      - https://material.io/tools/devices/
+      - https://developer.android.com/guide/topics/resources/providing-resources
+      - https://developer.android.com/training/multiscreen/screensizes
+-->
 <resources>
     <!-- On large tablet use more column on portrait mode for better content browsing -->
     <item name="grid_column_count" type="integer">2</item>
