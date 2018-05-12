@@ -1,0 +1,44 @@
+{
+  "_____DEVELOPER_NOTE_____": "YOU MUST GENERATE YOUR OWN FIREBASE CONFIG AND DROP IT HERE.",
+  "________________________": "____________________________________________________________",
+  "project_info": {
+    "project_number": "123",
+    "firebase_url": "https://GENERATE-YOUR-CONFIG.firebaseio.com",
+    "project_id": "GENERATE-YOUR-CONFIG",
+    "storage_bucket": "GENERATE-YOUR-CONFIG.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123:android:123",
+        "android_client_info": {
+          "package_name": "com.hossainkhan.android.constraintlayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "GENERATE-YOUR-CONFIG.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "GENERATE-YOUR-CONFIG"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
