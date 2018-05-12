@@ -16,37 +16,48 @@
 
 package com.hossainkhan.android.demo.browse
 
-import android.support.v7.app.AppCompatActivity
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.hossainkhan.android.demo.R
-import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * A list activity that shows all the available example demo layouts.
+ */
 class LayoutBrowseActivity : AppCompatActivity() {
     @Inject
-    lateinit var appDataStore: AppDataStore
+    internal lateinit var viewModelFactory: LayoutPreviewViewModelFactory
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+
+    private lateinit var viewModel: LayoutBrowseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Timber.d("Got data: ${appDataStore.isFirstTime()}")
-        appDataStore.updateFirstTimeUser(false)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(LayoutBrowseViewModel::class.java)
 
+        setupLayoutInfoAdapter(viewModel)
+    }
+
+    private fun setupLayoutInfoAdapter(viewModel: LayoutBrowseViewModel) {
         viewManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_column_count))
         viewAdapter = LayoutBrowseAdapter(
-                data = appDataStore.layoutStore.supportedLayoutInfos,
+                viewModel = viewModel,
+                lifecycleOwner = this,
                 itemSelectedListener = this::onLayoutItemSelected)
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {

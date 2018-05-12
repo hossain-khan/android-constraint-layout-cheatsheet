@@ -18,10 +18,14 @@ package com.hossainkhan.android.demo.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.hossainkhan.android.demo.browse.LayoutBrowseViewModel
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.layoutpreview.LayoutInfoViewModel
 import javax.inject.Inject
 
+/**
+ * The [ViewModelProvider.Factory] that provides all the ViewModels for the activities and fragments.
+ */
 class LayoutPreviewViewModelFactory @Inject constructor(
         private val dataStore: AppDataStore
 
@@ -29,8 +33,12 @@ class LayoutPreviewViewModelFactory @Inject constructor(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when {
-            modelClass.isAssignableFrom(LayoutInfoViewModel::class.java) ->
+            modelClass.isAssignableFrom(LayoutInfoViewModel::class.java) -> {
                 LayoutInfoViewModel(dataStore) as T
+            }
+            modelClass.isAssignableFrom(LayoutBrowseViewModel::class.java) -> {
+                LayoutBrowseViewModel(dataStore) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
     }

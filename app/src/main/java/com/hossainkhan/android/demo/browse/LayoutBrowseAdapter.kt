@@ -16,6 +16,8 @@
 
 package com.hossainkhan.android.demo.browse
 
+import android.arch.lifecycle.LifecycleOwner
+import android.arch.lifecycle.Observer
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +28,19 @@ import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.LayoutInformation
 
 class LayoutBrowseAdapter(
-        private val data: List<LayoutInformation>,
+        viewModel: LayoutBrowseViewModel,
+        lifecycleOwner: LifecycleOwner,
         private val itemSelectedListener: (Int) -> Unit) : RecyclerView.Adapter<LayoutBrowseAdapter.ViewHolder>() {
+
+    private var data: List<LayoutInformation> = emptyList()
+
+    init {
+        viewModel.layoutInfos.observe(lifecycleOwner, Observer {
+            data = it!!
+            notifyDataSetChanged()
+        })
+    }
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
