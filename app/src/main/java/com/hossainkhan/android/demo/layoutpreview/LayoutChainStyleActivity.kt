@@ -19,6 +19,7 @@ package com.hossainkhan.android.demo.layoutpreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.annotation.StringRes
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.constraint.ConstraintSet.CHAIN_PACKED
@@ -52,7 +53,7 @@ class LayoutChainStyleActivity : LayoutPreviewBaseActivity() {
     }
 
     private lateinit var constraintLayout: ConstraintLayout
-    private lateinit var guideText: TextView
+    private lateinit var guideTextView: TextView
     /**
      * Use constraint set to dynamically update constraints
      * https://developer.android.com/reference/android/support/constraint/ConstraintSet
@@ -63,41 +64,36 @@ class LayoutChainStyleActivity : LayoutPreviewBaseActivity() {
         super.onCreate(savedInstanceState)
 
         constraintLayout = findViewById(R.id.constraint_layout_root)
-        guideText = findViewById(R.id.view_chain_horizontal_guide_text)
+        guideTextView = findViewById(R.id.view_chain_horizontal_guide_text)
         constraintSet.clone(constraintLayout)
     }
 
     fun onRadioButtonClicked(view: View) {
-        Timber.d("Constraint style change requested %s", view)
-        // Is the button now checked?
         val checked = (view as RadioButton).isChecked
 
         // Check which radio button was clicked
         when (view.getId()) {
             R.id.radio_chain_action_packed -> {
-                if (checked) {
-                    guideText.setText(R.string.view_guide_chain_style_packed)
-                    TransitionManager.beginDelayedTransition(constraintLayout)
-                    constraintSet.setHorizontalChainStyle(R.id.view_chain_view_first, CHAIN_PACKED)
-                    constraintSet.applyTo(constraintLayout)
-                }
+                applyChainStyle(checked, R.string.view_guide_chain_style_packed, CHAIN_PACKED)
             }
             R.id.radio_chain_action_spread -> {
-                if (checked) {
-                    guideText.setText(R.string.view_guide_chain_style_spread)
-                    TransitionManager.beginDelayedTransition(constraintLayout)
-                    constraintSet.setHorizontalChainStyle(R.id.view_chain_view_first, CHAIN_SPREAD)
-                    constraintSet.applyTo(constraintLayout)
-                }
+                applyChainStyle(checked, R.string.view_guide_chain_style_spread, CHAIN_SPREAD)
             }
             R.id.radio_chain_action_spread_inside -> {
-                if (checked) {
-                    guideText.setText(R.string.view_guide_chain_style_spread_inside)
-                    TransitionManager.beginDelayedTransition(constraintLayout)
-                    constraintSet.setHorizontalChainStyle(R.id.view_chain_view_first, CHAIN_SPREAD_INSIDE)
-                    constraintSet.applyTo(constraintLayout)
-                }
+                applyChainStyle(checked, R.string.view_guide_chain_style_spread_inside, CHAIN_SPREAD_INSIDE)
             }
+        }
+    }
+
+    private fun applyChainStyle(isChecked: Boolean, @StringRes guideText: Int, chainStyle: Int) {
+        if (isChecked) {
+            Timber.d("Updating chain style to %s, and text to %s", chainStyle, getString(guideText))
+            guideTextView.setText(guideText)
+            TransitionManager.beginDelayedTransition(constraintLayout)
+            constraintSet.setHorizontalChainStyle(R.id.view_chain_view_first, chainStyle)
+            constraintSet.applyTo(constraintLayout)
+        } else {
+            Timber.i("View was not checked. Not taking action.")
         }
     }
 }

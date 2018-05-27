@@ -30,7 +30,7 @@ A demo application for Android `ConstraintLayout` with various usage with sample
   * [ ] `WRAP_CONTENT` : enforcing constraints _(Added in 1.1)_
   * [ ] Widgets dimension constraints
 - [ ] Chains
-  * [ ] Chain Style
+  * [x] Chain Style
   * [ ] Weighted chains
   * [ ] Margins and chains _(Added in 1.1)_
 - [ ] Virtual Helpers objects

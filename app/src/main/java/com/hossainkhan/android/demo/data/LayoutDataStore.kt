@@ -78,7 +78,7 @@ class LayoutDataStore @Inject constructor(
             LayoutInformation(
                     layoutResourceId = R.layout.preview_chain_style_main,
                     thumbnailResourceId = R.drawable.thumb_chain_style,
-                    title = "Chain: Style",
+                    title = "Chain: Pack Style",
                     description = "When setting the attribute `constraintHorizontal_chainStyle` or " +
                             "`constraintVertical_chainStyle` on the first element of a chain, " +
                             "the behavior of the chain will change according to the specified style (default is CHAIN_SPREAD)." +
