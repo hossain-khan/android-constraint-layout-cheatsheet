@@ -23,6 +23,9 @@
         <activity
             android:name=".layoutpreview.LayoutVisibilityGoneActivity"
             android:parentActivityName=".browse.LayoutBrowseActivity" />
+        <activity
+            android:name=".layoutpreview.LayoutChainStyleActivity"
+            android:parentActivityName=".browse.LayoutBrowseActivity" />
     </application>
 
 </manifest>
