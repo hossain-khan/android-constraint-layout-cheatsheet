@@ -74,7 +74,29 @@ class LayoutDataStore @Inject constructor(
                             "But in terms of the layout computations, GONE widgets are still part of it, with an important distinction:" +
                             "\n\n" +
                             " * For the layout pass, their dimension will be considered as zero (basically, they will be resolved to a point)\n" +
-                            " * If they have constraints to other widgets they will still be respected, but any margins will be as if equals to zero")
+                            " * If they have constraints to other widgets they will still be respected, but any margins will be as if equals to zero"),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_chain_style_main,
+                    thumbnailResourceId = R.drawable.thumb_chain_style,
+                    title = "Chain: Pack Style",
+                    description = "When setting the attribute `constraintHorizontal_chainStyle` or " +
+                            "`constraintVertical_chainStyle` on the first element of a chain, " +
+                            "the behavior of the chain will change according to the specified style (default is CHAIN_SPREAD)." +
+                            "\n\n" +
+                            " * CHAIN_SPREAD -- the elements will be spread out (default style)\n" +
+                            " * Weighted chain -- in CHAIN_SPREAD mode, if some widgets are set to MATCH_CONSTRAINT, they will split the available space\n" +
+                            " * CHAIN_SPREAD_INSIDE -- similar, but the endpoints of the chain will not be spread out\n" +
+                            " * CHAIN_PACKED -- the elements of the chain will be packed together. The horizontal or vertical bias attribute of the child will then affect the positioning of the packed elements")
+            /*
+             Next item template (easy to copy and paste)
+             LayoutInformation(
+                    layoutResourceId = R.layout.XYZ,
+                    thumbnailResourceId = R.drawable.XYZ,
+                    title = "XYZ: XYZ",
+                    description = "XYZ")
+             */
+
+
     )
 
     /**

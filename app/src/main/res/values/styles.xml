@@ -8,6 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SmallBox">
+        <item name="android:layout_width">@dimen/box_size_small</item>
+        <item name="android:layout_height">@dimen/box_size_small</item>
+        <item name="android:background">@color/md_pink_900</item>
+    </style>
+
+    <style name="SmallBox.Variant1">
+        <item name="android:background">@color/md_amber_700</item>
+    </style>
+
+    <style name="SmallBox.Variant2">
+        <item name="android:background">@color/md_purple_700</item>
+    </style>
+
     <style name="MediumBox">
         <item name="android:layout_width">@dimen/box_size_medium</item>
         <item name="android:layout_height">@dimen/box_size_medium</item>

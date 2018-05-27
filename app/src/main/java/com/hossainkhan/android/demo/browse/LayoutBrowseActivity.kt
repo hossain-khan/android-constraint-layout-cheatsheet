@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.hossainkhan.android.demo.R
+import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
@@ -79,6 +80,9 @@ class LayoutBrowseActivity : AppCompatActivity() {
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
                 startActivity(LayoutVisibilityGoneActivity.createStartIntent(this))
+            }
+            R.layout.preview_chain_style_main -> {
+                startActivity(LayoutChainStyleActivity.createStartIntent(this))
             }
             else -> {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))
