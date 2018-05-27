@@ -6,6 +6,9 @@
 
 A demo application for Android `ConstraintLayout` with various usage with sample code.
 
+Get the **beta** release with current snapshot!  
+[![google-play-badge](https://user-images.githubusercontent.com/99822/40590807-b714614a-61d3-11e8-9fab-a6781bc670c2.png)](https://play.google.com/store/apps/details?id=com.hossainkhan.android.constraintlayout)
+
 ## Proposed App Features
 * Have a grid containing different feature set of `ConstraintLayout`
 * For each feature, have different examples
