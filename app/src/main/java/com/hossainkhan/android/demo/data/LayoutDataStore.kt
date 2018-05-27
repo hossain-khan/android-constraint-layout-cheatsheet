@@ -77,7 +77,7 @@ class LayoutDataStore @Inject constructor(
                             " * If they have constraints to other widgets they will still be respected, but any margins will be as if equals to zero"),
             LayoutInformation(
                     layoutResourceId = R.layout.preview_chain_style_main,
-                    thumbnailResourceId = R.drawable.thumb_positioning_bias,
+                    thumbnailResourceId = R.drawable.thumb_chain_style,
                     title = "Chain: Style",
                     description = "When setting the attribute `constraintHorizontal_chainStyle` or " +
                             "`constraintVertical_chainStyle` on the first element of a chain, " +
