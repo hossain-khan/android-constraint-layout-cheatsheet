@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2018 Hossain Khan
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+        NOTE: All the views width are set to `0dp` to indicate they are
+              `MATCH_CONSTRAINT` horizontally.
+    -->
+
+    <View
+        android:id="@+id/view_chain_view_first"
+        style="@style/MediumBox"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/view_chain_view_middle"
+        app:layout_constraintHorizontal_weight="10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_chain_view_middle"
+        style="@style/MediumBox.Purple"
+        android:layout_width="0dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/view_chain_view_last"
+        app:layout_constraintHorizontal_weight="60"
+        app:layout_constraintStart_toEndOf="@+id/view_chain_view_first"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_chain_view_last"
+        style="@style/MediumBox.Variant1"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="30"
+        app:layout_constraintStart_toEndOf="@+id/view_chain_view_middle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--
+        Additional text and actions to explain the views - ignore below
+    -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:text="
+        Chained views with weight \n
+
+        From left, weight is set to\n
+        layout_constraintHorizontal_weight='10',\n
+        layout_constraintHorizontal_weight='60', and\n
+        layout_constraintHorizontal_weight='30' respectively."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_chain_view_middle" />
+
+
+</android.support.constraint.ConstraintLayout>

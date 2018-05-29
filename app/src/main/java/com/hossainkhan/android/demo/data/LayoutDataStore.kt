@@ -86,7 +86,20 @@ class LayoutDataStore @Inject constructor(
                             " * CHAIN_SPREAD -- the elements will be spread out (default style)\n" +
                             " * Weighted chain -- in CHAIN_SPREAD mode, if some widgets are set to MATCH_CONSTRAINT, they will split the available space\n" +
                             " * CHAIN_SPREAD_INSIDE -- similar, but the endpoints of the chain will not be spread out\n" +
-                            " * CHAIN_PACKED -- the elements of the chain will be packed together. The horizontal or vertical bias attribute of the child will then affect the positioning of the packed elements")
+                            " * CHAIN_PACKED -- the elements of the chain will be packed together. The horizontal or vertical bias attribute of the child will then affect the positioning of the packed elements"),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_chain_weighted,
+                    thumbnailResourceId = R.drawable.thumb_chain_style,
+                    title = "Chain: Weighted Width or Height",
+                    description = "The default behavior of a chain is to spread the elements equally in the available space. If one or more " +
+                            "elements are using MATCH_CONSTRAINT (0dp), they will use the available empty space (equally divided among " +
+                            "themselves). The attribute `layout_constraintHorizontal_weight` and " +
+                            "`layout_constraintVertical_weight` will control how the space will be distributed among the elements " +
+                            "using MATCH_CONSTRAINT." +
+                            "\n\n" +
+                            "For example, on a chain containing two elements using MATCH_CONSTRAINT, with " +
+                            "the first element using a weight of 2 and the second a weight of 1, the space occupied by the first element" +
+                            "will be twice that of the second element.")
             /*
              Next item template (easy to copy and paste)
              LayoutInformation(
