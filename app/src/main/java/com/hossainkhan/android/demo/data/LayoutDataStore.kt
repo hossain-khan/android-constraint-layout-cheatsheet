@@ -99,7 +99,18 @@ class LayoutDataStore @Inject constructor(
                             "\n\n" +
                             "For example, on a chain containing two elements using MATCH_CONSTRAINT, with " +
                             "the first element using a weight of 2 and the second a weight of 1, the space occupied by the first element" +
-                            "will be twice that of the second element.")
+                            "will be twice that of the second element."),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_dimension_ratio,
+                    thumbnailResourceId = R.drawable.thumb_dimension_ratio,
+                    title = "Dimension: Ratio",
+                    description = "You can define one dimension of a widget as a ratio of the other one. In order to do that, " +
+                            "you need to have at least one constrained dimension be set to 0dp (i.e., MATCH_CONSTRAINT), " +
+                            "and set the attribute layout_constraintDimensionRatio to a given ratio." +
+                            "\n\n" +
+                            "The ratio can be expressed either as:\n" +
+                            "\n * a float value, representing a ratio between width and height" +
+                            "\n * a ratio in the form \"width:height\", for example: `layout_constraintDimensionRatio=\"16:9\"`")
             /*
              Next item template (easy to copy and paste)
              LayoutInformation(
