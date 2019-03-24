@@ -11,7 +11,7 @@ jobs:
       # Our Android Docker images are currently tagged with the suffix -alpha.
       # This is to indicate the images are currently under development and
       # might change in backwards incompatible ways from week to week.
-      - image: circleci/android:api-27-alpha
+      - image: circleci/android:api-28-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
