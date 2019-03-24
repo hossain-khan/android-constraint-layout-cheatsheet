@@ -44,7 +44,7 @@
         app:layout_constraintCircle="@+id/view_centered"
         app:layout_constraintCircleAngle="45"
         app:layout_constraintCircleRadius="100dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <!--
          Text at 220 degree with distance 150dp from centered box.
@@ -55,7 +55,7 @@
         app:layout_constraintCircle="@+id/view_centered"
         app:layout_constraintCircleAngle="220"
         app:layout_constraintCircleRadius="150dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,MissingConstraints" />
 
 
     <!--
