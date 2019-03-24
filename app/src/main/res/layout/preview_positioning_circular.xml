@@ -16,7 +16,7 @@
   ~ limitations under the License.
   -->
 
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -44,7 +44,7 @@
         app:layout_constraintCircle="@+id/view_centered"
         app:layout_constraintCircleAngle="45"
         app:layout_constraintCircleRadius="100dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,MissingConstraints" />
 
     <!--
          Text at 220 degree with distance 150dp from centered box.
@@ -55,7 +55,7 @@
         app:layout_constraintCircle="@+id/view_centered"
         app:layout_constraintCircleAngle="220"
         app:layout_constraintCircleRadius="150dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,MissingConstraints" />
 
 
     <!--
@@ -64,4 +64,4 @@
     -->
     <include layout="@layout/include_layout_positioning_circle_overlay" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

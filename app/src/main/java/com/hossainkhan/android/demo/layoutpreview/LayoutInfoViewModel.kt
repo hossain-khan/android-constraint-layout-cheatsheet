@@ -16,10 +16,10 @@
 
 package com.hossainkhan.android.demo.layoutpreview
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.support.annotation.LayoutRes
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.annotation.LayoutRes
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
 import timber.log.Timber
