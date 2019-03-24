@@ -16,8 +16,8 @@
 
 package com.hossainkhan.android.demo.data
 
-import android.support.annotation.DrawableRes
-import android.support.annotation.LayoutRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.LayoutRes
 
 /**
  * A simple data class containing layout resource ID and it's respective description.

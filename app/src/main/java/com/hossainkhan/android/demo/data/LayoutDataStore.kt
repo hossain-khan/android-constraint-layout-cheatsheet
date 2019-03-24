@@ -17,7 +17,7 @@
 package com.hossainkhan.android.demo.data
 
 import android.content.res.Resources
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.base.AppConfig
 import javax.inject.Inject

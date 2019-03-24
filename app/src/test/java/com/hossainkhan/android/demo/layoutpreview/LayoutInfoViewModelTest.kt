@@ -25,7 +25,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 import org.mockito.Mockito.mock
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.rules.TestRule
 import org.junit.Rule
 

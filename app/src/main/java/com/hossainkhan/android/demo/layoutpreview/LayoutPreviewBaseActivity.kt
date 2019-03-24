@@ -16,16 +16,16 @@
 
 package com.hossainkhan.android.demo.layoutpreview
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.app.NavUtils
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.LayoutRes
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.app.NavUtils
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.andrognito.flashbar.Flashbar

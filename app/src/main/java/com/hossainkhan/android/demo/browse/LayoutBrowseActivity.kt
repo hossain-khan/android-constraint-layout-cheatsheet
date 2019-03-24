@@ -16,11 +16,11 @@
 
 package com.hossainkhan.android.demo.browse
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
