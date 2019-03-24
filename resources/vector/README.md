@@ -14,7 +14,14 @@ To have consistent look, use following spec for layout thumbnail.
 * Name assets using conventions defined in [README](https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/.README.md)
 * Use Android Studio to import the **`SVG`** image to Android Vector drawable. 
 
+
 Examples
 -----------
 * https://vectr.com/hossain/a11KCVsbcM.svg?width=640&height=640
 * https://vectr.com/hossain/dUHU9o4er.svg?width=640&height=640
+
+
+SVG to Vector Drawable
+-----------------------
+* Android studio - `New > Vector Asset`
+* https://a-student.github.io/SvgToVectorDrawableConverter.Web/
