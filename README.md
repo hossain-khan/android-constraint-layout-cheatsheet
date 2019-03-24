@@ -33,7 +33,7 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 - [x] Circular positioning _(Added in 1.1)_
 - [x] Visibility behavior
 - [ ] Dimension constraints
-  * [ ] Ratio
+  * [x] Ratio
   * [ ] Percent dimension
   * [ ] Min and Max
   * [ ] `MATCH_CONSTRAINT` dimensions _(Added in 1.1)_
