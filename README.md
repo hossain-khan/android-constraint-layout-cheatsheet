@@ -2,7 +2,7 @@
 
 
 # ConstraintLayout Demo
-> NOTE: This is currently in active development.
+> NOTE: This is currently not in active development. See [official demo](#bookmark-official-demo) for complete set of examples.
 
 A demo application for Android `ConstraintLayout` with various usage with sample code.
 
