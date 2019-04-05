@@ -62,3 +62,7 @@ Here is a snapshot of current progress _(This will be updated from time to time)
 
 ![Browse Layout Variances](https://user-images.githubusercontent.com/99822/39677194-c57a1ef4-5144-11e8-86ad-ab16850b5e95.png) ![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png)  
 ![Browse Layout Variances - Landscape Mode](https://user-images.githubusercontent.com/99822/39678468-6de62ce8-515b-11e8-9516-5203bef17d8a.png)
+
+### Screencast
+![screencast](https://user-images.githubusercontent.com/99822/55640296-50e04a80-5799-11e9-9209-01b99e7ddd52.gif)
+
