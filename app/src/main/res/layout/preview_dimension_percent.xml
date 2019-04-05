@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2019 Hossain Khan
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@drawable/ic_grid_overlay"
+    android:foregroundTint="@color/grid_tint"
+    tools:context=".layoutpreview.LayoutPreviewBaseActivity">
+
+
+    <!--
+        1st view that has "40%" width dimension based on width-constraints (in this case full screen width)
+        See `layout_constraintWidth_percent`
+    -->
+    <ImageView
+        android:id="@+id/view_dimension_ratio_1to1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@color/md_light_blue_300"
+        android:src="@drawable/ic_image_black_140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.40" />
+
+
+    <!--
+        2nd view that has "90%" height dimension based on height-constraints (in this case full screen height)
+        See `layout_constraintHeight_percent`
+    -->
+    <ImageView
+        android:id="@+id/view_dimension_ratio_16to9_width_constrained"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/md_pink_300"
+        android:src="@drawable/ic_image_black_140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.90"
+        app:layout_constraintStart_toEndOf="@+id/view_dimension_ratio_1to1"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -110,7 +110,14 @@ class LayoutDataStore @Inject constructor(
                             "\n\n" +
                             "The ratio can be expressed either as:\n" +
                             "\n * a float value, representing a ratio between width and height" +
-                            "\n * a ratio in the form \"width:height\", for example: `layout_constraintDimensionRatio=\"16:9\"`")
+                            "\n * a ratio in the form \"width:height\", for example: `layout_constraintDimensionRatio=\"16:9\"`"),
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_dimension_percent,
+                    thumbnailResourceId = R.drawable.thumb_dimension_percentage,
+                    title = "Dimension: Percent dimension",
+                    description = "To use percent, you need to set the following:\n\n" +
+                            "* The dimension should be set to MATCH_CONSTRAINT (0dp)\n" +
+                            "* Then set the `layout_constraintWidth_percent` or `layout_constraintHeight_percent` attributes to a value between 0.0 and 1.0")
             /*
              Next item template (easy to copy and paste)
              LayoutInformation(

@@ -34,14 +34,14 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 - [x] Visibility behavior
 - [ ] Dimension constraints
   * [x] Ratio
-  * [ ] Percent dimension
+  * [x] Percent dimension
   * [ ] Min and Max
   * [ ] `MATCH_CONSTRAINT` dimensions _(Added in 1.1)_
   * [ ] `WRAP_CONTENT` : enforcing constraints _(Added in 1.1)_
   * [ ] Widgets dimension constraints
 - [ ] Chains
   * [x] Chain Style
-  * [ ] Weighted chains
+  * [x] Weighted chains
   * [ ] Margins and chains _(Added in 1.1)_
 - [ ] Virtual Helpers objects
   * [ ] Guideline
@@ -51,7 +51,7 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 
 ## Objective
 These are the **my** objectives for this demo application.
-* To explore all the features of constrainst layout
+* To explore all the features of constraint layout
 * Learn and use material design component in the sample app
 * Learn and use the new architecture components in the sample app
 * Learn and use proper architecture for the app - likely MVVM
