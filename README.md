@@ -44,7 +44,7 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
   * [x] Weighted chains
   * [ ] Margins and chains _(Added in 1.1)_
 - [ ] Virtual Helpers objects
-  * [ ] Guideline
+  * [x] Guideline
   * [ ] Barrier
   * [ ] Group
 - [ ] Optimizer _(Added in 1.1)_
