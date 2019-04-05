@@ -119,8 +119,8 @@ class LayoutDataStore @Inject constructor(
                             "* The dimension should be set to MATCH_CONSTRAINT (0dp)\n" +
                             "* Then set the `layout_constraintWidth_percent` or `layout_constraintHeight_percent` attributes to a value between 0.0 and 1.0"),
             LayoutInformation(
-                    layoutResourceId = R.layout.preview_visual_helper_guideline,
-                    thumbnailResourceId = R.drawable.thumb_visual_helper_guideline,
+                    layoutResourceId = R.layout.preview_virtual_helper_guideline,
+                    thumbnailResourceId = R.drawable.thumb_virtual_helper_guideline,
                     title = "Virtual Helper: Guideline",
                     description = "The Guideline object allows you to create Horizontal and Vertical guidelines which " +
                             "are positioned relative to the ConstraintLayout container." +
