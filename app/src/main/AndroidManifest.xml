@@ -31,6 +31,9 @@
         <activity
             android:name=".layoutpreview.LayoutGuidelineBarrierActivity"
             android:parentActivityName=".browse.LayoutBrowseActivity" />
+        <activity
+            android:name=".layoutpreview.LayoutGuidelineGroupActivity"
+            android:parentActivityName=".browse.LayoutBrowseActivity" />
     </application>
 
 </manifest>

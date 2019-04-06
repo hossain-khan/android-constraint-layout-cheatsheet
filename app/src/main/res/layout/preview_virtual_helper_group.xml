@@ -24,38 +24,35 @@
     android:layout_margin="16dp"
     android:animateLayoutChanges="true">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+    <!-- This virtual helper has `constraint_referenced_ids` to multiple views to apply visibility to all of them  -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/visual_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:constraint_referenced_ids="action_button,text_label" />
+        android:visibility="visible"
+        app:constraint_referenced_ids="view1,view2,view3" />
 
-    <TextView
-        android:id="@+id/text_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/barrier_label_text_small"
-        app:layout_constraintEnd_toEndOf="@id/barrier"
+
+    <View
+        android:id="@+id/view1"
+        style="@style/MediumBox"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/barrier_label_button_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_label" />
+    <View
+        android:id="@+id/view2"
+        style="@style/MediumBox.Purple"
+        app:layout_constraintEnd_toStartOf="@+id/view3"
+        app:layout_constraintStart_toEndOf="@+id/view1"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_content_constrained_on_barrier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/barrier_guide_text"
+    <View
+        android:id="@+id/view3"
+        style="@style/MediumBox.Pink"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/barrier"
+        app:layout_constraintStart_toEndOf="@+id/view2"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -68,10 +65,24 @@
         android:id="@+id/toggle_label_text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toggle Text Size"
+        android:text="Toggle View Group Visibility"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Three separate views grouped by virtual guideline group which can be hidden by just hiding the group without touching each individual views."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

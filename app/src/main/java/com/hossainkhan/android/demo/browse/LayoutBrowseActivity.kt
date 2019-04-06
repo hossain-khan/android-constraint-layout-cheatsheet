@@ -16,14 +16,15 @@
 
 package com.hossainkhan.android.demo.browse
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
@@ -78,6 +79,9 @@ class LayoutBrowseActivity : AppCompatActivity() {
     private fun onLayoutItemSelected(layoutResId: Int) {
         Timber.i("Selected layout id: %s", layoutResId)
 
+        /*
+         * Where applicable, loads specific activity with interactive feature for user to try out feature.
+         */
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
@@ -91,7 +95,12 @@ class LayoutBrowseActivity : AppCompatActivity() {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
                         LayoutGuidelineBarrierActivity::class.java, R.layout.preview_virtual_helper_barrier))
             }
+            R.layout.preview_virtual_helper_group -> {
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutGuidelineGroupActivity::class.java, R.layout.preview_virtual_helper_group))
+            }
             else -> {
+                // By default it loads the preview activity with the layout requested.
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))
             }
         }
