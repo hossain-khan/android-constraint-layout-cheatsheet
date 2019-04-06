@@ -162,7 +162,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         builder.setShowTitle(false)
                 .addDefaultShareMenuItem()
         val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(applicationContext, Uri.parse(viewModel.layoutUrl))
+        customTabsIntent.launchUrl(this, Uri.parse(viewModel.layoutUrl))
     }
 
 
