@@ -126,9 +126,13 @@ class LayoutDataStore @Inject constructor(
                             "are positioned relative to the ConstraintLayout container." +
                             "Widgets can then be positioned by constraining them to such guidelines. "),
 
+            /*
+             * https://developer.android.com/training/constraint-layout/index.html#constrain-to-a-barrier
+             * https://constraintlayout.com/basics/barriers.html
+             */
             LayoutInformation(
                     layoutResourceId = R.layout.preview_virtual_helper_barrier,
-                    thumbnailResourceId = R.drawable.thumb_virtual_helper_guideline,
+                    thumbnailResourceId = R.drawable.thumb_virtual_helper_barrier,
                     title = "Virtual Helper: Barrier",
                     description = "A Barrier references multiple widgets as input, and creates a virtual guideline " +
                             "based on the most extreme widget on the specified side.")
