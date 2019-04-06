@@ -135,7 +135,18 @@ class LayoutDataStore @Inject constructor(
                     thumbnailResourceId = R.drawable.thumb_virtual_helper_barrier,
                     title = "Virtual Helper: Barrier",
                     description = "A Barrier references multiple widgets as input, and creates a virtual guideline " +
-                            "based on the most extreme widget on the specified side.")
+                            "based on the most extreme widget on the specified side."),
+
+            /*
+             * https://developer.android.com/reference/android/support/constraint/Group.html
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_virtual_helper_group,
+                    thumbnailResourceId = R.drawable.thumb_virtual_helper_group,
+                    title = "Virtual Helper: Group",
+                    description = "This class controls the visibility of a set of referenced widgets. " +
+                            "Widgets are referenced by being added to a comma separated list of ids.\n\n" +
+                            "For example you can link multiple views: `app:constraint_referenced_ids=\"viewId1,viewId2,viewId3\"` and control their visibility at once.")
 
 
             /*
