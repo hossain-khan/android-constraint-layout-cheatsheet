@@ -16,7 +16,7 @@ buildscript {
      * https://github.com/JetBrains/kotlin/releases
      * https://blog.jetbrains.com/kotlin/category/releases/
      */
-    ext.kotlinVersion = '1.3.20'
+    ext.kotlinVersion = '1.3.21'
 
     /*
      * Android Plugin for Gradle - Version number and release notes
