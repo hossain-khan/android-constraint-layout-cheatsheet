@@ -17,6 +17,7 @@
 package com.hossainkhan.android.demo.dagger
 
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import dagger.Module
@@ -57,4 +58,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutChainActivity(): LayoutChainStyleActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutGuidelineBarrierActivity(): LayoutGuidelineBarrierActivity
 }

@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
@@ -79,10 +80,16 @@ class LayoutBrowseActivity : AppCompatActivity() {
 
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
-                startActivity(LayoutVisibilityGoneActivity.createStartIntent(this))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutVisibilityGoneActivity::class.java, R.layout.preview_visibility_gone))
             }
             R.layout.preview_chain_style_main -> {
-                startActivity(LayoutChainStyleActivity.createStartIntent(this))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutChainStyleActivity::class.java, R.layout.preview_chain_style_main))
+            }
+            R.layout.preview_virtual_helper_barrier -> {
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutGuidelineBarrierActivity::class.java, R.layout.preview_virtual_helper_barrier))
             }
             else -> {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))
