@@ -61,6 +61,19 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
             intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, layoutResourceId)
             return intent
         }
+
+        /**
+         * Creates an intent with required information to start child activity with specific interactive demo.
+         *
+         * @param context Activity context.
+         * @param clazz Activity class that has interactive demo.
+         * @param layoutResourceId The layout resource ID to load into the view.
+         */
+        fun <T> createStartIntent(context: Context, clazz: Class<T>, @LayoutRes layoutResourceId: Int): Intent {
+            val intent = Intent(context, clazz)
+            intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, layoutResourceId)
+            return intent
+        }
     }
 
     @Inject

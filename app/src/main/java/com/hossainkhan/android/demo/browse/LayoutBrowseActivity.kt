@@ -80,13 +80,16 @@ class LayoutBrowseActivity : AppCompatActivity() {
 
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
-                startActivity(LayoutVisibilityGoneActivity.createStartIntent(this))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutVisibilityGoneActivity::class.java, R.layout.preview_visibility_gone))
             }
             R.layout.preview_chain_style_main -> {
-                startActivity(LayoutChainStyleActivity.createStartIntent(this))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutChainStyleActivity::class.java, R.layout.preview_chain_style_main))
             }
             R.layout.preview_virtual_helper_barrier -> {
-                startActivity(LayoutGuidelineBarrierActivity.createStartIntent(this))
+                startActivity(LayoutPreviewBaseActivity.createStartIntent(this,
+                        LayoutGuidelineBarrierActivity::class.java, R.layout.preview_virtual_helper_barrier))
             }
             else -> {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))

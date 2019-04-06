@@ -16,27 +16,17 @@
 
 package com.hossainkhan.android.demo.layoutpreview
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.hossainkhan.android.demo.R
 
+/**
+ * Activity showcasing how virtual guideline barrier changes when a view length changes within the barrier.
+ *
+ * See https://developer.android.com/reference/android/support/constraint/Barrier
+ */
 class LayoutGuidelineBarrierActivity : LayoutPreviewBaseActivity() {
-
-    companion object {
-        /**
-         * Creates an intent with required information to start this activity.
-         *
-         * @param context Activity context.
-         */
-        fun createStartIntent(context: Context): Intent {
-            val intent = Intent(context, LayoutGuidelineBarrierActivity::class.java)
-            intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, R.layout.preview_virtual_helper_barrier)
-            return intent
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

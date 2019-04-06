@@ -16,20 +16,16 @@
 
 package com.hossainkhan.android.demo.layoutpreview
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioButton
+import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.constraintlayout.widget.ConstraintSet.CHAIN_PACKED
-import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD
-import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
+import androidx.constraintlayout.widget.ConstraintSet.*
 import androidx.transition.TransitionManager
-import android.view.View
 import com.hossainkhan.android.demo.R
-import android.widget.RadioButton
-import android.widget.TextView
 import timber.log.Timber
 
 /**
@@ -38,19 +34,6 @@ import timber.log.Timber
  * https://developer.android.com/reference/android/support/constraint/ConstraintLayout#Chains
  */
 class LayoutChainStyleActivity : LayoutPreviewBaseActivity() {
-
-    companion object {
-        /**
-         * Creates an intent with required information to start this activity.
-         *
-         * @param context Activity context.
-         */
-        fun createStartIntent(context: Context): Intent {
-            val intent = Intent(context, LayoutChainStyleActivity::class.java)
-            intent.putExtra(BUNDLE_KEY_LAYOUT_RESID, R.layout.preview_chain_style_main)
-            return intent
-        }
-    }
 
     private lateinit var constraintLayout: ConstraintLayout
     private lateinit var guideTextView: TextView
