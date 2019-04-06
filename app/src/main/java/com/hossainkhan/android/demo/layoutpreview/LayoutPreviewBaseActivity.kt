@@ -78,8 +78,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
 
         setContentView(layoutResourceId)
 
-        viewModel = ViewModelProvider(this, viewModelFactory)
-                .get(LayoutInfoViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(LayoutInfoViewModel::class.java)
         viewModel.init(layoutResourceId)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -90,6 +89,12 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
                     updateActionBar(layoutInfo!!)
                     showLayoutInfo(layoutInfo)
                 })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        flashbar?.dismiss()
+        flashbar = null
     }
 
     private fun updateActionBar(layoutInformation: LayoutInformation) {
@@ -144,7 +149,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         builder.setShowTitle(false)
                 .addDefaultShareMenuItem()
         val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(this, Uri.parse(viewModel.layoutUrl))
+        customTabsIntent.launchUrl(applicationContext, Uri.parse(viewModel.layoutUrl))
     }
 
 
