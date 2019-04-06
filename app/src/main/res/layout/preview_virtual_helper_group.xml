@@ -24,7 +24,8 @@
     android:layout_margin="16dp"
     android:animateLayoutChanges="true">
 
-    <!-- This virtual helper has `constraint_referenced_ids` to multiple views to apply visibility to all of them  -->
+    <!-- This virtual helper has `constraint_referenced_ids` to
+    multiple views to apply visibility to all of them  -->
     <androidx.constraintlayout.widget.Group
         android:id="@+id/visual_group"
         android:layout_width="wrap_content"
