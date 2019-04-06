@@ -37,7 +37,7 @@
         app:layout_constraintGuide_percent="0.30" />
 
     <!--
-        Horizontal guideline to use it as a end of fields at 500% of the screen.
+        Horizontal guideline to use it as a end of fields at 60% of the screen.
         After this line we have put the "LOGIN" button.
      -->
     <androidx.constraintlayout.widget.Guideline
@@ -45,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <!--
 
@@ -63,9 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Username"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintBottom_toBottomOf="@+id/username_input"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="@+id/username_input" />
 
     <TextView
         android:id="@+id/password_label"
@@ -74,12 +74,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Password"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintBottom_toBottomOf="@+id/password_input"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
-        app:layout_constraintTop_toTopOf="@+id/editText2" />
+        app:layout_constraintTop_toTopOf="@+id/password_input" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/username_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -89,13 +89,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_top" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/password_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/username_input" />
 
     <Button
         android:id="@+id/login_button"

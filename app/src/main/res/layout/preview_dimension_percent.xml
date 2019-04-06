@@ -31,7 +31,7 @@
         See `layout_constraintWidth_percent`
     -->
     <ImageView
-        android:id="@+id/view_dimension_ratio_1to1"
+        android:id="@+id/view_dimension_demo1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -48,7 +48,7 @@
         See `layout_constraintHeight_percent`
     -->
     <ImageView
-        android:id="@+id/view_dimension_ratio_16to9_width_constrained"
+        android:id="@+id/view_dimension_demo2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@color/md_pink_300"
@@ -56,6 +56,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.90"
-        app:layout_constraintStart_toEndOf="@+id/view_dimension_ratio_1to1"
+        app:layout_constraintStart_toEndOf="@+id/view_dimension_demo1"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
