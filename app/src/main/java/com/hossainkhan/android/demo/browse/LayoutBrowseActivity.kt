@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
@@ -83,6 +84,9 @@ class LayoutBrowseActivity : AppCompatActivity() {
             }
             R.layout.preview_chain_style_main -> {
                 startActivity(LayoutChainStyleActivity.createStartIntent(this))
+            }
+            R.layout.preview_virtual_helper_barrier -> {
+                startActivity(LayoutGuidelineBarrierActivity.createStartIntent(this))
             }
             else -> {
                 startActivity(LayoutPreviewBaseActivity.createStartIntent(this, layoutResId))

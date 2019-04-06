@@ -11,4 +11,15 @@
     <string name="view_guide_chain_style_spread_inside">Chained views with \nlayout_constraintHorizontal_chainStyle=\'spread_inside\'</string>
     <string name="view_guide_chain_style_spread">Chained views with \nlayout_constraintHorizontal_chainStyle=\'spread\'</string>
     <string name="view_guide_chain_style_packed">Chained views with \nlayout_constraintHorizontal_chainStyle=\'packed\'</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis nisl id nibh dictum vulputate nec ut lacus. Curabitur eget sodales nulla. Morbi suscipit aliquam orci vel convallis. Donec at nunc a purus interdum volutpat. Curabitur eu elementum libero, vel sodales nisi. Donec eget orci tristique, luctus odio eget, pellentesque risus. Morbi varius rhoncus nibh, ut lacinia enim porta non. Aliquam a enim quam. Fusce facilisis magna ut enim sagittis aliquam. Vivamus cursus lacus eu lorem dictum aliquam.</string>
+
+    <string name="barrier_guide_text">In this Barrier example, the barrier is set on the right side of "Small Label" and "ACTION LABEL". Notice initially how this description is pushed by the action button. Now, if you toggle the label text, you will see the barrier also grows with it and pushes this content event further.</string>
+
+    <string name="barrier_label_text_small">Small Label</string>
+    <string name="barrier_label_text_long">Much Longer Translated Label</string>
+
+    <string name="barrier_label_button_small">Action Label</string>
+    <string name="barrier_label_button_long">Action Longer Translated Label</string>
+
 </resources>
