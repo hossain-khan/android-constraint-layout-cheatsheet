@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet.svg?style=svg)](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet) [![codebeat badge](https://codebeat.co/badges/bf0c09f2-f87c-49cc-b437-ee1a975ed830)](https://codebeat.co/projects/github-com-amardeshbd-android-constraint-layout-cheatsheet-master)
+[![CircleCI](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet.svg?style=svg)](https://circleci.com/gh/amardeshbd/android-constraint-layout-cheatsheet) [![codebeat badge](https://codebeat.co/badges/bf0c09f2-f87c-49cc-b437-ee1a975ed830)](https://codebeat.co/projects/github-com-amardeshbd-android-constraint-layout-cheatsheet-master) [![Beta Badge](https://img.shields.io/badge/Google%20Play-BETA-orange.svg)](https://play.google.com/store/apps/details?id=com.hossainkhan.android.constraintlayout)
 
 
 # ConstraintLayout Demo
