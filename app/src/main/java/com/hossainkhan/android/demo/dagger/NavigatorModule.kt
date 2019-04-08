@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Hossain Khan
+ * Copyright (c) 2019 Hossain Khan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,17 @@
 
 package com.hossainkhan.android.demo.dagger
 
-import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
-import dagger.Subcomponent
-import dagger.android.AndroidInjector
+import android.content.Context
+import com.hossainkhan.android.demo.browse.DefaultLayoutBrowseNavigator
+import com.hossainkhan.android.demo.browse.LayoutBrowseNavigator
+import dagger.Module
+import dagger.Provides
 
-@Subcomponent
-interface MainActivitySubcomponent : AndroidInjector<LayoutBrowseActivity> {
-    @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<LayoutBrowseActivity>()
+@Module
+class NavigatorModule {
+
+    @Provides
+    fun provideLayoutBrowseNavigator(context: Context): LayoutBrowseNavigator {
+        return DefaultLayoutBrowseNavigator(context)
+    }
 }

@@ -16,6 +16,7 @@
 
 package com.hossainkhan.android.demo.dagger
 
+import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
@@ -48,9 +49,10 @@ abstract class ActivityBindingModule {
      * into the subcomponent. If the subcomponent needs scopes, apply the scope annotations to
      * the method as well.
      */
+
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun layoutPositioningActivity(): LayoutPreviewBaseActivity
+    abstract fun layoutPreviewBaseActivity(): LayoutPreviewBaseActivity
 
     @ActivityScope
     @ContributesAndroidInjector
