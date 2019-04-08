@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
 import android.content.Context
 import android.content.SharedPreferences

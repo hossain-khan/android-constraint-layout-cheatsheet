@@ -18,10 +18,10 @@ package com.hossainkhan.android.demo.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.hossainkhan.android.demo.browse.LayoutBrowseNavigator
-import com.hossainkhan.android.demo.browse.LayoutBrowseViewModel
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseNavigator
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseViewModel
 import com.hossainkhan.android.demo.data.AppDataStore
-import com.hossainkhan.android.demo.layoutpreview.LayoutInfoViewModel
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutInfoViewModel
 import javax.inject.Inject
 
 /**

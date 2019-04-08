@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.browse
+package com.hossainkhan.android.demo.ui.browse
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,10 +22,10 @@ import androidx.lifecycle.ViewModel
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
-import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
 import timber.log.Timber
 
 class LayoutBrowseViewModel(

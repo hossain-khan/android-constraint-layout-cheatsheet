@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpreview
+package com.hossainkhan.android.demo.ui.layoutpreview
 
 import android.content.SharedPreferences
 import android.content.res.Resources

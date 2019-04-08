@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
 import android.content.Context
-import com.hossainkhan.android.demo.browse.DefaultLayoutBrowseNavigator
-import com.hossainkhan.android.demo.browse.LayoutBrowseNavigator
+import com.hossainkhan.android.demo.ui.browse.DefaultLayoutBrowseNavigator
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseNavigator
 import dagger.Module
 import dagger.Provides
 

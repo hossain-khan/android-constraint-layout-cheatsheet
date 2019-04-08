@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
 import android.app.Activity
-import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ActivityKey

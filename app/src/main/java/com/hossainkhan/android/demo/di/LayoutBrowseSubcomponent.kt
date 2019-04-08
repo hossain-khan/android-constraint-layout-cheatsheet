@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
-import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

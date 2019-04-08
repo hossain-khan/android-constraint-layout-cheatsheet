@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.browse
+package com.hossainkhan.android.demo.ui.browse
 
 import android.content.Context
 import android.content.Intent
-import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
 import javax.inject.Inject
 
 class DefaultLayoutBrowseNavigator @Inject constructor(private val context: Context) : LayoutBrowseNavigator {

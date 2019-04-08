@@ -19,7 +19,7 @@ package com.hossainkhan.android.demo.base
 import android.app.Activity
 import android.app.Application
 import com.hossainkhan.android.demo.BuildConfig
-import com.hossainkhan.android.demo.dagger.DaggerDemoApplicationComponent
+import com.hossainkhan.android.demo.di.DaggerDemoApplicationComponent
 import com.squareup.leakcanary.LeakCanary
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
