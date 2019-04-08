@@ -24,13 +24,13 @@ import dagger.android.ActivityKey
 import dagger.android.AndroidInjector
 import dagger.multibindings.IntoMap
 
-@Module(subcomponents = arrayOf(MainActivitySubcomponent::class))
-abstract class MainActivityModule {
+@Module(subcomponents = [LayoutBrowseSubcomponent::class])
+abstract class LayoutBrowseActivityModule {
 
     @Binds
     @IntoMap
     @ActivityKey(LayoutBrowseActivity::class)
     abstract fun bindMainActivityInjectorFactory(
-            builder: MainActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
+            builder: LayoutBrowseSubcomponent.Builder): AndroidInjector.Factory<out Activity>
 
 }

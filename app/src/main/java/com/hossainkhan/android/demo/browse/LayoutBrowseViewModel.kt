@@ -19,12 +19,18 @@ package com.hossainkhan.android.demo.browse
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
+import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
 import timber.log.Timber
 
 class LayoutBrowseViewModel(
-        appDataStore: AppDataStore) : ViewModel() {
+        appDataStore: AppDataStore,
+        private val browseNavigator: LayoutBrowseNavigator) : ViewModel() {
 
     private val layoutInfoListLiveData = MutableLiveData<List<LayoutInformation>>()
 
@@ -32,10 +38,38 @@ class LayoutBrowseViewModel(
         get() = layoutInfoListLiveData
 
     init {
-        Timber.d("Got data: ${appDataStore.isFirstTime()}")
+        Timber.d("Is first time user: ${appDataStore.isFirstTime()}")
         appDataStore.updateFirstTimeUser(false)
 
 
         layoutInfoListLiveData.value = appDataStore.layoutStore.supportedLayoutInfos
+    }
+
+
+    fun onLayoutItemSelected(layoutResId: Int) {
+        Timber.i("Selected layout id: %s", layoutResId)
+
+        /*
+         * Where applicable, loads specific activity with interactive feature for user to try out feature.
+         */
+        when (layoutResId) {
+            R.layout.preview_visibility_gone -> {
+                browseNavigator.loadLayoutPreview(LayoutVisibilityGoneActivity::class.java, layoutResId)
+            }
+            R.layout.preview_chain_style_main -> {
+                browseNavigator.loadLayoutPreview(LayoutChainStyleActivity::class.java, layoutResId)
+            }
+            R.layout.preview_virtual_helper_barrier -> {
+                browseNavigator.loadLayoutPreview(LayoutGuidelineBarrierActivity::class.java, layoutResId)
+            }
+            R.layout.preview_virtual_helper_group -> {
+                browseNavigator.loadLayoutPreview(LayoutGuidelineGroupActivity::class.java, layoutResId)
+            }
+            else -> {
+                // By default it loads the preview activity with the layout requested.
+                browseNavigator.loadLayoutPreview(layoutResId)
+            }
+        }
+
     }
 }

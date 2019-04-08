@@ -18,6 +18,7 @@ package com.hossainkhan.android.demo.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.hossainkhan.android.demo.browse.LayoutBrowseNavigator
 import com.hossainkhan.android.demo.browse.LayoutBrowseViewModel
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.layoutpreview.LayoutInfoViewModel
@@ -27,7 +28,8 @@ import javax.inject.Inject
  * The [ViewModelProvider.Factory] that provides all the ViewModels for the activities and fragments.
  */
 class LayoutPreviewViewModelFactory @Inject constructor(
-        private val dataStore: AppDataStore
+        private val dataStore: AppDataStore,
+        private val browseNavigator: LayoutBrowseNavigator
 
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
@@ -37,7 +39,7 @@ class LayoutPreviewViewModelFactory @Inject constructor(
                 LayoutInfoViewModel(dataStore) as T
             }
             modelClass.isAssignableFrom(LayoutBrowseViewModel::class.java) -> {
-                LayoutBrowseViewModel(dataStore) as T
+                LayoutBrowseViewModel(dataStore,browseNavigator) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
