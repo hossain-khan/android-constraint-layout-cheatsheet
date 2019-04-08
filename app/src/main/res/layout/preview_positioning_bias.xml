@@ -21,7 +21,7 @@
     android:layout_height="match_parent"
     android:foreground="@drawable/ic_grid_overlay"
     android:foregroundTint="@color/grid_tint"
-    tools:context=".layoutpreview.LayoutPreviewBaseActivity">
+    tools:context="com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity">
 
     <!--
         1st view that is horizontally biased towards the bottom using 85% bias

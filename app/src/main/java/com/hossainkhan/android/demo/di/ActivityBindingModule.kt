@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
-import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutPreviewBaseActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

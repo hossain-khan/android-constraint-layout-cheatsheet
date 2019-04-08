@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Hossain Khan
+ * Copyright (c) 2018 Hossain Khan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
 import android.content.Context
-import com.hossainkhan.android.demo.browse.DefaultLayoutBrowseNavigator
-import com.hossainkhan.android.demo.browse.LayoutBrowseNavigator
+import android.content.SharedPreferences
+import android.content.res.Resources
 import dagger.Module
 import dagger.Provides
 
 @Module
-class NavigatorModule {
+class DataStoreModule {
+    @Provides
+    internal fun provideSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    }
 
     @Provides
-    fun provideLayoutBrowseNavigator(context: Context): LayoutBrowseNavigator {
-        return DefaultLayoutBrowseNavigator(context)
+    internal fun provideAndroidResoures(context: Context): Resources {
+        return context.resources
     }
 }

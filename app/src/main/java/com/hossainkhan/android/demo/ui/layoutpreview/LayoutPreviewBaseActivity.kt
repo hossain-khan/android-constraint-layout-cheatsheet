@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpreview
+package com.hossainkhan.android.demo.ui.layoutpreview
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Hossain Khan
+ * Copyright (c) 2019 Hossain Khan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpreview
+package com.hossainkhan.android.demo.ui.layoutpreview
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import com.hossainkhan.android.demo.R
 
 /**
- * Activity showcasing how visibility GONE affects constraints.
+ * Activity showcasing how virtual guideline barrier changes when a view length changes within the barrier.
  *
- * See https://developer.android.com/reference/android/support/constraint/ConstraintLayout#VisibilityBehavior
+ * See https://developer.android.com/reference/android/support/constraint/Barrier
  */
-class LayoutVisibilityGoneActivity : LayoutPreviewBaseActivity() {
+class LayoutGuidelineBarrierActivity : LayoutPreviewBaseActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Setup additional view that is only available in this screen.
-        val toggleButton = findViewById<Button>(R.id.toggle_view_visibility_button)
-        val firstView = findViewById<View>(R.id.visibility_behaviour_box_start)
+        val toggleButton = findViewById<Button>(R.id.toggle_label_text_size)
+        val textLabel = findViewById<TextView>(R.id.text_label)
 
         toggleButton.setOnClickListener {
-            when (firstView.visibility) {
-                View.VISIBLE -> firstView.visibility = View.GONE
-                else -> firstView.visibility = View.VISIBLE
+            if (textLabel.text == getString(R.string.barrier_label_text_small)) {
+                textLabel.setText(R.string.barrier_label_text_long)
+            } else {
+                textLabel.setText(R.string.barrier_label_text_small)
             }
         }
     }
-
-
 }

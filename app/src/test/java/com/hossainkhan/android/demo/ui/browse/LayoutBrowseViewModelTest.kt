@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.browse
+package com.hossainkhan.android.demo.ui.browse
 
 import android.content.SharedPreferences
 import android.content.res.Resources
@@ -22,10 +22,10 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutDataStore
-import com.hossainkhan.android.demo.layoutpreview.LayoutChainStyleActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineBarrierActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutGuidelineGroupActivity
-import com.hossainkhan.android.demo.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

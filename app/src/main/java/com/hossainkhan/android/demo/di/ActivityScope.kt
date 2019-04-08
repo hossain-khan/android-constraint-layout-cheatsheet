@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Hossain Khan
+ * Copyright (c) 2018 Hossain Khan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.browse
+package com.hossainkhan.android.demo.di
 
-import androidx.annotation.LayoutRes
+import javax.inject.Scope
 
-/**
- * Interface to navigate for Layout Browse view.
- */
-interface LayoutBrowseNavigator {
-    fun loadLayoutPreview(@LayoutRes layoutResId: Int)
-    fun <T> loadLayoutPreview(clazz: Class<T>, @LayoutRes layoutResId: Int)
-}
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ActivityScope
+

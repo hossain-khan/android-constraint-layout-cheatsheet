@@ -14,32 +14,32 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.layoutpreview
+package com.hossainkhan.android.demo.ui.layoutpreview
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
-import android.widget.TextView
+import androidx.constraintlayout.widget.Group
 import com.hossainkhan.android.demo.R
 
 /**
- * Activity showcasing how virtual guideline barrier changes when a view length changes within the barrier.
+ * Activity showcasing how virtual guideline group containing multiple views and how it can be changed.
  *
  * See https://developer.android.com/reference/android/support/constraint/Barrier
  */
-class LayoutGuidelineBarrierActivity : LayoutPreviewBaseActivity() {
+class LayoutGuidelineGroupActivity : LayoutPreviewBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Setup additional view that is only available in this screen.
         val toggleButton = findViewById<Button>(R.id.toggle_label_text_size)
-        val textLabel = findViewById<TextView>(R.id.text_label)
+        val groupOfViews = findViewById<Group>(R.id.visual_group)
 
         toggleButton.setOnClickListener {
-            if (textLabel.text == getString(R.string.barrier_label_text_small)) {
-                textLabel.setText(R.string.barrier_label_text_long)
-            } else {
-                textLabel.setText(R.string.barrier_label_text_small)
+            when (groupOfViews.visibility) {
+                View.VISIBLE -> groupOfViews.visibility = View.GONE
+                else -> groupOfViews.visibility = View.VISIBLE
             }
         }
     }

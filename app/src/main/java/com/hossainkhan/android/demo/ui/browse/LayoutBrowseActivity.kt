@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.browse
+package com.hossainkhan.android.demo.ui.browse
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

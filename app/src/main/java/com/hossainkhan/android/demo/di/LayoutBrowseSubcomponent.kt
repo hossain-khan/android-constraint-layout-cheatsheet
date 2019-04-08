@@ -14,23 +14,14 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.dagger
+package com.hossainkhan.android.demo.di
 
-import android.app.Activity
-import com.hossainkhan.android.demo.browse.LayoutBrowseActivity
-import dagger.Binds
-import dagger.Module
-import dagger.android.ActivityKey
+import com.hossainkhan.android.demo.ui.browse.LayoutBrowseActivity
+import dagger.Subcomponent
 import dagger.android.AndroidInjector
-import dagger.multibindings.IntoMap
 
-@Module(subcomponents = [LayoutBrowseSubcomponent::class])
-abstract class LayoutBrowseActivityModule {
-
-    @Binds
-    @IntoMap
-    @ActivityKey(LayoutBrowseActivity::class)
-    abstract fun bindMainActivityInjectorFactory(
-            builder: LayoutBrowseSubcomponent.Builder): AndroidInjector.Factory<out Activity>
-
+@Subcomponent
+interface LayoutBrowseSubcomponent : AndroidInjector<LayoutBrowseActivity> {
+    @Subcomponent.Builder
+    abstract class Builder : AndroidInjector.Builder<LayoutBrowseActivity>()
 }
