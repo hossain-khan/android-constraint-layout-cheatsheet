@@ -35,7 +35,7 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 - [ ] Dimension constraints
   * [x] Ratio
   * [x] Percent dimension
-  * [ ] Min and Max
+  * [x] Min and Max
   * [ ] `MATCH_CONSTRAINT` dimensions _(Added in 1.1)_
   * [ ] `WRAP_CONTENT` : enforcing constraints _(Added in 1.1)_
   * [ ] Widgets dimension constraints

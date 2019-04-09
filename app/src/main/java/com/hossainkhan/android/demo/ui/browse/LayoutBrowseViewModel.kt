@@ -23,6 +23,7 @@ import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
@@ -64,6 +65,9 @@ class LayoutBrowseViewModel(
             }
             R.layout.preview_virtual_helper_group -> {
                 browseNavigator.loadLayoutPreview(LayoutGuidelineGroupActivity::class.java, layoutResId)
+            }
+            R.layout.preview_dimension_min_max -> {
+                browseNavigator.loadLayoutPreview(LayoutDimensionMinMaxActivity::class.java, layoutResId)
             }
             else -> {
                 // By default it loads the preview activity with the layout requested.

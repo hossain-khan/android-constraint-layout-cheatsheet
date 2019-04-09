@@ -34,6 +34,9 @@
         <activity
             android:name="com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity"
             android:parentActivityName="com.hossainkhan.android.demo.ui.browse.LayoutBrowseActivity" />
+        <activity
+            android:name="com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity"
+            android:parentActivityName="com.hossainkhan.android.demo.ui.browse.LayoutBrowseActivity" />
     </application>
 
 </manifest>

@@ -111,6 +111,18 @@ class LayoutDataStore @Inject constructor(
                             "The ratio can be expressed either as:\n" +
                             "\n * a float value, representing a ratio between width and height" +
                             "\n * a ratio in the form \"width:height\", for example: `layout_constraintDimensionRatio=\"16:9\"`"),
+
+            /*
+             * https://developer.android.com/reference/android/support/constraint/ConstraintLayout#DimensionConstraints
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.preview_dimension_min_max,
+                    thumbnailResourceId = R.drawable.thumb_dimension_min_max,
+                    title = "Dimension: Min & Max (width/height)",
+                    description = "You can define minimum and maximum sizes for the ConstraintLayout itself:\n\n" +
+                            "* Standard attributes can should be use - `minWidth`, `minHeight`, `maxWidth`, `maxHeight`.\n" +
+                            "* Those minimum and maximum dimensions will be used by ConstraintLayout when its dimensions are set to `WRAP_CONTENT`"),
+
             LayoutInformation(
                     layoutResourceId = R.layout.preview_dimension_percent,
                     thumbnailResourceId = R.drawable.thumb_dimension_percentage,
@@ -118,6 +130,7 @@ class LayoutDataStore @Inject constructor(
                     description = "To use percent, you need to set the following:\n\n" +
                             "* The dimension should be set to MATCH_CONSTRAINT (0dp)\n" +
                             "* Then set the `layout_constraintWidth_percent` or `layout_constraintHeight_percent` attributes to a value between 0.0 and 1.0"),
+
             LayoutInformation(
                     layoutResourceId = R.layout.preview_virtual_helper_guideline,
                     thumbnailResourceId = R.drawable.thumb_virtual_helper_guideline,

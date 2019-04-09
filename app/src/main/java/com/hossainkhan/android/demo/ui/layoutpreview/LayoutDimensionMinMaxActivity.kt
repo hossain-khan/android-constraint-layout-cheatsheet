@@ -22,22 +22,22 @@ import android.widget.TextView
 import com.hossainkhan.android.demo.R
 
 /**
- * Activity showcasing how virtual guideline barrier changes when a view length changes within the barrier.
+ * Activity showcasing how virtual guideline group containing multiple views and how it can be changed.
  *
  * See https://developer.android.com/reference/android/support/constraint/Barrier
  */
-class LayoutGuidelineBarrierActivity : LayoutPreviewBaseActivity() {
+class LayoutDimensionMinMaxActivity : LayoutPreviewBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Setup additional view that is only available in this screen.
-        val toggleButton = findViewById<Button>(R.id.toggle_label_text_size)
-        val textLabel = findViewById<TextView>(R.id.text_label)
+        val toggleButton = findViewById<Button>(R.id.toggle_container_text)
+        val textLabel = findViewById<TextView>(R.id.text_view_with_min_max)
 
         toggleButton.setOnClickListener {
             if (textLabel.text == getString(R.string.label_text_small)) {
-                textLabel.setText(R.string.label_text_long)
+                textLabel.setText(R.string.lorem_ipsum)
             } else {
                 textLabel.setText(R.string.label_text_small)
             }

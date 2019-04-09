@@ -16,8 +16,8 @@
 
     <string name="barrier_guide_text">In this Barrier example, the barrier is set on the right side of "Small Label" and "ACTION LABEL". Notice initially how this description is pushed by the action button. Now, if you toggle the label text, you will see the barrier also grows with it and pushes this content event further.</string>
 
-    <string name="barrier_label_text_small">Small Label</string>
-    <string name="barrier_label_text_long">Much Longer Translated Label</string>
+    <string name="label_text_small">Small Label</string>
+    <string name="label_text_long">Much Longer Translated Label</string>
 
     <string name="barrier_label_button_small">Action Label</string>
     <string name="barrier_label_button_long">Action Longer Translated Label</string>
