@@ -17,6 +17,7 @@
 package com.hossainkhan.android.demo.di
 
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
@@ -68,4 +69,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutGuidelineGroupActivity(): LayoutGuidelineGroupActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutDimensionMinMaxActivity(): LayoutDimensionMinMaxActivity
 }

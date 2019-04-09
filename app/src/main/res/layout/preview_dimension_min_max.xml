@@ -21,57 +21,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:animateLayoutChanges="true">
+    tools:context="com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:constraint_referenced_ids="action_button,text_label" />
 
     <TextView
-        android:id="@+id/text_label"
+        android:id="@+id/text_view_with_min_max"
+        style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/md_pink_200"
+        android:ellipsize="end"
+        android:maxWidth="300dp"
+        android:maxHeight="200dp"
+        android:minWidth="200dp"
+        android:minHeight="100dp"
+        android:padding="8dp"
         android:text="@string/label_text_small"
-        app:layout_constraintEnd_toEndOf="@id/barrier"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/barrier_label_button_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_label" />
-
-    <TextView
-        android:id="@+id/text_content_constrained_on_barrier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/barrier_guide_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/barrier"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.30" />
+
 
 
     <!-- _________________ IGNORE VIEWS BELOW THIS LINE _________________ -->
 
     <!--
-        A button to dynamically set label text to showcase the barrier in effect.
+        A button to dynamically set label text to showcase the min and max width.
     -->
     <Button
-        android:id="@+id/toggle_label_text_size"
+        android:id="@+id/toggle_container_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toggle Text Size"
+        android:layout_margin="20dp"
+        android:text="Toggle Text Content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/guide_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="A view with minHeight=100dp, maxHeight=200dp, minWidth=200dp and maxWidth=300dp"
+        app:layout_constraintEnd_toEndOf="@+id/text_view_with_min_max"
+        app:layout_constraintStart_toStartOf="@+id/text_view_with_min_max"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_with_min_max" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
