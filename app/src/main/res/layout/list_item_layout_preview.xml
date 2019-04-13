@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@color/md_amber_300"
             tools:ignore="ContentDescription"
-            tools:srcCompat="@drawable/ic_position_center_preview" />
+            tools:srcCompat="@drawable/thumb_positioning_center" />
 
         <TextView
             android:id="@+id/layout_preview_name"

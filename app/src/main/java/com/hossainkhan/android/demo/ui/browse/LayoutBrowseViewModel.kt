@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModel
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
@@ -68,6 +69,9 @@ class LayoutBrowseViewModel(
             }
             R.layout.preview_dimension_min_max -> {
                 browseNavigator.loadLayoutPreview(LayoutDimensionMinMaxActivity::class.java, layoutResId)
+            }
+            R.layout.demo_movie_details -> {
+                browseNavigator.loadLayoutPreview(MovieDetailsPreviewActivity::class.java, layoutResId)
             }
             else -> {
                 // By default it loads the preview activity with the layout requested.
