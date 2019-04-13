@@ -176,7 +176,7 @@ class LayoutDataStore @Inject constructor(
                     layoutResourceId = R.layout.demo_movie_details,
                     thumbnailResourceId = R.drawable.spider_verse_poster,
                     title = "Demo: Movie Details",
-                    description = "A demo screen containing movie details.")
+                    description = "A demo screen containing movie details. Rotate device to see constraints in action.")
 
 
             /*
