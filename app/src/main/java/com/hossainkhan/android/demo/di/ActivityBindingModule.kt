@@ -16,6 +16,7 @@
 
 package com.hossainkhan.android.demo.di
 
+import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
@@ -73,4 +74,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutDimensionMinMaxActivity(): LayoutDimensionMinMaxActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutMovieDetailsPreviewActivity(): MovieDetailsPreviewActivity
 }

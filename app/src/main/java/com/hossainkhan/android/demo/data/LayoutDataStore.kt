@@ -159,7 +159,24 @@ class LayoutDataStore @Inject constructor(
                     title = "Virtual Helper: Group",
                     description = "This class controls the visibility of a set of referenced widgets. " +
                             "Widgets are referenced by being added to a comma separated list of ids.\n\n" +
-                            "For example you can link multiple views: `app:constraint_referenced_ids=\"viewId1,viewId2,viewId3\"` and control their visibility at once.")
+                            "For example you can link multiple views: `app:constraint_referenced_ids=\"viewId1,viewId2,viewId3\"` and control their visibility at once."),
+
+            /*
+             * This is a demo of movie details page using various features of constraint layout.
+             *
+             *          .-'-.
+             *        /`     |__
+             *      /`  _.--`-,-`
+             *      '-|`   a '<-.   []
+             *        \     _\__) \=`
+             *         C_  `    ,_/
+             *           | ;----'
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.demo_movie_details,
+                    thumbnailResourceId = R.drawable.spider_verse_poster,
+                    title = "Demo: Movie Details",
+                    description = "A demo screen containing movie details.")
 
 
             /*
