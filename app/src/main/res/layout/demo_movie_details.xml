@@ -19,6 +19,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
+        NOTE: This is a complete demo of a video details view using `ConstraintLayout` and flat view hierarchy.
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,13 +45,32 @@
 
         <!-- ================ END of guidelines =================== -->
 
+        <!-- ================  Begin top section with background, poster and meta info  ================ -->
+
+
+
         <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/spider_verse_background"
-            android:tint="#77999999"
+            android:tint="#99333333"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/movie_trailer"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_play_circle_outline_black_24dp"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/md_pink_300"
+            android:text="Trailer"
+            android:textColor="@color/md_grey_400"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,12 +79,10 @@
             android:id="@+id/poster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/spider_verse_poster"
             app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-            app:layout_constraintTop_toTopOf="@+id/thumbnail" />
+            app:layout_constraintTop_toBottomOf="@+id/movie_trailer" />
 
         <TextView
             android:id="@+id/movie_title"
@@ -70,7 +90,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="Spider-Man: Into The Spider-Verse"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
             app:layout_constraintStart_toEndOf="@+id/poster"

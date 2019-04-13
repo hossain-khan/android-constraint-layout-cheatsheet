@@ -23,6 +23,13 @@ import android.widget.ImageButton
 import android.widget.Toast
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
+import android.content.Intent
+import android.content.res.ColorStateList
+import android.net.Uri
+import android.widget.ImageView
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 
 /**
  * Activity showcasing how visibility GONE affects constraints.
@@ -32,7 +39,15 @@ import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
 class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
     private val generalClickListener = View.OnClickListener { view ->
         Toast.makeText(view.context, "You tapped on ${view}", Toast.LENGTH_SHORT).show()
+
+        // Some custom logic to make the UI alive!
+        when (view.id) {
+            R.id.rating_thumbs_up, R.id.rating_thumbs_down -> {
+                applyColorTint((view as ImageButton), R.color.white)
+            }
+        }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +57,26 @@ class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
         val addToFav = findViewById<ImageButton>(R.id.rating_add_fav)
         val rentButton = findViewById<Button>(R.id.button_rent)
         val buyButton = findViewById<Button>(R.id.button_buy)
+        val trailer = findViewById<Button>(R.id.movie_trailer)
 
         // Apply generic toast listener to touchable views so that user gets feedback when they tap it
         applyToastListener(ratingThumbsUp, ratingThumbsDown, addToFav, rentButton, buyButton)
+
+        trailer.setOnClickListener {
+            val youtubeTrailerUrl = "https://www.youtube.com/watch?v=g4Hbz2jLxvQ"
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(youtubeTrailerUrl)))
+        }
     }
 
     private fun applyToastListener(vararg views: View) {
         views.forEach {
             it.setOnClickListener(generalClickListener)
         }
+    }
+
+    private fun applyColorTint(view: ImageView, @ColorRes tintColor: Int) {
+        ImageViewCompat.setImageTintList(view,
+                ColorStateList.valueOf(ContextCompat.getColor(this.applicationContext, tintColor))
+        )
     }
 }
