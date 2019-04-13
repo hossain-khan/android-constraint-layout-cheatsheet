@@ -13,178 +13,300 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/md_grey_900"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:ignore="HardcodedText, ContentDescription, UnusedAttribute">
+    android:layout_height="match_parent">
 
-    <!-- Vertical guideline to for left and right margin -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_vertical_start"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_grey_900"
+        tools:ignore="HardcodedText, ContentDescription, UnusedAttribute">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_vertical_end"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        <!-- Vertical guideline to for left and right margin -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
 
-    <!-- ================ END of guidelines =================== -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
 
-    <ImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/spider_verse_background"
-        android:tint="#77999999"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- ================ END of guidelines =================== -->
 
-    <ImageView
-        android:id="@+id/poster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/spider_verse_poster"
-        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-        app:layout_constraintTop_toTopOf="@+id/thumbnail" />
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/spider_verse_background"
+            android:tint="#77999999"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/movie_title"
-        style="@style/TextAppearance.AppCompat.Title.Inverse"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Spider-Man: Into The Spider-Verse"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-        app:layout_constraintStart_toEndOf="@+id/poster"
-        app:layout_constraintTop_toTopOf="@+id/poster" />
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/spider_verse_poster"
+            app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+            app:layout_constraintTop_toTopOf="@+id/thumbnail" />
 
-    <TextView
-        android:id="@+id/movie_rating_and_time"
-        style="@style/TextAppearance.AppCompat.Medium.Inverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="G   2018 ▪ 116 mins"
-        app:layout_constraintStart_toStartOf="@+id/movie_title"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+        <TextView
+            android:id="@+id/movie_title"
+            style="@style/TextAppearance.AppCompat.Title.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Spider-Man: Into The Spider-Verse"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
+            app:layout_constraintStart_toEndOf="@+id/poster"
+            app:layout_constraintTop_toTopOf="@+id/poster" />
 
-    <TextView
-        android:id="@+id/user_rating"
-        style="@style/TextAppearance.AppCompat.Medium.Inverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:drawableEnd="@drawable/ic_star_black_16dp"
-        android:drawablePadding="2dp"
-        android:drawableTint="@android:color/white"
-        android:text="4.7"
-        app:layout_constraintStart_toStartOf="@+id/movie_rating_and_time"
-        app:layout_constraintTop_toBottomOf="@+id/movie_rating_and_time" />
+        <TextView
+            android:id="@+id/movie_rating_and_time"
+            style="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G   2018 ▪ 116 mins"
+            app:layout_constraintStart_toStartOf="@+id/movie_title"
+            app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Medium.Inverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:drawableStart="@drawable/ic_people_black_16dp"
-        android:drawablePadding="3dp"
-        android:drawableTint="@android:color/white"
-        android:text="93%"
-        app:layout_constraintLeft_toRightOf="@+id/user_rating"
-        app:layout_constraintTop_toTopOf="@+id/user_rating"
+        <TextView
+            android:id="@+id/user_rating"
+            style="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:drawableEnd="@drawable/ic_star_black_18dp"
+            android:drawablePadding="2dp"
+            android:drawableTint="@android:color/white"
+            android:text="4.7"
+            app:layout_constraintStart_toStartOf="@+id/movie_rating_and_time"
+            app:layout_constraintTop_toBottomOf="@+id/movie_rating_and_time" />
 
-        />
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:drawableStart="@drawable/ic_people_black_18dp"
+            android:drawablePadding="3dp"
+            android:drawableTint="@android:color/white"
+            android:text="93%"
+            app:layout_constraintLeft_toRightOf="@+id/user_rating"
+            app:layout_constraintTop_toTopOf="@+id/user_rating"
 
-    <!-- ================= Chain for the thumbs up, down and rating =================== -->
+            />
 
-    <ImageButton
-        android:id="@+id/rating_thumbs_up"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_thumb_up_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/rating_thumbs_down"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail" />
+        <!-- ================= Chain for the thumbs up, down and rating =================== -->
 
-    <ImageButton
-        android:id="@+id/rating_thumbs_down"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_thumb_down_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/rating_add_fav"
-        app:layout_constraintStart_toEndOf="@+id/rating_thumbs_up"
-        app:layout_constraintTop_toTopOf="@+id/rating_thumbs_up" />
+        <ImageButton
+            android:id="@+id/rating_thumbs_up"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_thumb_up_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/rating_thumbs_down"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+            app:layout_constraintTop_toBottomOf="@+id/thumbnail" />
 
-    <ImageButton
-        android:id="@+id/rating_add_fav"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_playlist_add_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
-        app:layout_constraintStart_toEndOf="@+id/rating_thumbs_down"
-        app:layout_constraintTop_toTopOf="@+id/rating_thumbs_down" />
+        <ImageButton
+            android:id="@+id/rating_thumbs_down"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_thumb_down_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/rating_add_fav"
+            app:layout_constraintStart_toEndOf="@+id/rating_thumbs_up"
+            app:layout_constraintTop_toTopOf="@+id/rating_thumbs_up" />
 
-    <!-- ================= END of Chain for the thumbs up, down and rating =================== -->
+        <ImageButton
+            android:id="@+id/rating_add_fav"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_playlist_add_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
+            app:layout_constraintStart_toEndOf="@+id/rating_thumbs_down"
+            app:layout_constraintTop_toTopOf="@+id/rating_thumbs_down" />
 
-    <TextView
-        android:id="@+id/movie_storyline"
-        style="@style/TextAppearance.AppCompat.Small.Inverse"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ellipsize="end"
-        android:maxLines="5"
-        android:text="Phil Lord and Christopher Miller, the creative minds behind “The Lego Movie” and “21 Jump Street,” bring their unique talents to a fresh vision of a different Spider-Man Universe, with a groundbreaking visual style that’s the first of its kind. “Spider-Man: Into the Spider-Verse” introduces Brooklyn teen Miles Morales, and the limitless possibilities of the Spider-Verse, where more than one can wear the mask."
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-        app:layout_constraintTop_toBottomOf="@+id/rating_thumbs_down" />
+        <!-- ================= END of Chain for the thumbs up, down and rating =================== -->
 
-    <!--  =========================== Begin Chained Button =========================== -->
-    <Button
-        android:id="@+id/button_rent"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Rent from $4.99"
-        app:layout_constraintEnd_toStartOf="@+id/button_buy"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-        app:layout_constraintTop_toBottomOf="@+id/movie_storyline" />
+        <TextView
+            android:id="@+id/movie_storyline"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:text="Phil Lord and Christopher Miller, the creative minds behind “The Lego Movie” and “21 Jump Street,” bring their unique talents to a fresh vision of a different Spider-Man Universe, with a groundbreaking visual style that’s the first of its kind. “Spider-Man: Into the Spider-Verse” introduces Brooklyn teen Miles Morales, and the limitless possibilities of the Spider-Verse, where more than one can wear the mask."
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+            app:layout_constraintTop_toBottomOf="@+id/rating_thumbs_down" />
 
-    <Button
-        android:id="@+id/button_buy"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Buy from $19.99"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
-        app:layout_constraintStart_toEndOf="@+id/button_rent"
-        app:layout_constraintTop_toTopOf="@+id/button_rent" />
+        <!--  =========================== Begin Chained Button =========================== -->
+        <Button
+            android:id="@+id/button_rent"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Rent from $4.99"
+            app:layout_constraintEnd_toStartOf="@+id/button_buy"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+            app:layout_constraintTop_toBottomOf="@+id/movie_storyline" />
+
+        <Button
+            android:id="@+id/button_buy"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Buy from $19.99"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical_end"
+            app:layout_constraintStart_toEndOf="@+id/button_rent"
+            app:layout_constraintTop_toTopOf="@+id/button_rent" />
 
 
-    <!--  =========================== End Chained Button ===========================  -->
+        <!--  =========================== End Chained Button ===========================  -->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- ======================= BEGIN More info block with lots of text info ======================== -->
+
+        <TextView
+            android:id="@+id/more_info_title"
+            style="@style/TextAppearance.AppCompat.Title.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="More Information"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_vertical_start"
+            app:layout_constraintRight_toRightOf="@+id/guideline_vertical_end"
+            app:layout_constraintTop_toBottomOf="@+id/button_rent" />
+
+        <TextView
+            android:id="@+id/info_audio_language_label"
+            style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Audio Language"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_vertical_start"
+            app:layout_constraintRight_toLeftOf="@+id/info_closed_caption_label"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_title" />
+
+        <TextView
+            android:id="@+id/info_closed_caption_label"
+            style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:text="Closed Caption"
+            app:layout_constraintLeft_toRightOf="@+id/info_audio_language_label"
+            app:layout_constraintRight_toRightOf="@+id/guideline_vertical_end"
+            app:layout_constraintTop_toTopOf="@+id/info_audio_language_label" />
+
+        <TextView
+            android:id="@+id/info_audio_language_value"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="English (5.1)"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_vertical_start"
+            app:layout_constraintRight_toLeftOf="@+id/info_closed_caption_value"
+            app:layout_constraintTop_toBottomOf="@id/info_audio_language_label" />
+
+        <TextView
+            android:id="@+id/info_closed_caption_value"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="English [CC]"
+            app:layout_constraintLeft_toRightOf="@id/info_audio_language_value"
+            app:layout_constraintRight_toRightOf="@+id/guideline_vertical_end"
+            app:layout_constraintTop_toTopOf="@id/info_audio_language_value" />
+
+
+        <TextView
+            android:id="@+id/info_rental_expiration_label"
+            style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Rental Expiration"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_vertical_start"
+            app:layout_constraintRight_toLeftOf="@+id/info_family_library_label"
+            app:layout_constraintTop_toBottomOf="@+id/info_closed_caption_value" />
+
+        <TextView
+            android:id="@+id/info_family_library_label"
+            style="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:text="Family Library"
+            app:layout_constraintLeft_toRightOf="@+id/info_rental_expiration_label"
+            app:layout_constraintRight_toRightOf="@+id/guideline_vertical_end"
+            app:layout_constraintTop_toTopOf="@+id/info_rental_expiration_label" />
+
+        <TextView
+            android:id="@+id/info_rental_expiration_value"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="Start within 30 days of rental, finish within 2 days"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline_vertical_start"
+            app:layout_constraintRight_toLeftOf="@+id/info_family_library_value"
+            app:layout_constraintTop_toBottomOf="@id/info_rental_expiration_label" />
+
+        <TextView
+            android:id="@+id/info_family_library_value"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Content eligible for Family Library if purchased with select payment method. Rentals are not eligible for family sharing."
+            app:layout_constraintLeft_toRightOf="@id/info_rental_expiration_value"
+            app:layout_constraintRight_toRightOf="@+id/guideline_vertical_end"
+            app:layout_constraintTop_toTopOf="@id/info_rental_expiration_value" />
+
+        <!-- =============================== End of More info block =============================== -->
+
+        <!-- Empty view to take extra space at the end for scrolling -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_family_library_value"
+            tools:background="@color/colorAccent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

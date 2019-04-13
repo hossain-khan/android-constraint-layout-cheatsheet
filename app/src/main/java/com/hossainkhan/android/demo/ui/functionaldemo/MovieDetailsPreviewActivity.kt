@@ -18,6 +18,7 @@ package com.hossainkhan.android.demo.ui.functionaldemo
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import com.hossainkhan.android.demo.R
@@ -38,11 +39,15 @@ class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
 
         val ratingThumbsUp = findViewById<ImageButton>(R.id.rating_thumbs_up)
         val ratingThumbsDown = findViewById<ImageButton>(R.id.rating_thumbs_down)
+        val addToFav = findViewById<ImageButton>(R.id.rating_add_fav)
+        val rentButton = findViewById<Button>(R.id.button_rent)
+        val buyButton = findViewById<Button>(R.id.button_buy)
 
-        applyToastListener(ratingThumbsUp, ratingThumbsDown)
+        // Apply generic toast listener to touchable views so that user gets feedback when they tap it
+        applyToastListener(ratingThumbsUp, ratingThumbsDown, addToFav, rentButton, buyButton)
     }
 
-    fun applyToastListener(vararg views: View) {
+    private fun applyToastListener(vararg views: View) {
         views.forEach {
             it.setOnClickListener(generalClickListener)
         }
