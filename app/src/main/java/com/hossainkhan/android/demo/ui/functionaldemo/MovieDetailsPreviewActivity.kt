@@ -30,6 +30,8 @@ import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Activity showcasing how visibility GONE affects constraints.
@@ -49,6 +51,8 @@ class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
     }
 
 
+    private lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -65,6 +69,14 @@ class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
         trailer.setOnClickListener {
             val youtubeTrailerUrl = "https://www.youtube.com/watch?v=g4Hbz2jLxvQ"
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(youtubeTrailerUrl)))
+        }
+
+        recyclerView = findViewById(R.id.movie_related_contents)
+
+        recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@MovieDetailsPreviewActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = MoviePosterAdapter()
         }
     }
 
