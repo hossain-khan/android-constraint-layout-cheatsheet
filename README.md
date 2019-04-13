@@ -23,6 +23,7 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 * Each example may also contain additional resource links to blog or technical articles
 * Example may have set of sliders/toggle to change metrics dynamically to visualize.
 
+See **[contribution](CONTRIBUTING.md)** guideline if you want to add demos or fix something.
 
 ### `ConstraintLayout` features to cover 
 - [ ] Relative positioning
@@ -61,7 +62,7 @@ These are the **my** objectives for this demo application.
 Here is a snapshot of current progress _(This will be updated from time to time)_.  
 
 ![Browse Layout Variances - Landscape Mode](https://user-images.githubusercontent.com/99822/39678468-6de62ce8-515b-11e8-9516-5203bef17d8a.png)   
-![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png) ![Complete Demo](https://user-images.githubusercontent.com/99822/56073672-f84f1580-5d75-11e9-960e-46640546155e.png)
+![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png) ![Complete Demo](https://user-images.githubusercontent.com/99822/56074662-80d4b280-5d84-11e9-83a5-4c6440662359.png)
 
 
 ### Screencast
