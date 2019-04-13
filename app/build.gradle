@@ -11,7 +11,7 @@ android {
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode 8
-        versionName "1.8-constraint-layout-demo"
+        versionName "1.6-constraint-layout-demo"
         versionNameSuffix "-${gitSha()}"
 
         buildConfigField "String", "GIT_SHA", "\"${gitSha()}\""
