@@ -26,6 +26,8 @@ See https://github.com/googlesamples/android-ConstraintLayoutExamples
 See **[contribution](CONTRIBUTING.md)** guideline if you want to add demos or fix something.
 
 ### `ConstraintLayout` features to cover 
+> _TIP: Jump to [layout resources](https://github.com/amardeshbd/android-constraint-layout-cheatsheet/tree/master/app/src/main/res/layout) directoy to see existing layouts._
+
 - [ ] Relative positioning
   * [ ] Horizontal Axis: left, right, start and end sides
   * [ ] Vertical Axis: top, bottom sides and text baseline
