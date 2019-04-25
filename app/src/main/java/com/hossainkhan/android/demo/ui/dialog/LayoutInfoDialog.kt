@@ -32,18 +32,33 @@ import com.hossainkhan.android.demo.R
 /**
  * Bottom sheet dialog to show layout information.
  */
-class LayoutInfoDialog(
-        private val title: String = "",
-        private val desciption: String = "",
-        private val previewXmlListener: (() -> Unit)? = null
-) : BottomSheetDialogFragment() {
+class LayoutInfoDialog : BottomSheetDialogFragment() {
+    companion object {
+        private const val BUNDLE_ARG_KEY_TITLE = "BUNDLE_TITLE"
+        private const val BUNDLE_ARG_KEY_DESC = "BUNDLE_DESCRIPTION"
+
+        fun newInstance(title: String, description: String): LayoutInfoDialog {
+            val args = Bundle()
+            args.putString(BUNDLE_ARG_KEY_TITLE, title)
+            args.putString(BUNDLE_ARG_KEY_DESC, description)
+
+            val dialog = LayoutInfoDialog()
+
+            dialog.arguments = args
+
+            return dialog
+        }
+    }
+
+
     lateinit var infoTitle: TextView
     lateinit var infoDescription: TextView
     lateinit var okButton: MaterialButton
     lateinit var previewXml: MaterialButton
+    var previewXmlListener: (() -> Unit)? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.dialog_layout_info_sheet, container, false)
+        val view = inflater.inflate(com.hossainkhan.android.demo.R.layout.dialog_layout_info_sheet, container, false)
         infoTitle = view.findViewById(R.id.layout_info_title)
         infoDescription = view.findViewById(R.id.layout_info_description)
         okButton = view.findViewById(R.id.layout_info_ok)
@@ -64,7 +79,10 @@ class LayoutInfoDialog(
             behavior.peekHeight = 0
         }
 
-        bindView()
+        bindView(
+                arguments!!.getString(BUNDLE_ARG_KEY_TITLE, ""),
+                arguments!!.getString(BUNDLE_ARG_KEY_DESC, "")
+        )
     }
 
     override fun onPause() {
@@ -73,9 +91,9 @@ class LayoutInfoDialog(
     }
 
 
-    private fun bindView() {
+    private fun bindView(title: String, description: String) {
         infoTitle.text = title
-        infoDescription.text = desciption
+        infoDescription.text = description
 
         okButton.setOnClickListener { dismiss() }
         previewXml.setOnClickListener {

@@ -112,10 +112,11 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
      * Loads layout information and previews in a snackbar.
      */
     private fun showLayoutInfo(layoutInformation: LayoutInformation, fromUser: Boolean = false) {
-        infoDialog = LayoutInfoDialog(
+        infoDialog = LayoutInfoDialog.newInstance(
                 layoutInformation.title.toString(),
                 layoutInformation.description.toString()
-        ) { loadLayoutUrl() }
+        )
+        infoDialog?.previewXmlListener = { loadLayoutUrl() }
 
         Timber.d("Layout info showing: %s", infoDialog?.isVisible)
         if (infoDialog?.isVisible == false) {
