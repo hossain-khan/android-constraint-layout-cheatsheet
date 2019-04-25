@@ -32,7 +32,9 @@ class MoviePosterAdapter : RecyclerView.Adapter<MoviePosterAdapter.PosterViewHol
             R.drawable.poster_angry_birds,
             R.drawable.poster_lego_movie,
             R.drawable.poster_wreckit_ralph,
-            R.drawable.poster_dragon3
+            R.drawable.poster_dragon3,
+            R.drawable.poster_i1,
+            R.drawable.poster_finding_nemo
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {

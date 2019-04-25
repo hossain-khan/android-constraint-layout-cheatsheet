@@ -55,6 +55,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="@string/btn_cta_preview_layout_xml"
+        app:backgroundTint="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/layout_info_ok"
         app:layout_constraintTop_toBottomOf="@+id/layout_info_description" />
 
@@ -66,6 +67,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="@string/btn_cta_okay"
+        app:backgroundTint="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_info_description" />
 
