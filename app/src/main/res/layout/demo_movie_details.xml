@@ -63,17 +63,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/movie_trailer"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_play_circle_outline_black_24dp"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/md_pink_300"
             android:text="Trailer"
             android:textColor="@color/md_grey_400"
+            app:icon="@drawable/ic_play_circle_outline_black_24dp"
+            app:iconPadding="5dp"
+            app:iconTint="@color/md_pink_300"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -128,8 +128,8 @@
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:drawableStart="@drawable/ic_people_black_18dp"
-            android:drawablePadding="5dp"
             android:drawableEnd="@drawable/ic_baseline_4k_18dp"
+            android:drawablePadding="5dp"
             android:drawableTint="@android:color/white"
             android:text="93%"
             app:layout_constraintLeft_toRightOf="@+id/user_rating"
@@ -187,21 +187,22 @@
             app:layout_constraintTop_toBottomOf="@+id/rating_thumbs_down" />
 
         <!--  =========================== Begin Chained Button =========================== -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_rent"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:text="Rent from $4.99"
             app:layout_constraintEnd_toStartOf="@+id/button_buy"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
             app:layout_constraintTop_toBottomOf="@+id/movie_storyline" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_buy"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Buy from $19.99"
