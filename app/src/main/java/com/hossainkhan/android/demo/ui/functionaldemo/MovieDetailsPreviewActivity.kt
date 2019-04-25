@@ -45,7 +45,7 @@ class MovieDetailsPreviewActivity : LayoutPreviewBaseActivity() {
         // Some custom logic to make the UI alive!
         when (view.id) {
             R.id.rating_thumbs_up, R.id.rating_thumbs_down -> {
-                applyColorTint((view as ImageButton), R.color.white)
+                applyColorTint((view as ImageButton), android.R.color.white)
             }
         }
     }

@@ -28,9 +28,9 @@ import androidx.core.app.NavUtils
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.andrognito.flashbar.Flashbar
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.ui.dialog.LayoutInfoDialog
 import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
 import dagger.android.AndroidInjection
 import timber.log.Timber
@@ -81,7 +81,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
 
     private lateinit var viewModel: LayoutInfoViewModel
 
-    internal var flashbar: Flashbar? = null
+    internal var infoDialog: LayoutInfoDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -104,12 +104,6 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
                 })
     }
 
-    override fun onStop() {
-        super.onStop()
-        flashbar?.dismiss()
-        flashbar = null
-    }
-
     private fun updateActionBar(layoutInformation: LayoutInformation) {
         supportActionBar?.title = layoutInformation.title
     }
@@ -118,39 +112,21 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
      * Loads layout information and previews in a snackbar.
      */
     private fun showLayoutInfo(layoutInformation: LayoutInformation, fromUser: Boolean = false) {
-        if (flashbar == null) {
-            flashbar = Flashbar.Builder(this)
-                    .gravity(Flashbar.Gravity.BOTTOM)
-                    .title(layoutInformation.title.toString())
-                    .message(layoutInformation.description.toString())
-                    .backgroundColorRes(R.color.colorPrimaryDark)
-                    .positiveActionText(R.string.btn_cta_preview_layout_xml)
-                    .negativeActionText(R.string.btn_cta_okay)
-                    .positiveActionTextColorRes(R.color.colorAccent)
-                    .negativeActionTextColorRes(R.color.colorAccent)
-                    .positiveActionTapListener(object : Flashbar.OnActionTapListener {
-                        override fun onActionTapped(bar: Flashbar) {
-                            Timber.d("Loading the XML for ")
-                            bar.dismiss()
-                            loadLayoutUrl()
-                        }
-                    })
-                    .negativeActionTapListener(object : Flashbar.OnActionTapListener {
-                        override fun onActionTapped(bar: Flashbar) {
-                            Timber.d("Closing dialog.")
-                            bar.dismiss()
-                        }
-                    })
-                    .build()
-        }
+        infoDialog = LayoutInfoDialog.newInstance(
+                layoutInformation.title.toString(),
+                layoutInformation.description.toString()
+        )
+        infoDialog?.previewXmlListener = { loadLayoutUrl() }
 
-        Timber.d("Flash bar showing: %s", flashbar?.isShown())
-        if (flashbar?.isShown() == false) {
+        Timber.d("Layout info showing: %s", infoDialog?.isVisible)
+        if (infoDialog?.isVisible == false) {
             if (fromUser || viewModel.isFirstTime) {
-                flashbar?.show()
+                infoDialog?.let {
+                    it.show(supportFragmentManager, "dialog")
+                }
             }
         } else {
-            flashbar?.dismiss()
+            infoDialog?.dismiss()
         }
     }
 
