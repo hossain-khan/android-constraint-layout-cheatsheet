@@ -22,10 +22,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.button.MaterialButton
 import com.hossainkhan.android.demo.R
 
 
@@ -58,7 +58,7 @@ class LayoutInfoDialog : BottomSheetDialogFragment() {
     var previewXmlListener: (() -> Unit)? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(com.hossainkhan.android.demo.R.layout.dialog_layout_info_sheet, container, false)
+        val view = inflater.inflate(R.layout.dialog_layout_info_sheet, container, false)
         infoTitle = view.findViewById(R.id.layout_info_title)
         infoDescription = view.findViewById(R.id.layout_info_description)
         okButton = view.findViewById(R.id.layout_info_ok)
