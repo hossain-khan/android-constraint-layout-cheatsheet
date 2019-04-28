@@ -16,17 +16,20 @@
 
 package com.hossainkhan.android.demo.ui.dialog
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.browser.customtabs.CustomTabsIntent
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
 import com.hossainkhan.android.demo.R
+import timber.log.Timber
 
 
 /**
@@ -36,11 +39,13 @@ class LayoutInfoDialog : BottomSheetDialogFragment() {
     companion object {
         private const val BUNDLE_ARG_KEY_TITLE = "BUNDLE_TITLE"
         private const val BUNDLE_ARG_KEY_DESC = "BUNDLE_DESCRIPTION"
+        private const val BUNDLE_ARG_KEY_LAYOUT_URL = "BUNDLE_LAYOUT_URL"
 
-        fun newInstance(title: String, description: String): LayoutInfoDialog {
+        fun newInstance(title: String, description: String, layoutUrl: String): LayoutInfoDialog {
             val args = Bundle()
             args.putString(BUNDLE_ARG_KEY_TITLE, title)
             args.putString(BUNDLE_ARG_KEY_DESC, description)
+            args.putString(BUNDLE_ARG_KEY_LAYOUT_URL, layoutUrl)
 
             val dialog = LayoutInfoDialog()
 
@@ -55,7 +60,6 @@ class LayoutInfoDialog : BottomSheetDialogFragment() {
     lateinit var infoDescription: TextView
     lateinit var okButton: MaterialButton
     lateinit var previewXml: MaterialButton
-    var previewXmlListener: (() -> Unit)? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.dialog_layout_info_sheet, container, false)
@@ -83,6 +87,7 @@ class LayoutInfoDialog : BottomSheetDialogFragment() {
                 arguments!!.getString(BUNDLE_ARG_KEY_TITLE, ""),
                 arguments!!.getString(BUNDLE_ARG_KEY_DESC, "")
         )
+
     }
 
     override fun onPause() {
@@ -98,7 +103,19 @@ class LayoutInfoDialog : BottomSheetDialogFragment() {
         okButton.setOnClickListener { dismiss() }
         previewXml.setOnClickListener {
             dismiss()
-            previewXmlListener?.invoke()
+            loadLayoutUrl(arguments!!.getString(BUNDLE_ARG_KEY_LAYOUT_URL, null))
         }
+    }
+
+    /**
+     * Loads currently running layout from Github into chrome web view.
+     */
+    fun loadLayoutUrl(url: String) {
+        Timber.d("Showing layout source code via: %s", url)
+        val builder = CustomTabsIntent.Builder()
+        builder.setShowTitle(false)
+                .addDefaultShareMenuItem()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(context, Uri.parse(url))
     }
 }
