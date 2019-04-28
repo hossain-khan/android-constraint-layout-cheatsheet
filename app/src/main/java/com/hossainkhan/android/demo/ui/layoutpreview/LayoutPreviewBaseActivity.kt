@@ -112,13 +112,15 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
      * Loads layout information and previews in a snackbar.
      */
     private fun showLayoutInfo(layoutInformation: LayoutInformation, fromUser: Boolean = false) {
-        infoDialog = LayoutInfoDialog.newInstance(
-                layoutInformation.title.toString(),
-                layoutInformation.description.toString()
-        )
-        infoDialog?.previewXmlListener = { loadLayoutUrl() }
+        if (infoDialog == null) {
+            infoDialog = LayoutInfoDialog.newInstance(
+                    layoutInformation.title.toString(),
+                    layoutInformation.description.toString(),
+                    viewModel.layoutUrl
+            )
+        }
 
-        Timber.d("Layout info showing: %s", infoDialog?.isVisible)
+        Timber.d("Layout info is showing: %s", infoDialog?.isVisible)
         if (infoDialog?.isVisible == false) {
             if (fromUser || viewModel.isFirstTime) {
                 infoDialog?.let {
@@ -130,17 +132,11 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Loads currently running layout from Github into chrome web view.
-     */
-    fun loadLayoutUrl() {
-        val builder = CustomTabsIntent.Builder()
-        builder.setShowTitle(false)
-                .addDefaultShareMenuItem()
-        val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(this, Uri.parse(viewModel.layoutUrl))
+    override fun onStop() {
+        super.onStop()
+        Timber.d("Clearing the layout info dialog.")
+        infoDialog = null
     }
-
 
     //
     // Setup menu item on the action bar.
