@@ -170,12 +170,9 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="666666" />
-                            <entry key="height" value="18" />
                             <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="ic_baseline_4k_24dp" />
-                            <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="$USER_HOME$/Downloads/baseline-4k-24px.svg" />
-                            <entry key="width" value="18" />
+                            <entry key="outputName" value="ic_ted_talks_logo" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/ted-2.svg" />
                           </map>
                         </option>
                       </PersistentState>

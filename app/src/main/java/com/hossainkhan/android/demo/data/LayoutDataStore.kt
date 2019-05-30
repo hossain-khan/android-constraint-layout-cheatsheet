@@ -176,7 +176,28 @@ class LayoutDataStore @Inject constructor(
                     layoutResourceId = R.layout.demo_movie_details,
                     thumbnailResourceId = R.drawable.spider_verse_poster,
                     title = "Demo: Movie Details",
-                    description = "A demo screen containing movie details. Rotate device to see constraints in action.")
+                    description = "A demo screen containing movie details. Rotate device to see constraints in action."),
+
+            /*
+             * This is a demo of TED Talk video playback screen.
+             *   ___________________
+             * )=|                 |     /
+             *   |    TED Talks    |====||
+             *   |                 |====||
+             *   |                 |+    \
+             *   -------------------
+             *          (--)
+             *         *    *
+             *        *      *
+             *       *        *
+             *      *          *
+             *     *            *
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.demo_ted_talk_playback,
+                    thumbnailResourceId = R.drawable.ic_ted_talks_logo,
+                    title = "Demo: TED Talk Video",
+                    description = "A demo screen containing TED talks video playback screen with different controls.")
 
 
             /*
