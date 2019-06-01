@@ -16,23 +16,274 @@
   ~ limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <!--
+        FIXME =============================================================================
+        TODO: Re-organize elements according to UI flow
+        FIXME =============================================================================
+    -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/video_player_thumbnail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_image_black_140dp"
-        app:layout_constraintDimensionRatio="W,16:9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="#888" />
+        <ImageButton
+
+            android:id="@+id/action_prev_track"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_skip_previous_black_42dp"
+            android:tint="@color/md_grey_500"
+            app:layout_constraintBottom_toBottomOf="@+id/action_rewind15"
+            app:layout_constraintEnd_toStartOf="@+id/action_rewind15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/action_rewind15" />
+
+        <ImageButton
+
+            android:id="@+id/action_rewind15"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_replay_30_black_42dp"
+            android:tint="@color/md_grey_500"
+            app:layout_constraintBottom_toBottomOf="@+id/action_play_pause"
+            app:layout_constraintEnd_toStartOf="@+id/action_play_pause"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/action_prev_track"
+            app:layout_constraintTop_toTopOf="@+id/action_play_pause" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+
+            android:id="@+id/action_play_pause"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_play_arrow_black_42dp"
+            android:tint="@color/md_white_1000"
+            app:layout_constraintEnd_toStartOf="@+id/action_forward15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/action_rewind15"
+            app:layout_constraintTop_toBottomOf="@+id/talk_title" />
+
+        <ImageButton
+
+            android:id="@+id/action_forward15"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_forward_30_black_42dp"
+            app:layout_constraintBottom_toBottomOf="@+id/action_play_pause"
+            app:layout_constraintEnd_toStartOf="@+id/action_next_track"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/action_play_pause"
+            app:layout_constraintTop_toTopOf="@+id/action_play_pause" />
+
+        <ImageButton
+
+            android:id="@+id/action_next_track"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_skip_next_black_42dp"
+            app:layout_constraintBottom_toBottomOf="@+id/action_forward15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/action_forward15"
+            app:layout_constraintTop_toTopOf="@+id/action_forward15" />
+
+
+        <ImageView
+            android:id="@+id/video_player_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+
+            android:src="@drawable/ic_ted_talks_logo"
+            app:layout_constraintDimensionRatio="W,16:9"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#888" />
+
+
+        <SeekBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:progress="35"
+            app:layout_constraintEnd_toStartOf="@+id/time_total"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/time_elapsed"
+            app:layout_constraintTop_toBottomOf="@+id/action_play_pause" />
+
+
+
+        <TextView
+            android:id="@+id/talk_title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="Why student journalists should be protected from censorship"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@+id/author" />
+
+
+        <TextView
+            android:id="@+id/author"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal"
+            android:text="Neha Madhira and Haley Stack"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@+id/video_player_thumbnail" />
+
+        <TextView
+            android:id="@+id/time_elapsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02:56"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            app:layout_constraintEnd_toStartOf="@+id/progressBar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+        <TextView
+            android:id="@+id/time_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:38"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/progressBar"
+            app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+        <ImageView
+            android:id="@+id/author_thumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/circle"
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@id/author_section_title" />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_divider_bottom" />
+
+        <TextView
+            android:id="@+id/author_name"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Neha Madhira and Haley Stack"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/author_title"
+            app:layout_constraintLeft_toRightOf="@id/author_thumbnail"
+            app:layout_constraintTop_toTopOf="@+id/author_thumbnail"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/author_title"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marine biologist"
+            app:layout_constraintBottom_toBottomOf="@+id/author_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/author_name"
+            app:layout_constraintTop_toBottomOf="@id/author_name" />
+
+        <TextView
+            android:id="@+id/author_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hyphenationFrequency="full"
+            android:text="As a Senior Scientist at the Marine Biological Laboratory in Woods Hole, Massachusetts, Roger Hanlon delves into the undersea world of chameleon-like, color-changing marine animals — and the practical applications that will emerge when we crack their secrets."
+            app:layout_constraintLeft_toRightOf="@id/guideline_vertical_left"
+
+            app:layout_constraintRight_toLeftOf="@id/guideline_vertical_right"
+            app:layout_constraintTop_toBottomOf="@id/author_thumbnail" />
+
+        <TextView
+            android:id="@+id/author_section_title"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="About the speaker"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@id/content_divider_top" />
+
+        <View
+            android:id="@+id/content_divider_bottom"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/md_grey_400"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
+            app:layout_constraintRight_toRightOf="@id/guideline_vertical_right"
+            app:layout_constraintTop_toBottomOf="@id/author_description" />
+
+
+        <View
+            android:id="@+id/content_divider_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/md_grey_400"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
+            app:layout_constraintRight_toRightOf="@id/guideline_vertical_right"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+        <!-- Vertical guideline to separate the labels and text fields. -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <!-- ================================= End of vertical guideline ================================= -->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
