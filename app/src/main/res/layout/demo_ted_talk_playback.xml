@@ -16,6 +16,16 @@
   ~ limitations under the License.
   -->
 
+
+<!--
+    About this layout:
+    ====================
+    This layout is somewhat close view of TED app's video playback screen in portrait mode.
+    This layout uses following ConstraintLayout features:
+    * Horizontal chains - Playback controls row, time control
+    * Vertical chains - Author info block
+    * Aspect ratio - video image view
+-->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -110,17 +120,25 @@
             app:layout_constraintTop_toTopOf="@+id/action_forward15" />
 
 
+        <!-- A black view that covers the full witdth to match the thumbnail extra space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:background="@color/md_black_1000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <ImageView
             android:id="@+id/video_player_thumbnail"
             android:layout_width="0dp"
             android:layout_height="220dp"
-
-            android:src="@drawable/ic_ted_talks_logo"
+            android:src="@drawable/thumb_ted_talk"
             app:layout_constraintDimensionRatio="W,16:9"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
             app:layout_constraintTop_toTopOf="parent"
             tools:background="#888" />
+
 
 
         <SeekBar
@@ -136,15 +154,14 @@
             app:layout_constraintTop_toBottomOf="@+id/action_play_pause" />
 
 
-
         <TextView
             android:id="@+id/talk_title"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:text="Why student journalists should be protected from censorship"
+            android:text="The amazing brains and morphing skin of octopuses and other cephalopods"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
             app:layout_constraintTop_toBottomOf="@+id/author" />
@@ -155,9 +172,9 @@
             style="@style/TextAppearance.AppCompat.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:gravity="center_horizontal"
-            android:text="Neha Madhira and Haley Stack"
+            android:text="Roger Hanlon"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
             app:layout_constraintTop_toBottomOf="@+id/video_player_thumbnail" />
