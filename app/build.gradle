@@ -10,8 +10,8 @@ android {
         applicationId "com.hossainkhan.android.constraintlayout"
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 9
-        versionName "1.7-constraint-layout-demo"
+        versionCode 10
+        versionName "1.8-constraint-layout-demo"
         versionNameSuffix "-${gitSha()}"
 
         buildConfigField "String", "GIT_SHA", "\"${gitSha()}\""
