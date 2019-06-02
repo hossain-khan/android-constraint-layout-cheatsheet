@@ -106,7 +106,7 @@ ext {
     // --------------------------------------------------
     daggerVersion = '2.15' // https://github.com/google/dagger
     timberLibraryVersion = '4.7.1' // https://github.com/JakeWharton/timber
-    leakcanaryLibraryVersion = '2.0-alpha-1' // https://github.com/square/leakcanary/releases
+    leakcanaryLibraryVersion = '2.0-alpha-2' // https://github.com/square/leakcanary/releases
 }
 
 //
