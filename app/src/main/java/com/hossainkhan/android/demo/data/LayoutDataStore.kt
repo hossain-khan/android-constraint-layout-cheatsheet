@@ -196,7 +196,7 @@ class LayoutDataStore @Inject constructor(
             LayoutInformation(
                     layoutResourceId = R.layout.demo_ted_talk_playback,
                     thumbnailResourceId = R.drawable.ic_ted_talks_logo,
-                    title = "Demo: TED Talk Video",
+                    title = "Demo: TED Talk Preview Screen",
                     description = "A demo screen containing TED talks video playback screen with different controls.")
 
 

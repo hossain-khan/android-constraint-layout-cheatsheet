@@ -32,16 +32,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-    <!--
-        FIXME =============================================================================
-        TODO: Re-organize elements according to UI flow
-        FIXME =============================================================================
-    -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <!-- Vertical guideline to separate the labels and text fields
+        from left and right edge of the screen. -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <!-- ================ End of vertical guideline ================== -->
+
+
+        <!--
+            A black view that covers the full width to match the thumbnail extra space
+            This is required because the thumbnail is constraint by aspect ratio, so
+            when in landscape mode, the thumbnail does not stretch and maintains aspect ratio.
+        -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ted_talk_thumbnail_height"
+            android:background="@color/md_black_1000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/video_player_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ted_talk_thumbnail_height"
+            android:src="@drawable/thumb_ted_talk"
+            app:layout_constraintDimensionRatio="W,16:9"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#888" />
+
+        <!-- ========= End of Thumbnail Related Views ============ -->
+
+
+        <!--
+             Begin Video Content Title and Subtitle
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <TextView
+            android:id="@+id/author"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:text="Roger Hanlon"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@+id/video_player_thumbnail" />
+
+        <TextView
+            android:id="@+id/talk_title"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="The amazing brains and morphing skin of octopuses and other cephalopods"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@+id/author" />
+
+        <!-- ========= End of Title and Subtitle Related Views ============ -->
+
+
+        <!--
+             Begin Playback Control Views
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             All the controls (Skip Next, Prev, Play, etc) are chained together horizontally
+             Chain style is "packed" so they always stick together even in landscape orientation.
+        -->
 
         <ImageButton
 
@@ -75,7 +154,6 @@
 
 
         <ImageButton
-
             android:id="@+id/action_play_pause"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="78dp"
@@ -119,27 +197,15 @@
             app:layout_constraintStart_toEndOf="@+id/action_forward15"
             app:layout_constraintTop_toTopOf="@+id/action_forward15" />
 
-
-        <!-- A black view that covers the full witdth to match the thumbnail extra space -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="220dp"
-            android:background="@color/md_black_1000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <ImageView
-            android:id="@+id/video_player_thumbnail"
-            android:layout_width="0dp"
-            android:layout_height="220dp"
-            android:src="@drawable/thumb_ted_talk"
-            app:layout_constraintDimensionRatio="W,16:9"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="#888" />
+        <!-- ========= End of Playback Control Related Views ============ -->
 
 
+        <!--
+             Begin Playback Time Seekbar and Time Preview
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             Seekbar and time labels are also chained together horizontally
+             The seekbar takes the maximum available space.
+        -->
 
         <SeekBar
             android:id="@+id/progressBar"
@@ -152,32 +218,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/time_elapsed"
             app:layout_constraintTop_toBottomOf="@+id/action_play_pause" />
-
-
-        <TextView
-            android:id="@+id/talk_title"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:text="The amazing brains and morphing skin of octopuses and other cephalopods"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
-            app:layout_constraintTop_toBottomOf="@+id/author" />
-
-
-        <TextView
-            android:id="@+id/author"
-            style="@style/TextAppearance.AppCompat.Small"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center_horizontal"
-            android:text="Roger Hanlon"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_right"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
-            app:layout_constraintTop_toBottomOf="@+id/video_player_thumbnail" />
 
         <TextView
             android:id="@+id/time_elapsed"
@@ -201,22 +241,36 @@
             app:layout_constraintStart_toEndOf="@+id/progressBar"
             app:layout_constraintTop_toTopOf="@+id/progressBar" />
 
+        <!-- ========= End of Playback Seekbar Related Views ============ -->
+
+
+        <!--
+             Begin About Author Section
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             Most of the views are stacked one after another vertically.
+             The author name and position is chaned vertically and centered with the thumbnail image.
+        -->
+
+        <TextView
+            android:id="@+id/author_section_title"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="About the speaker"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
+            app:layout_constraintTop_toBottomOf="@id/content_divider_top" />
+
+
         <ImageView
             android:id="@+id/author_thumbnail"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/thumb_roger_hanlon"
             app:layout_constraintLeft_toRightOf="@id/guideline_vertical_left"
             app:layout_constraintTop_toBottomOf="@id/author_section_title" />
 
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/content_divider_bottom" />
 
         <TextView
             android:id="@+id/author_name"
@@ -224,7 +278,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Neha Madhira and Haley Stack"
+            android:text="Roger Hanlon"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/author_title"
             app:layout_constraintLeft_toRightOf="@id/author_thumbnail"
@@ -249,58 +303,37 @@
             android:hyphenationFrequency="full"
             android:text="As a Senior Scientist at the Marine Biological Laboratory in Woods Hole, Massachusetts, Roger Hanlon delves into the undersea world of chameleon-like, color-changing marine animals — and the practical applications that will emerge when we crack their secrets."
             app:layout_constraintLeft_toRightOf="@id/guideline_vertical_left"
-
             app:layout_constraintRight_toLeftOf="@id/guideline_vertical_right"
             app:layout_constraintTop_toBottomOf="@id/author_thumbnail" />
 
-        <TextView
-            android:id="@+id/author_section_title"
-            style="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="About the speaker"
+
+        <!-- Horizontal line at top and bottom of author info views -->
+        <View
+            android:id="@+id/content_divider_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/md_grey_300"
             app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
-            app:layout_constraintTop_toBottomOf="@id/content_divider_top" />
+            app:layout_constraintRight_toRightOf="@id/guideline_vertical_right"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
         <View
             android:id="@+id/content_divider_bottom"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="@color/md_grey_400"
+            android:background="@color/md_grey_300"
             app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
             app:layout_constraintRight_toRightOf="@id/guideline_vertical_right"
             app:layout_constraintTop_toBottomOf="@id/author_description" />
 
-
-        <View
-            android:id="@+id/content_divider_top"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="32dp"
-            android:background="@color/md_grey_400"
-            app:layout_constraintLeft_toLeftOf="@id/guideline_vertical_left"
-            app:layout_constraintRight_toRightOf="@id/guideline_vertical_right"
-            app:layout_constraintTop_toBottomOf="@id/progressBar" />
-
-        <!-- Vertical guideline to separate the labels and text fields. -->
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_vertical_left"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_vertical_right"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95" />
-
-        <!-- ================================= End of vertical guideline ================================= -->
-
+            android:layout_height="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_divider_bottom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
