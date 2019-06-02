@@ -18,7 +18,9 @@ package com.hossainkhan.android.demo.ui.functionaldemo
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.Toast
+import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
 
 class TedTalkPlaybackActivity : LayoutPreviewBaseActivity() {
@@ -29,5 +31,19 @@ class TedTalkPlaybackActivity : LayoutPreviewBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Apply generic toast listener to touchable views so that user gets feedback when they tap it
+        applyToastListener(
+                findViewById<ImageButton>(R.id.action_prev_track),
+                findViewById<ImageButton>(R.id.action_rewind15),
+                findViewById<ImageButton>(R.id.action_play_pause),
+                findViewById<ImageButton>(R.id.action_forward15),
+                findViewById<ImageButton>(R.id.action_next_track)
+        )
+    }
+
+    private fun applyToastListener(vararg views: View) {
+        views.forEach {
+            it.setOnClickListener(generalClickListener)
+        }
     }
 }
