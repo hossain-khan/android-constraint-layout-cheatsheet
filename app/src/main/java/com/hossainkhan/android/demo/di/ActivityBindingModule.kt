@@ -17,6 +17,7 @@
 package com.hossainkhan.android.demo.di
 
 import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
+import com.hossainkhan.android.demo.ui.functionaldemo.TedTalkPlaybackActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
@@ -27,9 +28,9 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 /**
- * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever 
- * module ActivityBindingModule is on, in our case that will be [DemoApplicationComponent]. 
- * 
+ * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever
+ * module ActivityBindingModule is on, in our case that will be [DemoApplicationComponent].
+ *
  * The beautiful part about this setup is that you never need to tell [DemoApplicationComponent]
  * that it is going to have all these subcomponents nor do you need to tell these subcomponents
  * that [DemoApplicationComponent] exists.
@@ -78,4 +79,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutMovieDetailsPreviewActivity(): MovieDetailsPreviewActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutTedTalkPlaybackPreviewActivity(): TedTalkPlaybackActivity
 }

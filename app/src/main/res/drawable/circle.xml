@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2018 Hossain Khan
+  ~ Copyright (c) 2019 Hossain Khan
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,19 +16,12 @@
   ~ limitations under the License.
   -->
 
-<!--
-    Support different screen sizes.
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
 
-    For reference see:
-      - https://material.io/tools/devices/
-      - https://developer.android.com/guide/topics/resources/providing-resources
-      - https://developer.android.com/training/multiscreen/screensizes
--->
-<resources>
-    <dimen name="box_size_small">40dp</dimen>
-    <dimen name="box_size_medium">80dp</dimen>
-    <dimen name="box_size_large">120dp</dimen>
-    <dimen name="ted_talk_thumbnail_height">220dp</dimen>
+    <size
+        android:width="64dp"
+        android:height="64dp" />
 
-    <item name="grid_column_count" type="integer">1</item>
-</resources>
+    <solid android:color="@color/md_red_700" />
+</shape>
