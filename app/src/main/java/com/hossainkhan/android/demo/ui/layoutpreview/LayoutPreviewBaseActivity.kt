@@ -16,22 +16,20 @@
 
 package com.hossainkhan.android.demo.ui.layoutpreview
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import androidx.annotation.LayoutRes
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.app.NavUtils
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.LayoutInformation
 import com.hossainkhan.android.demo.ui.dialog.LayoutInfoDialog
-import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
+import com.hossainkhan.android.demo.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
@@ -77,7 +75,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
     }
 
     @Inject
-    internal lateinit var viewModelFactory: LayoutPreviewViewModelFactory
+    internal lateinit var viewModelFactory: ViewModelProviderFactory
 
     private lateinit var viewModel: LayoutInfoViewModel
 
@@ -123,9 +121,7 @@ open class LayoutPreviewBaseActivity : AppCompatActivity() {
         Timber.d("Layout info is showing: %s", infoDialog?.isVisible)
         if (infoDialog?.isVisible == false) {
             if (fromUser || viewModel.isFirstTime) {
-                infoDialog?.let {
-                    it.show(supportFragmentManager, "dialog")
-                }
+                infoDialog?.show(supportFragmentManager, "dialog")
             }
         } else {
             infoDialog?.dismiss()
