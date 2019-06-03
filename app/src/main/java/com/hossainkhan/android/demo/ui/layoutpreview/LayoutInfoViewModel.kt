@@ -23,11 +23,12 @@ import androidx.annotation.LayoutRes
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
 import timber.log.Timber
+import javax.inject.Inject
 
 /**
  * ViewModel for containing layout information.
  */
-class LayoutInfoViewModel(private val appDataStore: AppDataStore) : ViewModel() {
+class LayoutInfoViewModel @Inject constructor(private val appDataStore: AppDataStore) : ViewModel() {
     private val layoutInfoLiveData: MutableLiveData<LayoutInformation> = MutableLiveData()
 
     val layoutInformation: LiveData<LayoutInformation>

@@ -30,8 +30,9 @@ import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActiv
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
 import timber.log.Timber
+import javax.inject.Inject
 
-class LayoutBrowseViewModel(
+class LayoutBrowseViewModel @Inject constructor(
         appDataStore: AppDataStore,
         private val browseNavigator: LayoutBrowseNavigator) : ViewModel() {
 

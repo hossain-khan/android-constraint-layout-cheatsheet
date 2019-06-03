@@ -30,7 +30,7 @@ import dagger.Module
  *
  * @see DemoApplicationComponent
  */
-@Module
+@Module(includes = [ViewModelModule::class])
 abstract class ApplicationModule {
     //expose Application as an injectable context
     @Binds

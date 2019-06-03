@@ -22,7 +22,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
-import com.hossainkhan.android.demo.viewmodel.LayoutPreviewViewModelFactory
+import com.hossainkhan.android.demo.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -31,7 +31,7 @@ import javax.inject.Inject
  */
 class LayoutBrowseActivity : AppCompatActivity() {
     @Inject
-    internal lateinit var viewModelFactory: LayoutPreviewViewModelFactory
+    internal lateinit var viewModelFactory: ViewModelProviderFactory
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
