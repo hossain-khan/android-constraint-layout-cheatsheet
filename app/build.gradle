@@ -34,6 +34,11 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+
+    dataBinding {
+        // https://developer.android.com/topic/libraries/data-binding/start
+        enabled = true
+    }
 }
 
 dependencies {
