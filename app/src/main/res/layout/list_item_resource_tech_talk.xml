@@ -39,8 +39,7 @@
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
                 android:tint="@color/md_red_500"
-                app:layout_constraintBottom_toBottomOf="@+id/resource_summary"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toTopOf="@+id/resource_title"
                 app:srcCompat="@drawable/ic_play_circle_filled_black_42dp" />
 
@@ -51,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_content_distance_small"
                 android:text="@{data.summary}"
-                app:layout_constraintEnd_toStartOf="@+id/action_play"
+                app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toBottomOf="@+id/resource_author"
                 tools:text="In this session you will learn best practices of using ConstraintLayout on Android, particularly covering tips and tricks in the Layout Editor and new features introduced in the 2.0 version. We will go over how to take advantage of those to create UI more efficiently." />
@@ -75,10 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_vertical_margin"
                 android:text="@{data.title}"
-                app:layout_constraintEnd_toStartOf="@+id/action_play"
-                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
+                app:layout_constraintStart_toEndOf="@id/action_play"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="This is the title of the talk." />
+                tools:text="This is the title of the talk. This can become multi line" />
 
 
             <TextView
@@ -89,8 +88,8 @@
                 android:layout_marginTop="@dimen/material_content_distance_small"
                 android:gravity="end"
                 android:text="@{@string/tech_talk_author_and_venue(data.author, data.event)}"
-                app:layout_constraintEnd_toStartOf="@+id/action_play"
-                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
+                app:layout_constraintStart_toEndOf="@+id/action_play"
                 app:layout_constraintTop_toBottomOf="@+id/resource_title"
                 tools:text="by Author of the talk." />
 
@@ -99,7 +98,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="16dp" />
+                app:layout_constraintGuide_begin="@dimen/material_horizontal_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_end"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/material_horizontal_margin" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
