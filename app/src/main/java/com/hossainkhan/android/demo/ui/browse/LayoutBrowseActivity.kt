@@ -17,7 +17,10 @@
 package com.hossainkhan.android.demo.ui.browse
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -69,4 +72,30 @@ class LayoutBrowseActivity : AppCompatActivity() {
             adapter = viewAdapter
         }
     }
+
+    //
+    // Setup menu item on the action bar.
+    //
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_layout_browse, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.show_external_resource -> {
+                viewModel.onExternalResourceSelected()
+                true
+            }
+            android.R.id.home -> {
+                // Respond to the action bar's Up/Home button
+                // https://developer.android.com/training/implementing-navigation/ancestral
+                NavUtils.navigateUpFromSameTask(this)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }

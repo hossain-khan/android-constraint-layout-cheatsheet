@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.hossainkhan.android.demo.ui.browse.LayoutBrowseViewModel
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutInfoViewModel
+import com.hossainkhan.android.demo.ui.resource.LearningResourceViewModel
 import com.hossainkhan.android.demo.viewmodel.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
@@ -36,12 +37,17 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(LayoutBrowseViewModel::class)
-    abstract fun bindLayoutBrowserViewModel(layoutBrowseViewModel: LayoutBrowseViewModel): ViewModel
+    abstract fun bindLayoutBrowserViewModel(viewModel: LayoutBrowseViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(LayoutInfoViewModel::class)
-    abstract fun bindLayoutInfoViewModel(layoutInfoViewModel: LayoutInfoViewModel): ViewModel
+    abstract fun bindLayoutInfoViewModel(viewModel: LayoutInfoViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LearningResourceViewModel::class)
+    abstract fun bindResourceViewModel(viewModel: LearningResourceViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelProviderFactory): ViewModelProvider.Factory

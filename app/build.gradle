@@ -47,6 +47,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     // Android Support libs and Google Android libs
+    implementation "androidx.appcompat:appcompat:$rootProject.supportAppCompatVersion"
     implementation "androidx.legacy:legacy-support-v13:$rootProject.supportLibraryVersion"
     implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
     implementation "androidx.cardview:cardview:$rootProject.supportLibraryVersion"
@@ -64,8 +65,11 @@ dependencies {
     // ========================================================
     // 3rd party libraries
     // ========================================================
+
+    // Leak Canary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryLibraryVersion"
 
+    // Timber
     implementation "com.jakewharton.timber:timber:$rootProject.timberLibraryVersion"
 
     // Crashlytics
@@ -75,6 +79,9 @@ dependencies {
     // Firebase Core
     // https://firebase.google.com/docs/android/setup
     implementation "com.google.firebase:firebase-core:$rootProject.firebaseVersion"
+    // Firestore cloud realtime database
+    // https://firebase.google.com/docs/firestore/quickstart?authuser=0
+    implementation "com.google.firebase:firebase-firestore:$rootProject.firestoreVersion"
 
     // Dagger
     // https://google.github.io/dagger/

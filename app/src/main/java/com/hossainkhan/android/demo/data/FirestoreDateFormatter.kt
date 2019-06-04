@@ -14,15 +14,22 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.ui.browse
+package com.hossainkhan.android.demo.data
 
-import androidx.annotation.LayoutRes
+import com.google.firebase.Timestamp
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-/**
- * Interface to navigate for Layout Browse view.
- */
-interface LayoutBrowseNavigator {
-    fun loadLayoutPreview(@LayoutRes layoutResId: Int)
-    fun <T> loadLayoutPreview(clazz: Class<T>, @LayoutRes layoutResId: Int)
-    fun <T> loadActivity(clazz: Class<T>)
+
+object FirestoreDateFormatter {
+    fun date(timestamp: Timestamp): String {
+        val sfd = SimpleDateFormat("EEEE, MMMM d", Locale.CANADA)
+        return sfd.format(timestamp.toDate())
+    }
+
+    fun date(date: Date): String {
+        val sfd = SimpleDateFormat("MMMM d, yyyy", Locale.CANADA)
+        return sfd.format(date)
+    }
 }

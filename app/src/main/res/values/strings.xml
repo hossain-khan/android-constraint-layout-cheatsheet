@@ -2,6 +2,7 @@
     <string name="app_name">ConstraintLayout Demo</string>
     <string name="btn_cta_okay">OK</string>
     <string name="btn_cta_information">Info</string>
+    <string name="btn_cta_external_resource">Resources</string>
     <string name="btn_cta_preview_layout_xml">Preview XML</string>
 
 
@@ -21,5 +22,9 @@
 
     <string name="barrier_label_button_small">Action Label</string>
     <string name="barrier_label_button_long">Action Longer Translated Label</string>
+
+    <string name="additional_resource_title">External Resources</string>
+    <string name="tech_talk_author_and_venue">by %1$s at %2$s</string>
+    <string name="tech_talk_publish_date">Published on %1$s</string>
 
 </resources>
