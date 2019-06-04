@@ -22,13 +22,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.hossainkhan.android.demo.data.ResourceInfo
 import timber.log.Timber
+import java.lang.Exception
 import javax.inject.Inject
 
 class LearningResourceViewModel @Inject constructor(
         firestore: FirebaseFirestore
 ) : ViewModel() {
+    companion object {
+        private const val RESOURCE_COLLECTION = "external-resources"
+    }
+
     val isLoading = ObservableField(true)
 
     private val _data = MutableLiveData<List<ResourceInfo>>()
@@ -38,22 +44,25 @@ class LearningResourceViewModel @Inject constructor(
 
     init {
         Timber.i("Loading data from firestore: %s", firestore)
-        firestore.collection("external-resources")
-                .orderBy("publish_date", Query.Direction.DESCENDING)
+        firestore.collection(RESOURCE_COLLECTION)
+                .orderBy(ResourceInfo::publish_date.name, Query.Direction.DESCENDING)
                 .get()
-                .addOnSuccessListener { result ->
-                    for (document in result) {
-                        val x = document.toObject(ResourceInfo::class.java)
-                        Timber.i("Resource: $x")
-                        resourceData.add(x)
-                    }
-                    isLoading.set(false)
-                    _data.value = resourceData
+                .addOnSuccessListener(this::updateResources)
+                .addOnFailureListener(this::onLoadFailed)
+    }
 
-                }
-                .addOnFailureListener { exception ->
-                    isLoading.set(false)
-                    Timber.w(exception, "Error getting documents.")
-                }
+    private fun updateResources(result: QuerySnapshot) {
+        for (document in result) {
+            val x = document.toObject(ResourceInfo::class.java)
+            Timber.i("Resource: $x")
+            resourceData.add(x)
+        }
+        isLoading.set(false)
+        _data.value = resourceData
+    }
+
+    private fun onLoadFailed(exception: Exception) {
+        Timber.w(exception, "Error getting documents.")
+        isLoading.set(false)
     }
 }
