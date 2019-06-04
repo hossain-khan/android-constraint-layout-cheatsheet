@@ -105,6 +105,6 @@
 
         <variable
             name="data"
-            type="com.hossainkhan.android.demo.data.ItemModel" />
+            type="com.hossainkhan.android.demo.data.ResourceInfo" />
     </data>
 </layout>

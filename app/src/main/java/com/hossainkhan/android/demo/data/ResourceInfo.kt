@@ -16,4 +16,17 @@
 
 package com.hossainkhan.android.demo.data
 
-data class ItemModel(val id: Int)
+
+data class ResourceInfo(
+        val author: String,
+        val summary: String,
+        val title: String,
+        val event: String,
+        val url: String,
+        val publish_date: Timestamp,
+        /**
+         * Possible values
+         * "blog", "techtalk"
+         */
+        val type: String = "techtalk"
+)

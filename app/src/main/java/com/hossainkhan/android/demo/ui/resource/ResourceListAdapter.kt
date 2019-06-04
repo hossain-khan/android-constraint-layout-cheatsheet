@@ -21,28 +21,28 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import com.hossainkhan.android.demo.R
-import com.hossainkhan.android.demo.data.ItemModel
+import com.hossainkhan.android.demo.data.ResourceInfo
 import com.hossainkhan.android.demo.databinding.ListItemResourceTechTalkBinding
 import com.hossainkhan.android.demo.ui.common.DataBoundListAdapter
 
 class ResourceListAdapter(
-    private val itemClickCallback: ((ItemModel) -> Unit)?
-) : DataBoundListAdapter<ItemModel, ListItemResourceTechTalkBinding>(
-    diffCallback = object : DiffUtil.ItemCallback<ItemModel>() {
-        override fun areItemsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
-            return oldItem.id == newItem.id
-        }
+        private val itemClickCallback: ((ResourceInfo) -> Unit)?
+) : DataBoundListAdapter<ResourceInfo, ListItemResourceTechTalkBinding>(
+        diffCallback = object : DiffUtil.ItemCallback<ResourceInfo>() {
+            override fun areItemsTheSame(oldItem: ResourceInfo, newItem: ResourceInfo): Boolean {
+                return oldItem.url == newItem.url
+            }
 
-        override fun areContentsTheSame(oldItem: ItemModel, newItem: ItemModel): Boolean {
-            return oldItem == newItem
+            override fun areContentsTheSame(oldItem: ResourceInfo, newItem: ResourceInfo): Boolean {
+                return oldItem == newItem
+            }
         }
-    }
 ) {
 
     override fun createBinding(parent: ViewGroup): ListItemResourceTechTalkBinding {
         val binding = DataBindingUtil.inflate<ListItemResourceTechTalkBinding>(
-            LayoutInflater.from(parent.context), R.layout.list_item_resource_tech_talk,
-            parent, false
+                LayoutInflater.from(parent.context), R.layout.list_item_resource_tech_talk,
+                parent, false
         )
 
         binding.actionPlay.setOnClickListener {
@@ -53,7 +53,7 @@ class ResourceListAdapter(
         return binding
     }
 
-    override fun bind(binding: ListItemResourceTechTalkBinding, item: ItemModel) {
+    override fun bind(binding: ListItemResourceTechTalkBinding, item: ResourceInfo) {
         binding.data = item
     }
 }

@@ -19,14 +19,14 @@ package com.hossainkhan.android.demo.ui.resource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hossainkhan.android.demo.data.ItemModel
+import com.hossainkhan.android.demo.data.ResourceInfo
 import javax.inject.Inject
 
 class LearningResourceViewModel @Inject constructor() : ViewModel() {
-    private val _data = MutableLiveData<List<ItemModel>>()
-    val data: LiveData<List<ItemModel>> = _data
+    private val _data = MutableLiveData<List<ResourceInfo>>()
+    val data: LiveData<List<ResourceInfo>> = _data
 
-    private val sampleData = mutableListOf<ItemModel>()
+    private val sampleData = mutableListOf<ResourceInfo>()
 
     init {
         generateSampleDataSet()
@@ -35,13 +35,13 @@ class LearningResourceViewModel @Inject constructor() : ViewModel() {
 
     private fun generateSampleDataSet() {
         for (i in 1..20) {
-            sampleData.add(ItemModel(i))
+            //sampleData.add(ResourceInfo(i))
         }
     }
 
 
 
-    fun onItemClicked(item: ItemModel) {
+    fun onItemClicked(item: ResourceInfo) {
 
     }
 }
