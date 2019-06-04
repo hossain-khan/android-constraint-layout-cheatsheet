@@ -205,8 +205,8 @@ class LayoutDataStore @Inject constructor(
             LayoutInformation(
                     layoutResourceId = R.layout.activity_learning_resource,
                     thumbnailResourceId = R.drawable.ic_book_128dp,
-                    title = "Resources",
-                    description = "XYZ")
+                    title = "Additional Resources: Tech Talks & Blogs",
+                    description = "External resources on constraint layout. Tech talks on YouTube or blogs.")
 
 
             /*

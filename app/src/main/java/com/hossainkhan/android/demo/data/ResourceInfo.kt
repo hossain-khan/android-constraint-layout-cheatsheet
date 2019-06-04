@@ -20,6 +20,18 @@ import com.google.firebase.Timestamp
 import java.util.*
 
 
+/**
+ * External resource info.
+ *
+ * Example:
+ * - author: Nicolas Roard & John Hoford
+ * - event: Google I/O'19
+ * - publish_date: 9 May 2019
+ * - summary: Learn the capabilities of ConstraintLayout
+ * - title: What's New in ConstraintLayout
+ * - type: techtalk
+ * - url: https://www.youtube.com/watch?v=29gLA90m6Gk
+ */
 data class ResourceInfo(
         var author: String = "",
         var summary: String = "",

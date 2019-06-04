@@ -89,4 +89,8 @@ class LayoutBrowseViewModel @Inject constructor(
         }
 
     }
+
+    fun onExternalResourceSelected() {
+        browseNavigator.loadActivity(LearningResourceActivity::class.java)
+    }
 }

@@ -2,6 +2,7 @@
     <string name="app_name">ConstraintLayout Demo</string>
     <string name="btn_cta_okay">OK</string>
     <string name="btn_cta_information">Info</string>
+    <string name="btn_cta_external_resource">Resources</string>
     <string name="btn_cta_preview_layout_xml">Preview XML</string>
 
 
