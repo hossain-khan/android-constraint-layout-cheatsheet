@@ -71,6 +71,7 @@
                 android:id="@+id/resource_title"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="0dp"
+                android:gravity="end"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_vertical_margin"
                 android:text="@{data.title}"
