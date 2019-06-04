@@ -204,7 +204,7 @@ class LayoutDataStore @Inject constructor(
              */
             LayoutInformation(
                     layoutResourceId = R.layout.activity_learning_resource,
-                    thumbnailResourceId = R.drawable.poster_angry_birds,
+                    thumbnailResourceId = R.drawable.ic_book_128dp,
                     title = "Resources",
                     description = "XYZ")
 

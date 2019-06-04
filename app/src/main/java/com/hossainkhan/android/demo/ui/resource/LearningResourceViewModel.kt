@@ -16,6 +16,7 @@
 
 package com.hossainkhan.android.demo.ui.resource
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,6 +29,8 @@ import javax.inject.Inject
 class LearningResourceViewModel @Inject constructor(
         firestore: FirebaseFirestore
 ) : ViewModel() {
+    val isLoading = ObservableField(true)
+
     private val _data = MutableLiveData<List<ResourceInfo>>()
     val data: LiveData<List<ResourceInfo>> = _data
 
@@ -44,9 +47,12 @@ class LearningResourceViewModel @Inject constructor(
                         Timber.i("Resource: $x")
                         resourceData.add(x)
                     }
+                    isLoading.set(false)
                     _data.value = resourceData
+
                 }
                 .addOnFailureListener { exception ->
+                    isLoading.set(false)
                     Timber.w(exception, "Error getting documents.")
                 }
     }

@@ -19,8 +19,8 @@ package com.hossainkhan.android.demo.ui.resource
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -48,6 +48,9 @@ class LearningResourceActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_learning_resource)
 
         viewModel = ViewModelProvider(this, viewModelFactory).get(LearningResourceViewModel::class.java)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
         setupData(binding.recyclerView)
     }
 

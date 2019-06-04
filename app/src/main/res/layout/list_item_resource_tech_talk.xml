@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_content_distance_small"
                 android:layout_marginBottom="@dimen/material_vertical_margin"
-                android:text="@{data.formattedDate}"
+                android:text="@{@string/tech_talk_publish_date(data.formattedDate)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toBottomOf="@+id/resource_summary"

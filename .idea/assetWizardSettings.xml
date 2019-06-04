@@ -158,7 +158,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio%203.5%20Preview.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_play_circle_filled_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio%203.5%20Preview.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_book_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -168,11 +168,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="height" value="42" />
-                            <entry key="outputName" value="ic_play_circle_filled_black_42dp" />
+                            <entry key="color" value="51acbb" />
+                            <entry key="height" value="128" />
+                            <entry key="outputName" value="ic_book_128dp" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$USER_HOME$/Downloads/ted-2.svg" />
-                            <entry key="width" value="42" />
+                            <entry key="width" value="128" />
                           </map>
                         </option>
                       </PersistentState>

@@ -24,5 +24,6 @@
 
     <string name="additional_resource_title">External Resources</string>
     <string name="tech_talk_author_and_venue">by %1$s at %2$s</string>
+    <string name="tech_talk_publish_date">Published on %1$s</string>
 
 </resources>
