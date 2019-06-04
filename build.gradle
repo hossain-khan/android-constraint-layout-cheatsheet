@@ -24,7 +24,7 @@ buildscript {
      *  - Stable: https://developer.android.com/studio/releases/gradle-plugin.html
      *  - Alpha: http://tools.android.com/tech-docs/new-build-system
      */
-    ext.androidGradleToolsVersion = '3.3.2'
+    ext.androidGradleToolsVersion = '3.4.1'
 
     /*
      * Fabric/Firebase gradle tools version.
@@ -36,7 +36,7 @@ buildscript {
      * Google play services plugin
      * https://firebase.google.com/docs/android/setup
      */
-    ext.googlePlayServicesToolsVersion = '4.0.1'
+    ext.googlePlayServicesToolsVersion = '4.2.0'
 
     repositories {
         google()
@@ -92,7 +92,9 @@ ext {
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
     archComponentVersion = '2.0.0'
     // https://firebase.google.com/docs/android/setup
-    firebaseVersion = '15.0.2'
+    firebaseVersion = '16.0.9'
+    // https://firebase.google.com/docs/firestore/quickstart
+    firestoreVersion = '19.0.2'
     // https://firebase.google.com/docs/crashlytics/get-started
     crashlyticsVersion = '2.9.2'
 

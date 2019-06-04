@@ -79,6 +79,9 @@ dependencies {
     // Firebase Core
     // https://firebase.google.com/docs/android/setup
     implementation "com.google.firebase:firebase-core:$rootProject.firebaseVersion"
+    // Firestore cloud realtime database
+    // https://firebase.google.com/docs/firestore/quickstart?authuser=0
+    implementation "com.google.firebase:firebase-firestore:$rootProject.firestoreVersion"
 
     // Dagger
     // https://google.github.io/dagger/
