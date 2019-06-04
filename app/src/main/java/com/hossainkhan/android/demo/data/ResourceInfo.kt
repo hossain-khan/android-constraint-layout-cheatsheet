@@ -16,17 +16,26 @@
 
 package com.hossainkhan.android.demo.data
 
+import com.google.firebase.Timestamp
+import java.util.*
+
 
 data class ResourceInfo(
-        val author: String,
-        val summary: String,
-        val title: String,
-        val event: String,
-        val url: String,
-        val publish_date: Timestamp,
+        var author: String = "",
+        var summary: String = "",
+        var title: String = "",
+        var event: String = "",
+        var url: String = "",
+        var publish_date: Timestamp? = null,
         /**
          * Possible values
          * "blog", "techtalk"
          */
-        val type: String = "techtalk"
-)
+        var type: String = "techtalk"
+) {
+    val formattedDate: String
+        get() {
+            val date = publish_date?.toDate() ?: Date()
+            return FirestoreDateFormatter.date(date)
+        }
+}

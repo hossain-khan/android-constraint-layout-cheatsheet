@@ -50,10 +50,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_content_distance_small"
-                android:text="In this session you will learn best practices of using ConstraintLayout on Android, particularly covering tips and tricks in the Layout Editor and new features introduced in the 2.0 version. We will go over how to take advantage of those to create UI more efficiently."
+                android:text="@{data.summary}"
                 app:layout_constraintEnd_toStartOf="@+id/action_play"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-                app:layout_constraintTop_toBottomOf="@+id/resource_author" />
+                app:layout_constraintTop_toBottomOf="@+id/resource_author"
+                tools:text="In this session you will learn best practices of using ConstraintLayout on Android, particularly covering tips and tricks in the Layout Editor and new features introduced in the 2.0 version. We will go over how to take advantage of those to create UI more efficiently." />
 
             <TextView
                 android:id="@+id/resource_date"
@@ -61,10 +62,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_content_distance_small"
                 android:layout_marginBottom="@dimen/material_vertical_margin"
-                android:text="December 2, 2018"
+                android:text="@{data.formattedDate}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-                app:layout_constraintTop_toBottomOf="@+id/resource_summary" />
+                app:layout_constraintTop_toBottomOf="@+id/resource_summary"
+                tools:text="December 2, 2018" />
 
             <TextView
                 android:id="@+id/resource_title"
@@ -72,10 +74,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_vertical_margin"
-                android:text="This is the title of the talk."
+                android:text="@{data.title}"
                 app:layout_constraintEnd_toStartOf="@+id/action_play"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="This is the title of the talk." />
 
 
             <TextView
@@ -85,10 +88,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_content_distance_small"
                 android:gravity="end"
-                android:text="by Author of the talk."
+                android:text="@{@string/tech_talk_author_and_venue(data.author, data.event)}"
                 app:layout_constraintEnd_toStartOf="@+id/action_play"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
-                app:layout_constraintTop_toBottomOf="@+id/resource_title" />
+                app:layout_constraintTop_toBottomOf="@+id/resource_title"
+                tools:text="by Author of the talk." />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_vertical_start"

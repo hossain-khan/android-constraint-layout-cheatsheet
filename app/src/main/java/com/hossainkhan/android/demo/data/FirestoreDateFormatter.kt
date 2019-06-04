@@ -16,19 +16,20 @@
 
 package com.hossainkhan.android.demo.data
 
+import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 
 object FirestoreDateFormatter {
-    fun date(timestamp: Long): String {
+    fun date(timestamp: Timestamp): String {
         val sfd = SimpleDateFormat("EEEE, MMMM d", Locale.CANADA)
-        return sfd.format(Date(timestamp * 1000)) // NOTE: x1000 is Firebase specific conversion
+        return sfd.format(timestamp.toDate())
     }
 
-    fun time(timestamp: Long): String {
-        val sfd = SimpleDateFormat("hh:mm aa", Locale.CANADA)
-        return sfd.format(Date(timestamp * 1000)) // NOTE: x1000 is Firebase specific conversion
+    fun date(date: Date): String {
+        val sfd = SimpleDateFormat("MMMM d, yyyy", Locale.CANADA)
+        return sfd.format(date)
     }
 }

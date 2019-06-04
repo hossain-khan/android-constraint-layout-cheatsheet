@@ -16,6 +16,9 @@
 
 package com.hossainkhan.android.demo.ui.resource
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -24,6 +27,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
+import com.hossainkhan.android.demo.data.ResourceInfo
 import com.hossainkhan.android.demo.databinding.ActivityLearningResourceBinding
 import com.hossainkhan.android.demo.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
@@ -52,7 +56,7 @@ class LearningResourceActivity : AppCompatActivity() {
 
         val ideaListAdapter = ResourceListAdapter { data ->
             Timber.d("Item Clicked: $data")
-            viewModel.onItemClicked(data)
+            openContent(data)
         }
 
         ideaList.apply {
@@ -64,5 +68,18 @@ class LearningResourceActivity : AppCompatActivity() {
         viewModel.data.observe(this, Observer { result ->
             ideaListAdapter.submitList(result)
         })
+    }
+
+    private fun openContent(resourceInfo: ResourceInfo) {
+        // TODO: Update logic later when the URL is not only youtube.
+        val intentApp = Intent(Intent.ACTION_VIEW,
+                Uri.parse("vnd.youtube:" + resourceInfo.url.split("=")[1]))
+
+        val intentBrowser = Intent(Intent.ACTION_VIEW, Uri.parse(resourceInfo.url))
+        try {
+            startActivity(intentApp)
+        } catch (ex: ActivityNotFoundException) {
+            startActivity(intentBrowser)
+        }
     }
 }

@@ -22,4 +22,7 @@
     <string name="barrier_label_button_small">Action Label</string>
     <string name="barrier_label_button_long">Action Longer Translated Label</string>
 
+    <string name="additional_resource_title">External Resources</string>
+    <string name="tech_talk_author_and_venue">by %1$s at %2$s</string>
+
 </resources>

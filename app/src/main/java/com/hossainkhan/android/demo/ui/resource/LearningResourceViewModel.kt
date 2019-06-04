@@ -19,29 +19,35 @@ package com.hossainkhan.android.demo.ui.resource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.hossainkhan.android.demo.data.ResourceInfo
+import timber.log.Timber
 import javax.inject.Inject
 
-class LearningResourceViewModel @Inject constructor() : ViewModel() {
+class LearningResourceViewModel @Inject constructor(
+        firestore: FirebaseFirestore
+) : ViewModel() {
     private val _data = MutableLiveData<List<ResourceInfo>>()
     val data: LiveData<List<ResourceInfo>> = _data
 
-    private val sampleData = mutableListOf<ResourceInfo>()
+    private val resourceData = mutableListOf<ResourceInfo>()
 
     init {
-        generateSampleDataSet()
-        _data.value = sampleData.toList()
-    }
-
-    private fun generateSampleDataSet() {
-        for (i in 1..20) {
-            //sampleData.add(ResourceInfo(i))
-        }
-    }
-
-
-
-    fun onItemClicked(item: ResourceInfo) {
-
+        Timber.i("Loading data from firestore: %s", firestore)
+        firestore.collection("external-resources")
+                .orderBy("publish_date", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        val x = document.toObject(ResourceInfo::class.java)
+                        Timber.i("Resource: $x")
+                        resourceData.add(x)
+                    }
+                    _data.value = resourceData
+                }
+                .addOnFailureListener { exception ->
+                    Timber.w(exception, "Error getting documents.")
+                }
     }
 }

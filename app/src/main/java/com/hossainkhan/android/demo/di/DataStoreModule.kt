@@ -19,6 +19,7 @@ package com.hossainkhan.android.demo.di
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 
@@ -32,5 +33,10 @@ class DataStoreModule {
     @Provides
     internal fun provideAndroidResoures(context: Context): Resources {
         return context.resources
+    }
+
+    @Provides
+    internal fun provideFirestore(context: Context): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 }
