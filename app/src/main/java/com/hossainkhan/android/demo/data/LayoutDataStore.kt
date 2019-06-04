@@ -197,7 +197,16 @@ class LayoutDataStore @Inject constructor(
                     layoutResourceId = R.layout.demo_ted_talk_playback,
                     thumbnailResourceId = R.drawable.ic_ted_talks_logo,
                     title = "Demo: TED Talk Preview Screen",
-                    description = "A demo screen containing TED talks video playback screen with different controls.")
+                    description = "A demo screen containing TED talks video playback screen with different controls."),
+
+            /*
+             * Additional resources to learn more about ConstraintLayout
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.activity_learning_resource,
+                    thumbnailResourceId = R.drawable.poster_angry_birds,
+                    title = "Resources",
+                    description = "XYZ")
 
 
             /*
@@ -223,7 +232,7 @@ class LayoutDataStore @Inject constructor(
      * Returns Github URL for layout resource file for this project.
      *
      * @param layoutResourceId The layout resource ID to generate the URL for.
-     * @return The URL to load the layout blob file.
+     * @return The URL to load the layout blob file. For example: https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/preview_dimension_ratio.xml
      */
     fun getLayoutUrl(@LayoutRes layoutResourceId: Int): String {
         // Contains package name and layout name
@@ -234,6 +243,8 @@ class LayoutDataStore @Inject constructor(
             throw IllegalStateException("Only layout resource is allowed.")
         }
 
+        // Returns fully qualified URL that can be viewed online. For example:
+        // https://github.com/amardeshbd/android-constraint-layout-cheatsheet/blob/master/app/src/main/res/layout/preview_dimension_ratio.xml
         return AppConfig.GITHUB_BASE_URL.plus("/blob/master/app/src/main/res/") +
                 resourceName.split(':')
                         .last().plus(".xml")

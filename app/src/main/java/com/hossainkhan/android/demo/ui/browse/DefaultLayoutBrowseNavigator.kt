@@ -35,4 +35,11 @@ class DefaultLayoutBrowseNavigator @Inject constructor(private val context: Cont
         startIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(startIntent)
     }
+
+    override fun <T> loadActivity(clazz: Class<T>) {
+        val startIntent = Intent(context, clazz)
+        // FIX IT: android.util.AndroidRuntimeException: Calling startActivity() from outside of an Activity  context requires the FLAG_ACTIVITY_NEW_TASK flag. Is this really what you want?
+        startIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        context.startActivity(startIntent)
+    }
 }

@@ -14,15 +14,6 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.ui.browse
+package com.hossainkhan.android.demo.data
 
-import androidx.annotation.LayoutRes
-
-/**
- * Interface to navigate for Layout Browse view.
- */
-interface LayoutBrowseNavigator {
-    fun loadLayoutPreview(@LayoutRes layoutResId: Int)
-    fun <T> loadLayoutPreview(clazz: Class<T>, @LayoutRes layoutResId: Int)
-    fun <T> loadActivity(clazz: Class<T>)
-}
+data class ItemModel(val id: Int)

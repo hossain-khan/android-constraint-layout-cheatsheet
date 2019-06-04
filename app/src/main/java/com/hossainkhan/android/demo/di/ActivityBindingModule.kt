@@ -24,6 +24,7 @@ import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActiv
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.resource.LearningResourceActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -83,4 +84,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutTedTalkPlaybackPreviewActivity(): TedTalkPlaybackActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun learningResourceActivity(): LearningResourceActivity
 }

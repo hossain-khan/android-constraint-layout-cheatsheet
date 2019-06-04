@@ -29,6 +29,7 @@ import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivi
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.resource.LearningResourceActivity
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -77,6 +78,9 @@ class LayoutBrowseViewModel @Inject constructor(
             }
             R.layout.demo_ted_talk_playback -> {
                 browseNavigator.loadLayoutPreview(TedTalkPlaybackActivity::class.java, layoutResId)
+            }
+            R.layout.activity_learning_resource -> {
+                browseNavigator.loadActivity(LearningResourceActivity::class.java)
             }
             else -> {
                 // By default it loads the preview activity with the layout requested.
