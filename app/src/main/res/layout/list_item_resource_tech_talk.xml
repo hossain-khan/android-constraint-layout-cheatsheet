@@ -22,9 +22,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="@dimen/material_horizontal_margin"
+        android:layout_marginTop="@dimen/material_vertical_margin"
+        android:layout_marginEnd="@dimen/material_horizontal_margin"
         app:cardCornerRadius="6dp"
         app:cardElevation="6dp">
 
@@ -36,7 +36,7 @@
             <ImageButton
                 android:id="@+id/action_play"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
+                android:layout_width="64dp"
                 android:layout_height="wrap_content"
                 android:tint="@color/md_red_500"
                 app:layout_constraintBottom_toBottomOf="@+id/resource_summary"
@@ -46,20 +46,24 @@
 
             <TextView
                 android:id="@+id/resource_summary"
-                style="@style/TextAppearance.AppCompat.Small"
+                style="@style/TextAppearance.AppCompat.Caption"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/material_content_distance_small"
                 android:text="In this session you will learn best practices of using ConstraintLayout on Android, particularly covering tips and tricks in the Layout Editor and new features introduced in the 2.0 version. We will go over how to take advantage of those to create UI more efficiently."
                 app:layout_constraintEnd_toStartOf="@+id/action_play"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/resource_title" />
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+                app:layout_constraintTop_toBottomOf="@+id/resource_author" />
 
             <TextView
                 android:id="@+id/resource_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/material_content_distance_small"
+                android:layout_marginBottom="@dimen/material_vertical_margin"
                 android:text="December 2, 2018"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toBottomOf="@+id/resource_summary" />
 
             <TextView
@@ -67,10 +71,31 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/material_vertical_margin"
                 android:text="This is the title of the talk."
                 app:layout_constraintEnd_toStartOf="@+id/action_play"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/resource_author"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/material_content_distance_small"
+                android:gravity="end"
+                android:text="by Author of the talk."
+                app:layout_constraintEnd_toStartOf="@+id/action_play"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
+                app:layout_constraintTop_toBottomOf="@+id/resource_title" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_start"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -19,7 +19,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.hossainkhan.android.demo.ui.resource.LearningResourceActivity">
