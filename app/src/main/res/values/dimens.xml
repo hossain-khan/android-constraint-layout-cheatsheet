@@ -24,7 +24,13 @@
       - https://developer.android.com/guide/topics/resources/providing-resources
       - https://developer.android.com/training/multiscreen/screensizes
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        Overrides snackbar text truncation.
+        https://stackoverflow.com/questions/32228300/how-to-prevent-my-snackbar-text-from-being-truncated-on-android/32228529
+    -->
+    <integer tools:override="true" name="design_snackbar_text_max_lines">4</integer>
+
     <dimen name="box_size_small">40dp</dimen>
     <dimen name="box_size_medium">80dp</dimen>
     <dimen name="box_size_large">120dp</dimen>

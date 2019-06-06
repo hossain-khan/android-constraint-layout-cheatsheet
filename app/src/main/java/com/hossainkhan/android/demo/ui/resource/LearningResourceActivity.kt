@@ -21,11 +21,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.ResourceInfo
 import com.hossainkhan.android.demo.databinding.ActivityLearningResourceBinding
@@ -34,6 +36,9 @@ import dagger.android.AndroidInjection
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * This activity lists external resources on [ConstraintLayout], such as tech talks on youtube.
+ */
 class LearningResourceActivity : AppCompatActivity() {
 
     @Inject
@@ -69,7 +74,13 @@ class LearningResourceActivity : AppCompatActivity() {
         }
 
         viewModel.data.observe(this, Observer { result ->
-            ideaListAdapter.submitList(result)
+            if (result?.error != null) {
+                Timber.w(result.error, "Unable to load resources.")
+                Snackbar.make(binding.root, R.string.message_resource_load_failed, Snackbar.LENGTH_INDEFINITE).show()
+                return@Observer
+            } else {
+                ideaListAdapter.submitList(result.resources)
+            }
         })
     }
 

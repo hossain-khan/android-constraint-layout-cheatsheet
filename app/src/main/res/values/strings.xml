@@ -26,5 +26,5 @@
     <string name="additional_resource_title">External Resources</string>
     <string name="tech_talk_author_and_venue">by %1$s at %2$s</string>
     <string name="tech_talk_publish_date">Published on %1$s</string>
-
+    <string name="message_resource_load_failed">Unable to load external resources. This is likely due to no internet connectivity. Please try re-loading this screen with network connection.</string>
 </resources>
