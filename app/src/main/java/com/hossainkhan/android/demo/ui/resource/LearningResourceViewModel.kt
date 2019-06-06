@@ -24,9 +24,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.hossainkhan.android.demo.data.ResourceInfo
+import com.hossainkhan.android.demo.data.ResourceResult
 import timber.log.Timber
-import java.lang.Exception
 import javax.inject.Inject
+import kotlin.Exception
 
 class LearningResourceViewModel @Inject constructor(
         firestore: FirebaseFirestore
@@ -37,8 +38,8 @@ class LearningResourceViewModel @Inject constructor(
 
     val isLoading = ObservableField(true)
 
-    private val _data = MutableLiveData<List<ResourceInfo>>()
-    val data: LiveData<List<ResourceInfo>> = _data
+    private val _data = MutableLiveData<ResourceResult>()
+    val data: LiveData<ResourceResult> = _data
 
     private val resourceData = mutableListOf<ResourceInfo>()
 
@@ -49,6 +50,12 @@ class LearningResourceViewModel @Inject constructor(
                 .get()
                 .addOnSuccessListener(this::updateResources)
                 .addOnFailureListener(this::onLoadFailed)
+                .addOnCompleteListener {
+                    if (it.result?.isEmpty == true) {
+                        Timber.i("Completed with no data. This is likely due to no internet.")
+                        onLoadFailed(Exception("No data"))
+                    }
+                }
     }
 
     private fun updateResources(result: QuerySnapshot) {
@@ -58,11 +65,12 @@ class LearningResourceViewModel @Inject constructor(
             resourceData.add(x)
         }
         isLoading.set(false)
-        _data.value = resourceData
+        _data.value = ResourceResult(resourceData)
     }
 
     private fun onLoadFailed(exception: Exception) {
         Timber.w(exception, "Error getting documents.")
         isLoading.set(false)
+        _data.value = ResourceResult(error = exception)
     }
 }
