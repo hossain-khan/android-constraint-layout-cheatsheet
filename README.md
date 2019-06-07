@@ -51,6 +51,10 @@ See **[contribution](CONTRIBUTING.md)** guideline if you want to add demos or fi
   * [x] Barrier
   * [x] Group
 - [ ] Optimizer _(Added in 1.1)_
+- [x] Fully functional demo screens 🥇
+  * [x] Movie Details Screen
+  * [x] TED Talk Preview Screen
+
 
 ## Objective
 These are the **my** objectives for this demo application.
@@ -64,7 +68,7 @@ These are the **my** objectives for this demo application.
 Here is a snapshot of current progress _(This will be updated from time to time)_.  
 
 ![Browse Layout Variances - Landscape Mode](https://user-images.githubusercontent.com/99822/39678468-6de62ce8-515b-11e8-9516-5203bef17d8a.png)   
-![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png) ![Complete Demo - Moview Details](https://user-images.githubusercontent.com/99822/56074662-80d4b280-5d84-11e9-83a5-4c6440662359.png) ![Complete Demo - TED Talk](https://user-images.githubusercontent.com/99822/58756502-b6199900-84c7-11e9-9b57-34455a1633cf.png)
+![Show Layout Screen](https://user-images.githubusercontent.com/99822/39677193-c55efc3c-5144-11e8-822f-b55664d8e5e2.png) ![Complete Demo - Moview Details](https://user-images.githubusercontent.com/99822/56074662-80d4b280-5d84-11e9-83a5-4c6440662359.png) ![Complete Demo - TED Talk](https://user-images.githubusercontent.com/99822/58756502-b6199900-84c7-11e9-9b57-34455a1633cf.png) ![External Learning Resources](https://user-images.githubusercontent.com/99822/59073743-6dcaf400-8896-11e9-9a97-84d3ee384dee.png)
 
 
 ### Screencast
