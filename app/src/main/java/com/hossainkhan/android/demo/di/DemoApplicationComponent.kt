@@ -27,7 +27,6 @@ import javax.inject.Singleton
         ApplicationModule::class,
         ActivityBindingModule::class,
         DataStoreModule::class,
-        NavigatorModule::class,
         LayoutBrowseActivityModule::class))
 interface DemoApplicationComponent {
     fun inject(app: DemoApplication)

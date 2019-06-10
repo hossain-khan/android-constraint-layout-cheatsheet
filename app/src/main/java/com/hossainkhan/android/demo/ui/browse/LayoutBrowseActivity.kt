@@ -16,15 +16,20 @@
 
 package com.hossainkhan.android.demo.ui.browse
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hossainkhan.android.demo.R
+import com.hossainkhan.android.demo.databinding.ActivityMainBinding
+import com.hossainkhan.android.demo.ui.layoutpreview.LayoutPreviewBaseActivity
 import com.hossainkhan.android.demo.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject
@@ -36,31 +41,32 @@ class LayoutBrowseActivity : AppCompatActivity() {
     @Inject
     internal lateinit var viewModelFactory: ViewModelProviderFactory
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     private lateinit var viewModel: LayoutBrowseViewModel
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(LayoutBrowseViewModel::class.java)
 
-        setupLayoutInfoAdapter(viewModel)
+        setupLayoutInfoAdapter(viewModel, binding.recyclerView)
+        observeBrowseEvent()
     }
 
-    private fun setupLayoutInfoAdapter(viewModel: LayoutBrowseViewModel) {
+    private fun setupLayoutInfoAdapter(viewModel: LayoutBrowseViewModel, recyclerView: RecyclerView) {
         viewManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_column_count))
         viewAdapter = LayoutBrowseAdapter(
                 viewModel = viewModel,
                 lifecycleOwner = this,
                 itemSelectedListener = viewModel::onLayoutItemSelected)
 
-        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
+        recyclerView.apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
@@ -71,6 +77,26 @@ class LayoutBrowseActivity : AppCompatActivity() {
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
         }
+    }
+
+    private fun observeBrowseEvent() {
+        viewModel.browseResult.observe(this, Observer { result ->
+            if (result.layoutResId == null) {
+                // Load separate activity not related to layout preview
+                startActivity(Intent(this@LayoutBrowseActivity, result.clazz))
+            } else {
+                if (result.clazz != null) {
+                    val startIntent = LayoutPreviewBaseActivity
+                            .createStartIntent(this@LayoutBrowseActivity, result.clazz, result.layoutResId)
+                    startActivity(startIntent)
+                } else {
+                    // Load regular layout preview activity
+                    val startIntent = LayoutPreviewBaseActivity
+                            .createStartIntent(this@LayoutBrowseActivity, result.layoutResId)
+                    startActivity(startIntent)
+                }
+            }
+        })
     }
 
     //
