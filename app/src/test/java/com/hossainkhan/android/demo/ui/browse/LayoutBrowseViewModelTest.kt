@@ -19,6 +19,7 @@ package com.hossainkhan.android.demo.ui.browse
 import android.content.SharedPreferences
 import android.content.res.Resources
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutDataStore
@@ -26,10 +27,14 @@ import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineBarrierActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutGuidelineGroupActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutVisibilityGoneActivity
+import com.hossainkhan.android.demo.ui.resource.LearningResourceActivity
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
+import org.mockito.ArgumentCaptor
+import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.anyBoolean
 import org.mockito.Mockito.anyString
@@ -48,54 +53,102 @@ class LayoutBrowseViewModelTest {
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
 
+    // https://imnotyourson.com/mockito-mocking-parameterized-class-in-kotlin/
+    inline fun <reified T : Any> mockTyped() = Mockito.mock(T::class.java)
+
     private val resources: Resources = mock(Resources::class.java)
     private val preferences: SharedPreferences = mock(SharedPreferences::class.java)
     private val editor = mock(SharedPreferences.Editor::class.java)
+    private var observer: Observer<BrowseResult<*>> = mockTyped()
+    val resultCaptor = ArgumentCaptor.forClass(BrowseResult::class.java)
     private val layoutStore = LayoutDataStore(resources)
-    private val navigator = mock(LayoutBrowseNavigator::class.java)
+    private lateinit var owner: TestLifecycleOwner
 
     lateinit var sut: LayoutBrowseViewModel
+
 
     @Before
     fun setup() {
         `when`(editor.putBoolean(anyString(), anyBoolean())).thenReturn(editor)
         `when`(preferences.edit()).thenReturn(editor)
-        sut = LayoutBrowseViewModel(AppDataStore(preferences, layoutStore), navigator)
+        owner = TestLifecycleOwner()
+        sut = LayoutBrowseViewModel(AppDataStore(preferences, layoutStore))
     }
 
 
     @Test
     fun onLayoutItemSelected_givenGenericLayout_loadsDefaultPreview() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
         val layoutResId = 123
         sut.onLayoutItemSelected(layoutResId)
-        verify(navigator).loadLayoutPreview(layoutResId)
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(layoutResId, resultCaptor.value.layoutResId)
     }
 
     @Test
     fun onLayoutItemSelected_givenVisibilityGoneLayout_loadsVisibilityGonePreview() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
         val layoutResId = R.layout.preview_visibility_gone
         sut.onLayoutItemSelected(layoutResId)
-        verify(navigator).loadLayoutPreview(LayoutVisibilityGoneActivity::class.java, layoutResId)
+
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(LayoutVisibilityGoneActivity::class.java, resultCaptor.value.clazz)
+        assertEquals(layoutResId, resultCaptor.value.layoutResId)
     }
 
     @Test
     fun onLayoutItemSelected_givenChainStyleLayout_loadsChainStylePreview() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
         val layoutResId = R.layout.preview_chain_style_main
         sut.onLayoutItemSelected(layoutResId)
-        verify(navigator).loadLayoutPreview(LayoutChainStyleActivity::class.java, layoutResId)
+
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(LayoutChainStyleActivity::class.java, resultCaptor.value.clazz)
+        assertEquals(layoutResId, resultCaptor.value.layoutResId)
     }
 
     @Test
     fun onLayoutItemSelected_givenGuidelineBarrierLayout_loadsGuidelineBarrierPreview() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
         val layoutResId = R.layout.preview_virtual_helper_barrier
         sut.onLayoutItemSelected(layoutResId)
-        verify(navigator).loadLayoutPreview(LayoutGuidelineBarrierActivity::class.java, layoutResId)
+
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(LayoutGuidelineBarrierActivity::class.java, resultCaptor.value.clazz)
+        assertEquals(layoutResId, resultCaptor.value.layoutResId)
     }
 
     @Test
     fun onLayoutItemSelected_givenGuidelineGroupLayout_loadsGuidelineGroupPreview() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
         val layoutResId = R.layout.preview_virtual_helper_group
         sut.onLayoutItemSelected(layoutResId)
-        verify(navigator).loadLayoutPreview(LayoutGuidelineGroupActivity::class.java, layoutResId)
+
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(LayoutGuidelineGroupActivity::class.java, resultCaptor.value.clazz)
+        assertEquals(layoutResId, resultCaptor.value.layoutResId)
+    }
+
+    @Test
+    fun onLayoutItemSelected_givenLearningResource_loadsLearningResource() {
+        owner.start()
+        sut.browseResult.observe(owner, observer)
+
+        val layoutResId = R.layout.activity_learning_resource
+        sut.onLayoutItemSelected(layoutResId)
+
+        verify(observer).onChanged(resultCaptor.capture())
+        assertEquals(LearningResourceActivity::class.java, resultCaptor.value.clazz)
+        assertEquals(null, resultCaptor.value.layoutResId)
     }
 }

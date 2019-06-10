@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModel
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.ui.common.LiveEvent
 import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
 import com.hossainkhan.android.demo.ui.functionaldemo.TedTalkPlaybackActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
@@ -34,9 +35,11 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class LayoutBrowseViewModel @Inject constructor(
-        appDataStore: AppDataStore,
-        private val browseNavigator: LayoutBrowseNavigator) : ViewModel() {
+        appDataStore: AppDataStore
+) : ViewModel() {
 
+    private val _browseResult = LiveEvent<BrowseResult<Any>>()
+    val browseResult: LiveData<BrowseResult<Any>> = _browseResult
     private val layoutInfoListLiveData = MutableLiveData<List<LayoutInformation>>()
 
     val layoutInfos: LiveData<List<LayoutInformation>>
@@ -59,38 +62,38 @@ class LayoutBrowseViewModel @Inject constructor(
          */
         when (layoutResId) {
             R.layout.preview_visibility_gone -> {
-                browseNavigator.loadLayoutPreview(LayoutVisibilityGoneActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(LayoutVisibilityGoneActivity::class.java, layoutResId)
             }
             R.layout.preview_chain_style_main -> {
-                browseNavigator.loadLayoutPreview(LayoutChainStyleActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(LayoutChainStyleActivity::class.java, layoutResId)
             }
             R.layout.preview_virtual_helper_barrier -> {
-                browseNavigator.loadLayoutPreview(LayoutGuidelineBarrierActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(LayoutGuidelineBarrierActivity::class.java, layoutResId)
             }
             R.layout.preview_virtual_helper_group -> {
-                browseNavigator.loadLayoutPreview(LayoutGuidelineGroupActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(LayoutGuidelineGroupActivity::class.java, layoutResId)
             }
             R.layout.preview_dimension_min_max -> {
-                browseNavigator.loadLayoutPreview(LayoutDimensionMinMaxActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(LayoutDimensionMinMaxActivity::class.java, layoutResId)
             }
             R.layout.demo_movie_details -> {
-                browseNavigator.loadLayoutPreview(MovieDetailsPreviewActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(MovieDetailsPreviewActivity::class.java, layoutResId)
             }
             R.layout.demo_ted_talk_playback -> {
-                browseNavigator.loadLayoutPreview(TedTalkPlaybackActivity::class.java, layoutResId)
+                _browseResult.value = BrowseResult(TedTalkPlaybackActivity::class.java, layoutResId)
             }
             R.layout.activity_learning_resource -> {
-                browseNavigator.loadActivity(LearningResourceActivity::class.java)
+                _browseResult.value = BrowseResult(LearningResourceActivity::class.java)
             }
             else -> {
                 // By default it loads the preview activity with the layout requested.
-                browseNavigator.loadLayoutPreview(layoutResId)
+                _browseResult.value = BrowseResult(layoutResId = layoutResId)
             }
         }
 
     }
 
     fun onExternalResourceSelected() {
-        browseNavigator.loadActivity(LearningResourceActivity::class.java)
+        _browseResult.value = BrowseResult(LearningResourceActivity::class.java)
     }
 }

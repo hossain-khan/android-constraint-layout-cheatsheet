@@ -14,19 +14,9 @@
  * limitations under the License.
  */
 
-package com.hossainkhan.android.demo.di
+package com.hossainkhan.android.demo.ui.browse
 
-import android.content.Context
-import com.hossainkhan.android.demo.ui.browse.DefaultLayoutBrowseNavigator
-import com.hossainkhan.android.demo.ui.browse.LayoutBrowseNavigator
-import dagger.Module
-import dagger.Provides
-
-@Module
-class NavigatorModule {
-
-    @Provides
-    fun provideLayoutBrowseNavigator(context: Context): LayoutBrowseNavigator {
-        return DefaultLayoutBrowseNavigator(context)
-    }
-}
+class BrowseResult<out T : Any>(
+        val clazz: Class<out T>? = null,
+        val layoutResId: Int? = null
+)
