@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModel
 import com.hossainkhan.android.demo.R
 import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
+import com.hossainkhan.android.demo.ui.common.LiveEvent
 import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
 import com.hossainkhan.android.demo.ui.functionaldemo.TedTalkPlaybackActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
@@ -37,7 +38,7 @@ class LayoutBrowseViewModel @Inject constructor(
         appDataStore: AppDataStore
 ) : ViewModel() {
 
-    private val _browseResult = MutableLiveData<BrowseResult<Any>>()
+    private val _browseResult = LiveEvent<BrowseResult<Any>>()
     val browseResult: LiveData<BrowseResult<Any>> = _browseResult
     private val layoutInfoListLiveData = MutableLiveData<List<LayoutInformation>>()
 

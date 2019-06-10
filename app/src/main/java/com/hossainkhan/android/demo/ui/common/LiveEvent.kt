@@ -44,6 +44,13 @@ import androidx.lifecycle.Observer
  *
  * Usage:
  *
+ * First, expose only non-mutable live data from ViewModel
+ * ```
+ * private val _singleEventData = LiveEvent<EventData>()
+ * val singleEventData: LiveData<EventData> = _singleEventData
+ * ```
+ *
+ * Now, from activity, observe the navigation data and act on it.
  * ```
  * viewModel.singleEventData.observe(this, Observer {
  *      // is the event data `it` to navigate to screen or show single toast/snackbar message
