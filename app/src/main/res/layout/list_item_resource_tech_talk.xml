@@ -34,14 +34,17 @@
             tools:background="#ccc">
 
             <ImageButton
-                android:id="@+id/action_play"
+                android:id="@+id/action_preview_resource"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:tint="@color/md_red_500"
+                android:src="@{safeUnbox(data.youTubeUrl)? @drawable/ic_play_circle_filled_black_42dp : @drawable/ic_library_books_black_42dp}"
+                android:tint="@{safeUnbox(data.youTubeUrl)? @color/md_red_500 : @color/md_cyan_800}"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start"
                 app:layout_constraintTop_toTopOf="@+id/resource_title"
-                app:srcCompat="@drawable/ic_play_circle_filled_black_42dp" />
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_play_circle_filled_black_42dp"
+                tools:tint="@color/md_red_500" />
 
             <TextView
                 android:id="@+id/resource_summary"
@@ -71,12 +74,12 @@
                 android:id="@+id/resource_title"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="0dp"
-                android:gravity="end"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/material_vertical_margin"
+                android:gravity="end"
                 android:text="@{data.title}"
                 app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-                app:layout_constraintStart_toEndOf="@id/action_play"
+                app:layout_constraintStart_toEndOf="@id/action_preview_resource"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="This is the title of the talk. This can become multi line" />
 
@@ -90,7 +93,7 @@
                 android:gravity="end"
                 android:text="@{@string/tech_talk_author_and_venue(data.author, data.event)}"
                 app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-                app:layout_constraintStart_toEndOf="@+id/action_play"
+                app:layout_constraintStart_toEndOf="@+id/action_preview_resource"
                 app:layout_constraintTop_toBottomOf="@+id/resource_title"
                 tools:text="by Author of the talk." />
 

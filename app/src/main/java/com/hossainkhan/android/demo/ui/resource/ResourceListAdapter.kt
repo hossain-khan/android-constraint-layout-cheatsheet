@@ -45,7 +45,7 @@ class ResourceListAdapter(
                 parent, false
         )
 
-        binding.actionPlay.setOnClickListener {
+        binding.actionPreviewResource.setOnClickListener {
             binding.data?.let {
                 itemClickCallback?.invoke(it)
             }
