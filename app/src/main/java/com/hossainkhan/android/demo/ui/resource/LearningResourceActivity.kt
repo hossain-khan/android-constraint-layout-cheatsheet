@@ -85,15 +85,18 @@ class LearningResourceActivity : AppCompatActivity() {
     }
 
     private fun openContent(resourceInfo: ResourceInfo) {
-        // TODO: Update logic later when the URL is not only youtube.
-        val intentApp = Intent(Intent.ACTION_VIEW,
-                Uri.parse("vnd.youtube:" + resourceInfo.url.split("=")[1]))
+        val urlPreviewUri = Uri.parse(resourceInfo.url) // Generic URL preview using any supported app.
 
-        val intentBrowser = Intent(Intent.ACTION_VIEW, Uri.parse(resourceInfo.url))
+        val previewContentIntent = if (resourceInfo.isYouTubeUrl) {
+            Intent(Intent.ACTION_VIEW, Uri.parse(resourceInfo.youtubeIntentUri))
+        } else {
+            Intent(Intent.ACTION_VIEW, urlPreviewUri)
+        }
+
         try {
-            startActivity(intentApp)
+            startActivity(previewContentIntent)
         } catch (ex: ActivityNotFoundException) {
-            startActivity(intentBrowser)
+            startActivity(Intent(Intent.ACTION_VIEW, urlPreviewUri))
         }
     }
 }
