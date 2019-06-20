@@ -16,8 +16,9 @@
 
 package com.hossainkhan.android.demo.data
 
+import android.net.Uri
 import com.google.firebase.Timestamp
-import java.util.*
+import java.util.Date
 
 
 /**
@@ -50,4 +51,13 @@ data class ResourceInfo(
             val date = publish_date?.toDate() ?: Date()
             return FirestoreDateFormatter.date(date)
         }
+
+    val isYouTubeUrl: Boolean = url.contains("youtube.com/watch?v=", ignoreCase = true)
+
+    /**
+     * Provides [Uri] for directly invoking youtube app via Android Intent.
+     * @throws IllegalStateException if the URL is not for youtube. Check [isYouTubeUrl] first.
+     */
+    val youtubeIntentUri: String
+        get() = if (isYouTubeUrl) ("vnd.youtube:" + url.split("=")[1]) else throw IllegalStateException("Not a YouTube URL.")
 }
