@@ -41,8 +41,8 @@ data class ResourceInfo(
         var url: String = "",
         var publish_date: Timestamp? = null,
         /**
-         * Possible values
-         * "blog", "techtalk"
+         * Possible values:
+         * "techarticle", "techtalk"
          */
         var type: String = "techtalk"
 ) {
