@@ -30,7 +30,7 @@ buildscript {
      * Fabric/Firebase gradle tools version.
      * https://firebase.google.com/docs/crashlytics/
      */
-    ext.fabricGradleToolsVersion = '1.25.4'
+    ext.fabricGradleToolsVersion = '1.29.0'
 
     /*
      * Google play services plugin
