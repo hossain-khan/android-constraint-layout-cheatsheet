@@ -22,7 +22,7 @@ import java.util.Date
 
 
 /**
- * External resource info.
+ * External resource info like Youtube video or technical articles online.
  *
  * Example:
  * - author: Nicolas Roard & John Hoford
@@ -52,7 +52,8 @@ data class ResourceInfo(
             return FirestoreDateFormatter.date(date)
         }
 
-    val isYouTubeUrl: Boolean = url.contains("youtube.com/watch?v=", ignoreCase = true)
+    val isYouTubeUrl: Boolean
+        get() = url.contains("youtube.com/watch?v=", ignoreCase = true)
 
     /**
      * Provides [Uri] for directly invoking youtube app via Android Intent.
