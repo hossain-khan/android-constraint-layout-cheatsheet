@@ -3,6 +3,7 @@ apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt' // https://kotlinlang.org/docs/reference/kapt.html
+apply plugin: 'com.google.firebase.appdistribution'
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -23,6 +24,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                releaseNotes="Release notes for SIGNED RELEASE version"
+                testers="liquidlabs.ca@gmail.com"
+            }
+        }
+
+        debug {
+            firebaseAppDistribution {
+                releaseNotes="Release notes for DEBUG version"
+                testers="liquidlabs.ca@gmail.com"
+            }
         }
     }
 
