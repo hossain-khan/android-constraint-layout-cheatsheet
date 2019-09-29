@@ -38,6 +38,12 @@ buildscript {
      */
     ext.googlePlayServicesToolsVersion = '4.2.0'
 
+    /*
+     * Firebase app dist
+     * https://firebase.google.com/docs/app-distribution/android/distribute-gradle
+     */
+    ext.firebaseAppDistributionVersion = '1.0.0'
+
     repositories {
         google()
         jcenter()
@@ -50,6 +56,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "io.fabric.tools:gradle:$fabricGradleToolsVersion"
         classpath "com.google.gms:google-services:$googlePlayServicesToolsVersion"
+        classpath "com.google.firebase:firebase-appdistribution-gradle:$firebaseAppDistributionVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
