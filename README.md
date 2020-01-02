@@ -14,7 +14,7 @@ Google has official demo project that contains a list of layouts that showcases 
 [ConstraintLayout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html) and 
 [MotionLayout](https://developer.android.com/reference/android/support/constraint/motion/MotionLayout)
 
-See https://github.com/googlesamples/android-ConstraintLayoutExamples
+See https://github.com/android/views-widgets-samples/tree/master/ConstraintLayoutExamples
 
 ## Proposed App Features
 * Have a grid containing different feature set of `ConstraintLayout`
