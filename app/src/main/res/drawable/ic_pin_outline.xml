@@ -1,0 +1,32 @@
+<!--
+  ~ Copyright (c) 2020 Hossain Khan
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="640"
+    android:viewportHeight="640">
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#ffffff"
+        android:pathData="M567.92,320C567.92,456.83 456.83,567.92 320,567.92C183.17,567.92 72.08,456.83 72.08,320C72.08,183.17 183.17,72.08 320,72.08C456.83,72.08 567.92,183.17 567.92,320Z" />
+    <path
+        android:fillAlpha="0"
+        android:fillColor="#FF000000"
+        android:pathData="M567.92,320C567.92,456.83 456.83,567.92 320,567.92C183.17,567.92 72.08,456.83 72.08,320C72.08,183.17 183.17,72.08 320,72.08C456.83,72.08 567.92,183.17 567.92,320Z"
+        android:strokeWidth="48"
+        android:strokeColor="#000000" />
+</vector>
