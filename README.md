@@ -54,6 +54,7 @@ See **[contribution](CONTRIBUTING.md)** guideline if you want to add demos or fi
 - [x] Fully functional demo screens 🥇
   * [x] Movie Details Screen
   * [x] TED Talk Preview Screen
+  * [x] Secure PIN Entry Screen
 
 
 ## Objective

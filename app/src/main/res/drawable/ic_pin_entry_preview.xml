@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2020 Hossain Khan
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!--
+https://thenounproject.com/term/password/2246971
+password icon by Nociconist from the Noun Project
+(c) Creative Commons
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="120dp"
+    android:viewportWidth="96"
+    android:viewportHeight="120">
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="m23.414,66.586a2,2 0,0 0,-2.828 0l-2.586,2.586 -2.586,-2.586a2,2 0,0 0,-2.828 2.828l2.586,2.586 -2.586,2.586a2,2 0,1 0,2.828 2.828l2.586,-2.586 2.586,2.586a2,2 0,0 0,2.828 -2.828l-2.586,-2.586 2.586,-2.586a2,2 0,0 0,0 -2.828z" />
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="m43.414,66.586a2,2 0,0 0,-2.828 0l-2.586,2.586 -2.586,-2.586a2,2 0,0 0,-2.828 2.828l2.586,2.586 -2.586,2.586a2,2 0,1 0,2.828 2.828l2.586,-2.586 2.586,2.586a2,2 0,1 0,2.828 -2.828l-2.586,-2.586 2.586,-2.586a2,2 0,0 0,0 -2.828z" />
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="m63.414,66.586a2,2 0,0 0,-2.828 0l-2.586,2.586 -2.586,-2.586a2,2 0,0 0,-2.828 2.828l2.586,2.586 -2.586,2.586a2,2 0,1 0,2.828 2.828l2.586,-2.586 2.586,2.586a2,2 0,1 0,2.828 -2.828l-2.586,-2.586 2.586,-2.586a2,2 0,0 0,0 -2.828z" />
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="m80.828,72 l2.586,-2.586a2,2 0,0 0,-2.828 -2.828l-2.586,2.586 -2.586,-2.586a2,2 0,0 0,-2.828 2.828l2.586,2.586 -2.586,2.586a2,2 0,1 0,2.828 2.828l2.586,-2.586 2.586,2.586a2,2 0,0 0,2.828 -2.828z" />
+    <path
+        android:fillColor="?attr/colorPrimaryDark"
+        android:pathData="m22,84h-8a2,2 0,0 0,0 4h8a2,2 0,0 0,0 -4z" />
+    <path
+        android:fillColor="?attr/colorPrimaryDark"
+        android:pathData="m42,84h-8a2,2 0,0 0,0 4h8a2,2 0,0 0,0 -4z" />
+    <path
+        android:fillColor="?attr/colorPrimaryDark"
+        android:pathData="m62,84h-8a2,2 0,0 0,0 4h8a2,2 0,0 0,0 -4z" />
+    <path
+        android:fillColor="?attr/colorPrimaryDark"
+        android:pathData="m82,84h-8a2,2 0,0 0,0 4h8a2,2 0,0 0,0 -4z" />
+    <path
+        android:fillColor="?attr/colorAccent"
+        android:pathData="m48,8a23.971,23.971 0,0 0,-17.268 40.627,18.143 18.143,0 0,1 9.468,-7.583 12,12 0,1 1,15.601 0,18.143 18.143,0 0,1 9.468,7.583 23.971,23.971 0,0 0,-17.269 -40.627z" />
+    <path
+        android:fillColor="?attr/colorAccent"
+        android:pathData="m50,44h-4a14.011,14.011 0,0 0,-12.265 7.256,23.818 23.818,0 0,0 28.53,0 14.011,14.011 0,0 0,-12.265 -7.256z" />
+    <path
+        android:fillColor="?attr/colorAccent"
+        android:pathData="M48,32m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0" />
+</vector>

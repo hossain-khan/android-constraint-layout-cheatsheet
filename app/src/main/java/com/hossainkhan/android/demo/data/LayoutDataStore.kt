@@ -200,6 +200,20 @@ class LayoutDataStore @Inject constructor(
                     description = "A demo screen containing TED talks video playback screen with different controls."),
 
             /*
+             * This is a demo of PIN code entry screen
+             *
+             *    ______     ______     ______     ______
+             *   |      |   |      |   |      |   |      |
+             *   |  **  |   |  **  |   |  **  |   |  **  |
+             *   |______|   |______|   |______|   |______|
+             */
+            LayoutInformation(
+                    layoutResourceId = R.layout.demo_pin_code_entry,
+                    thumbnailResourceId = R.drawable.ic_pin_entry_preview,
+                    title = "Demo: Secure PIN Code Entry",
+                    description = "A demo screen showcasing PIN code entry screen for secured areas of the app."),
+
+            /*
              * Additional resources to learn more about ConstraintLayout
              */
             LayoutInformation(

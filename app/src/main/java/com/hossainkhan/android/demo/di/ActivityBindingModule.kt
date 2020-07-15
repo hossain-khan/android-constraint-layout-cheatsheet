@@ -17,6 +17,7 @@
 package com.hossainkhan.android.demo.di
 
 import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
+import com.hossainkhan.android.demo.ui.functionaldemo.PinCodeEntryActivity
 import com.hossainkhan.android.demo.ui.functionaldemo.TedTalkPlaybackActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
@@ -84,6 +85,10 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector
     abstract fun layoutTedTalkPlaybackPreviewActivity(): TedTalkPlaybackActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector
+    abstract fun layoutPinCodeEntryActivity(): PinCodeEntryActivity
 
     @ActivityScope
     @ContributesAndroidInjector

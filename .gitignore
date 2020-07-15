@@ -55,3 +55,4 @@ freeline/
 freeline_project_description.json
 output.json
 build_file_checksums.ser
+.DS_Store

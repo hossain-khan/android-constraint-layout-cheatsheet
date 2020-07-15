@@ -24,6 +24,7 @@ import com.hossainkhan.android.demo.data.AppDataStore
 import com.hossainkhan.android.demo.data.LayoutInformation
 import com.hossainkhan.android.demo.ui.common.LiveEvent
 import com.hossainkhan.android.demo.ui.functionaldemo.MovieDetailsPreviewActivity
+import com.hossainkhan.android.demo.ui.functionaldemo.PinCodeEntryActivity
 import com.hossainkhan.android.demo.ui.functionaldemo.TedTalkPlaybackActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutChainStyleActivity
 import com.hossainkhan.android.demo.ui.layoutpreview.LayoutDimensionMinMaxActivity
@@ -81,6 +82,9 @@ class LayoutBrowseViewModel @Inject constructor(
             }
             R.layout.demo_ted_talk_playback -> {
                 _browseResult.value = BrowseResult(TedTalkPlaybackActivity::class.java, layoutResId)
+            }
+            R.layout.demo_pin_code_entry -> {
+                _browseResult.value = BrowseResult(PinCodeEntryActivity::class.java, layoutResId)
             }
             R.layout.activity_learning_resource -> {
                 _browseResult.value = BrowseResult(LearningResourceActivity::class.java)
