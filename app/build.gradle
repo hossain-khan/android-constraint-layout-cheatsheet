@@ -11,8 +11,8 @@ android {
         applicationId "com.hossainkhan.android.constraintlayout"
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 220
-        versionName "2.2-constraint-layout-demo"
+        versionCode 230
+        versionName "2.3-constraint-layout-demo"
         versionNameSuffix "-${gitSha()}"
 
         buildConfigField "String", "GIT_SHA", "\"${gitSha()}\""
